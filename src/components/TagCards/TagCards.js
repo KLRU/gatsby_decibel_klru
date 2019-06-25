@@ -18,9 +18,9 @@ const TagCardDiv= styled.div`
       width:100%;
       padding-left:10px;
       position:absolute;
-      color:#000;
+      color:#fff;
       font-size:20px;
-      background-color:#9899994b;
+      background-color:#000;
     }
 `
 const TagCards = props =>{

@@ -10,7 +10,7 @@ const TagTemplate = ({data, pageContext}) =>{
   const numberOfPost = posts.length
   const divStyle={
     display: 'grid',
-    gridTemplateColumns: "1fr 1fr 1fr"
+    gridTemplateColumns: '1fr 1fr 1fr'
 
   }
   return(
@@ -18,14 +18,14 @@ const TagTemplate = ({data, pageContext}) =>{
     <div>
       <h1>{title}</h1>
       <div style={divStyle}>
-      <TagCards>
+    
       {posts.map(post =>(
-        <div>
+        <TagCards>
         <img src={post.heroImage.fluid.src}/>
         <Link to={post.slug}><p>{post.title}</p></Link>
-        </div>
+        </TagCards>
       ))}
-      </TagCards>
+     
       </div>
     </div>
     </Container>
