@@ -43,11 +43,18 @@ const IndexPage = ({data}) => {
     <div>
       
       {posts.map(({node:post}) =>(
+<<<<<<< HEAD
       <LatestNews>
         <div key={post.id}>
     
           <img className='latestNewsImage' src={post.heroImage.fluid.src} alt={post.title}/>
         
+=======
+        <div className="story" key={post.id}>
+          <div className="storyImage">
+            <img className='latestNewsImage' src={post.heroImage.fluid.src} alt={post.title} />
+          </div>
+>>>>>>> 0dd1325bca5b18e7e6317f9db33f06b218e77f27
           <div className='latestNewsText'>
             <h1><Link to={post.slug}>{post.title}</Link></h1>
             <p>{post.publishDate}</p>
