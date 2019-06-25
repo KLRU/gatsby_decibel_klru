@@ -6,31 +6,33 @@ import styled from 'styled-components'
 const LatestNewsDiv = styled.div`
 box-sizing: border-box;
 width:80%;
-div{
-   display:grid;
-    grid-template-columns: 30% 70%;
-    margin-bottom:20px;
-    height: 200px;
-    border-bottom: 1px solid #ccc;
-    img{
-      width:100%;
-      height: 200px;
+.story {
+  border-bottom: 1px solid #ccc;
+}
+div {
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+  margin-bottom: 20px;
+  .storyImage {
+    img {
+      width: 200px;
     }
-    .latestNewsText{
-      padding-left:20px;
-      display:block;
-      align-items:center;
-      h1{
-        font-size: 20px;
-        margin:0;
-        padding-top:10px;
-      }
-      p{
-        font-size: 18px;
-        padding: 1px;
-        margin-top: 2px;
-      }
+  }
+  .latestNewsText {
+    padding-left:20px;
+    display:block;
+    align-items:center;
+    h1 {
+      font-size: 20px;
+      margin:0;
+      padding-top:10px;
     }
+    p {
+      font-size: 18px;
+      padding: 1px;
+      margin-top: 2px;
+    }
+  }
 }
    
 `
