@@ -41,18 +41,22 @@ const IndexPage = ({data}) => {
       </TagList>
       
     <div>
-      <LatestNews>
+      
       {posts.map(({node:post}) =>(
+      <LatestNews>
         <div key={post.id}>
+    
           <img className='latestNewsImage' src={post.heroImage.fluid.src} alt={post.title}/>
+        
           <div className='latestNewsText'>
             <h1><Link to={post.slug}>{post.title}</Link></h1>
             <p>{post.publishDate}</p>
             <p dangerouslySetInnerHTML={{__html:post.body.childMarkdownRemark.excerpt}}></p>
-          </div>   
-          </div>
-      ))}
+          </div>  
+          </div> 
       </LatestNews>
+      ))}
+      
     </div>
     </Container>
   )

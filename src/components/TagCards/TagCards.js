@@ -10,7 +10,7 @@ const TagCardDiv= styled.div`
     position:relative;
     img{
       width:300px;
-      height:250px;
+      height:200px;
     }
     p{
       margin:0;

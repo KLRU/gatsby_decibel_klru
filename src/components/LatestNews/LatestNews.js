@@ -14,7 +14,7 @@ div{
     border-bottom: 1px solid #ccc;
     img{
       width:100%;
-      height: 200px;
+      height:200px;
     }
     .latestNewsText{
       padding-left:20px;
