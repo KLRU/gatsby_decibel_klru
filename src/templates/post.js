@@ -8,16 +8,12 @@ function determineVideoElement(videoSource, videoCode) {
   let videoUrl;
   if (videoSource === 'youtube') {
     videoUrl = `https://www.youtube.com/embed/${videoCode}`;
-  //   // return <iframe src='https://www.youtube.com/embed/{videoCode}' frameborder='0' allowfullscreen></iframe>;
   } else if (videoSource === 'media manager') {
     videoUrl = `https://video.klru.tv/widget/partnerplayer/${videoCode}`;
-  //   // return <iframe src="https://video.klru.tv/widget/partnerplayer/{videoCode}?topbar=false&amp;chapterbar=false&amp;toolbar=true&amp;endscreen=false&amp;start=0&amp;end=0" class="partnerPlayer" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""></iframe>;
   } else if (videoSource === 'vimeo') {
     videoUrl = `http://player.vimeo.com/video/${videoCode}`;
-  //   // return <iframe src="http://player.vimeo.com/video/{videoCode}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="640" height="360" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe>;
   } else if (videoSource === 'facebook') {
     videoUrl = `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoCode}/`;
-  //   // return <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/{videoCode}/&width=500&show_text=false&appId=274660039863086&height=280" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
   }
   return <Iframe url={videoUrl}
         width="450px"
