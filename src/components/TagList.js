@@ -1,5 +1,5 @@
 import React from 'react'
-//import {Link} from 'gatsby'
+import {Link} from 'gatsby'
 import styled from 'styled-components'
 
 const List= styled.ul`
@@ -18,7 +18,13 @@ const List= styled.ul`
 const TagList = props =>{
   return(
   <List>{props.children}</List>
-
+  // <List>
+  //   {props.tags.map(tag =>(
+  //     <li key={tag.id}>
+  //       <Link to={`/${tag.slug}`}>{tag.title}</Link>
+  //     </li>
+  //   ))}
+  // </List>
   )
 }
 

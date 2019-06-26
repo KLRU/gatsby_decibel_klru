@@ -62,5 +62,38 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  return Promise.all([loadPost, loadTags])
+
+  const loadBioPage = new Promise((resolve, reject)=>{
+    graphql(`
+    {
+      allContentfulBiographyElement{
+        edges{
+           node{
+              bioName
+              bioImage{
+                fluid{
+                  src
+                  }
+                }
+              bioText{
+                childMarkdownRemark{
+                  html
+                  }
+                }
+              }
+            }
+          }
+        }
+    `).then(result =>{
+      //const bioElement = data.allContentfulBiographyElement.edges
+
+      createPage({
+        path: `/bio`,
+        component: path.resolve(`./src/templates/bio.js`),
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadPost, loadTags, loadBioPage])
 }
