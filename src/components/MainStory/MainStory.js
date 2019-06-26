@@ -1,6 +1,7 @@
-import React from 'react'
-//import {Link} from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+import { Link } from 'gatsby'
+import styled from 'styled-components';
+import Container from '../Container/Container';
 
 const HeroDiv= styled.div`
     margin:0;
@@ -42,10 +43,15 @@ const HeroDiv= styled.div`
     }
 `
 
-const FeaturedHero = props =>{
+const MainStory = props => {
+  const mainStory = props;
+  console.log(mainStory);
   return(
-   <HeroDiv>{props.children}</HeroDiv>
+    <Container>
+      <Link to={`/${mainStory.slug}/`}><img src={`http:${mainStory.heroImage.fluid.src}`} alt={mainStory.heroImage.title} className='latestNewsImage' /></Link>
+      <Link to={`/${mainStory.slug}/`}><p>{mainStory.title}</p></Link>
+    </Container>
   )
 }
 
-export default FeaturedHero
+export default MainStory;
