@@ -1,60 +1,58 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import {Link} from 'gatsby'
-import TagCards from '../components/TagCards/tagCards'
-import Container from "../components/Container/Container"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import TagCards from '../components/TagCards/tagCards';
+import Container from '../components/Container/Container';
 
-const TagTemplate = ({data, pageContext}) =>{
-  const posts = data.contentfulTag.post
-  const { title, slug } = data.contentfulTag
-  const numberOfPost = posts.length
-  const divStyle={
+const TagTemplate = ({ data, pageContext }) => {
+  const posts = data.contentfulTag.post;
+  const { title, slug } = data.contentfulTag;
+  const numberOfPost = posts.length;
+  const divStyle = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr'
-
-  }
-  return(
+  };
+  return (
     <Container>
-    <div>
-      <h1>{title}</h1>
-      <div style={divStyle}>
-    
-      {posts.map(post =>(
-        <TagCards>
-        <img src={post.heroImage.fluid.src}/>
-        <Link to={post.slug}><p>{post.title}</p></Link>
-        </TagCards>
-      ))}
-     
+      <div>
+        <h1>{title}</h1>
+        <p>{numberOfPost} Post</p>
+        <div style={divStyle}>
+          {posts.map(post =>(
+            <TagCards key={post.id}>
+              <img src={post.heroImage.fluid.src} alt={post.heroImage.title} />
+              <Link to={`/topic/${slug}/${post.slug}`}><p>{post.title}</p></Link>
+            </TagCards>
+          ))}
+        </div>
       </div>
-    </div>
     </Container>
   )
-}
+};
 
 export const query = graphql`
-query($slug: String!){
-  contentfulTag(slug: {eq: $slug}){
-    title
-    id
-    slug
-    post{
-      id
+  query($slug: String!){
+    contentfulTag(slug: {eq: $slug}){
       title
+      id
       slug
-      publishDate(formatString:"MMMM DD YYYY")
-      heroImage{
+      post{
+        id
         title
-        fluid{
-          src
+        slug
+        publishDate(formatString:"MMMM DD YYYY")
+        heroImage{
+          title
+          fluid{
+            src
+          }
         }
-      }
-      body{
-        body
+        body{
+          body
+        }
       }
     }
   }
-}
-
 `
+
 export default TagTemplate;

@@ -1,6 +1,6 @@
-import React from 'react'
-//import {Link} from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+//import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 
 const LatestNewsDiv = styled.div`
@@ -40,6 +40,6 @@ const LatestNews = props =>{
   return(
     <LatestNewsDiv>{props.children}</LatestNewsDiv>
   )
-}
+};
 
-export default LatestNews
+export default LatestNews;

@@ -1,48 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import TagList from '../components/TagList';
-import Iframe from 'react-iframe';
+import VideoElement from '../Components/PageElements/VideoElement';
 
-function determineVideoElement(videoSource, videoCode) {
-  videoSource = videoSource.toLowerCase();
-  let videoUrl;
-  if (videoSource === 'youtube') {
-    videoUrl = `https://www.youtube.com/embed/${videoCode}`;
-  } else if (videoSource === 'media manager') {
-    videoUrl = `https://video.klru.tv/widget/partnerplayer/${videoCode}`;
-  } else if (videoSource === 'vimeo') {
-    videoUrl = `http://player.vimeo.com/video/${videoCode}`;
-  } else if (videoSource === 'facebook') {
-    videoUrl = `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoCode}/`;
-  }
-  return <Iframe url={videoUrl}
-        width="450px"
-        height="450px"
-        id="myId"
-        className="myClassname"
-        display="initial"
-        position="relative"/>
-}
-
-const PostTemplate = ({data, pageContext}) =>{
-  const{
-    title,
-    slug,
-    publishDate,
-    heroImage,
-    featuredVideo,
-    body,
-    tags,
-  }=data.contentfulPost
-  const postNode = data.contentfulPost
+const PostTemplate = ({ data, pageContext }) =>{
+  const { title, publishDate, heroImage, featuredVideo, body, tags }=data.contentfulPost
   return(
     <div>
-      <img src={heroImage.fluid.src} />
+      <img src={heroImage.fluid.src} alt={heroImage.title} />
       <h1>{title}</h1>
-      {determineVideoElement(featuredVideo.source, featuredVideo.embedCode)}
+      <p>{publishDate}</p>
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
       {tags && <TagList tags={tags} />}
-     
+
+      <VideoElement {...featuredVideo}/>
     </div>
   )
 }
@@ -77,4 +48,4 @@ export const query = graphql`
     }
   }
 `
-export default PostTemplate
+export default PostTemplate;

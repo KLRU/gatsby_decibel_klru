@@ -7,10 +7,9 @@ import TagList from '../components/TagList';
 import MainStory from '../components/MainStory/MainStory';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   const { title, mainStory, secondaryStories: [...secondaryStories] } = data.allContentfulHomepage.edges[0].node;
   const [...tags] = data.allContentfulTag.edges;
-  console.log(tags);
   return (
     <Container>
       <h1>{title}</h1>
@@ -21,12 +20,12 @@ const IndexPage = ({data}) => {
 
       <TagList>
         {tags.map(({node:tag})=>(
-          <li key={tag.id}><Link to={`/${tag.slug}/`}>{tag.title}</Link></li>
+          <li key={tag.id}><Link to={`/topic/${tag.slug}/`}>{tag.title}</Link></li>
         ))}
       </TagList>
     </Container>
   )
-}
+};
 
 export const query = graphql`
   query {
@@ -79,4 +78,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default IndexPage;

@@ -1,6 +1,6 @@
-import React from 'react'
-//import {Link} from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+//import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 
 
@@ -27,6 +27,6 @@ const TagCards = props =>{
   return(
     <TagCardDiv>{props.children}</TagCardDiv>
   )
-}
+};
 
-export default TagCards
+export default TagCards;

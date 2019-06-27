@@ -1,6 +1,6 @@
-import React from 'react'
-//import {Link} from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+//import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 const List= styled.ul`
   display:inline-block;
@@ -15,11 +15,10 @@ const List= styled.ul`
   }
 `
 
-const TagList = props =>{
-  return(
-  <List>{props.children}</List>
-
+const TagList = props => {
+  return (
+    <List>{props.children}</List>
   )
-}
+};
 
-export default TagList
+export default TagList;

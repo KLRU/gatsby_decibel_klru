@@ -1,33 +1,39 @@
-const path = require('path')
+const path = require('path');
 
 exports.createPages = ({graphql, actions}) => {
-  const {createPage} = actions
+  const { createPage } = actions;
 
   const loadPost = new Promise((resolve, reject) => {
     graphql(`
       {
-        allContentfulPost(
-          sort:{fields:[publishDate], order:DESC}
-          limit:1000
+        allContentfulPost (
+          sort: { fields: [publishDate], order:DESC }
+          limit: 1000
         ){
-          edges{
-            node{
-             slug
-             publishDate
+          edges {
+            node {
+              slug
+              publishDate
+              tags {
+                title
+                slug
+              }
             }
           }
         }
       }
     `).then(result => {
-      const posts = result.data.allContentfulPost.edges
+      const posts = result.data.allContentfulPost.edges;
 
       posts.forEach((edge) => {
-        createPage({
-          path: `${edge.node.slug}/`,
-          component: path.resolve(`./src/templates/post.js`),
-          context:{
-            slug: edge.node.slug,
-          },
+        edge.node.tags.forEach((tag) => {
+          createPage({
+            path: `/topic/${tag.slug}/${edge.node.slug}/`,
+            component: path.resolve(`./src/templates/post.js`),
+            context:{
+              slug: edge.node.slug,
+            },
+          })
         })
       })
       resolve()
@@ -52,7 +58,7 @@ exports.createPages = ({graphql, actions}) => {
 
       tags.forEach((edge) =>{
         createPage({
-          path: `${edge.node.slug}/`,
+          path: `/topic/${edge.node.slug}/`,
           component: path.resolve(`./src/templates/tag.js`),
           context:{
             slug:edge.node.slug
