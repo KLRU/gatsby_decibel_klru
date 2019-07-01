@@ -13,14 +13,14 @@ const IndexPage = ({ data }) => {
   return (
     <Container>
       <h1>{title}</h1>
-      <MainStory {...mainStory} />
+      <MainStory {...mainStory} key={mainStory.id} />
       {secondaryStories.map((secondaryStory) => {
         return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
       })}
 
       <TagList>
         {tags.map(({node:tag})=>(
-          <li key={tag.id}><Link to={`/topic/${tag.slug}/`}>{tag.title}</Link></li>
+          <li key={tag.id}><Link to={`/${tag.slug}/`}>{tag.title}</Link></li>
         ))}
       </TagList>
     </Container>
@@ -37,6 +37,10 @@ export const query = graphql`
             id
             body {
               body
+            }
+            tags {
+              title
+              slug
             }
             title
             slug
@@ -60,6 +64,10 @@ export const query = graphql`
             }
             slug
             title
+            tags {
+              title
+              slug
+            }
           }
         }
       }
@@ -72,6 +80,7 @@ export const query = graphql`
         node{
           title
           slug
+          id
         }
       }
     }

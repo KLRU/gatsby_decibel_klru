@@ -21,7 +21,7 @@ const TagTemplate = ({ data, pageContext }) => {
           {posts.map(post =>(
             <TagCards key={post.id}>
               <img src={post.heroImage.fluid.src} alt={post.heroImage.title} />
-              <Link to={`/topic/${slug}/${post.slug}`}><p>{post.title}</p></Link>
+              <Link to={`/${slug}/${post.slug}`}><p>{post.title}</p></Link>
             </TagCards>
           ))}
         </div>
