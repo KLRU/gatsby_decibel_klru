@@ -13,7 +13,7 @@ function determineVideoElement(videoSource, videoCode) {
   }
 };
 
-const VideoElement = props => {
+const ContentfulVideoElement = props => {
   const featuredVideo = props;
   return (
     <div
@@ -41,4 +41,4 @@ const VideoElement = props => {
   );
 };
 
-export default VideoElement;
+export default ContentfulVideoElement;

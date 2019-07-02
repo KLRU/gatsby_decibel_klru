@@ -1,19 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import TagList from '../components/TagList';
-import VideoElement from '../Components/PageElements/VideoElement';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 
-const PostTemplate = ({ data, pageContext }) =>{
-  const { title, publishDate, heroImage, featuredVideo, body, tags }=data.contentfulPost
+const PostTemplate = ({ data, pageContext }) => {
+  const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost
   return(
     <div>
-      <img src={heroImage.fluid.src} alt={heroImage.title} />
       <h1>{title}</h1>
+      <img src={heroImage.fluid.src} alt={heroImage.title} />
       <p>{publishDate}</p>
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
       {tags && <TagList tags={tags} />}
 
-      <VideoElement {...featuredVideo}/>
+      <ContentfulVideoElement {...featuredVideo}/>
     </div>
   )
 }

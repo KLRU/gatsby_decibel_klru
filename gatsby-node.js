@@ -3,6 +3,34 @@ const path = require('path');
 exports.createPages = ({graphql, actions}) => {
   const { createPage } = actions;
 
+  const loadPage = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulPage {
+          edges {
+            node {
+              title
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const pages = result.data.allContentfulPage.edges
+
+      pages.forEach((page) => {
+        createPage({
+          path:`/${page.node.slug}/`,
+          component: path.resolve(`./src/templates/page.js`),
+          context:{
+              slug: page.node.slug,
+            },
+        })
+      })
+      resolve()
+    })
+  })
+
   const loadPost = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -39,7 +67,8 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  const loadTags=new Promise((resolve, reject) =>{
+
+  const loadTags = new Promise((resolve, reject) =>{
     graphql(`
       {
         allContentfulTag{
@@ -68,5 +97,5 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  return Promise.all([loadPost, loadTags])
+  return Promise.all([loadPage, loadPost, loadTags])
 }
