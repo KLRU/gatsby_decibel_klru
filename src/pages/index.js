@@ -4,8 +4,10 @@ import { Link } from 'gatsby'
 import "../styles/main.css"
 import Container from "../components/Container/Container"
 import TagList from '../components/TagList'
+import TagItem from '../components/TagItem'
 import FeaturedHero from "../components/FeaturedHero/FeaturedHero"
-import LatestNews from "../components/LatestNews/LatestNews"
+import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
+import LatestNewsList from "../components/LatestNews/LatestNewsList"
 
 
 const IndexPage = ({data}) => {
@@ -34,18 +36,15 @@ const IndexPage = ({data}) => {
         ))}
       </div>
       </FeaturedHero>
+ 
       <TagList>
          {tags.map(({node:tag})=>(
-          <li key={tag.id}><Link to={`/${tag.slug}/`}>{tag.title}</Link></li>
-        ))}
+           <TagItem key={tag.id} {...tag}/>
+           ))}
       </TagList>
-    
-
-      
-      
     <div>
       
-      {posts.map(({node:post}) =>(
+      {/* {posts.map(({node:post}) =>(
         <LatestNews>
         <div className="story" key={post.id}>
           <div className="storyImage">
@@ -58,7 +57,17 @@ const IndexPage = ({data}) => {
           </div>  
           </div> 
       </LatestNews>
-      ))}
+      ))} */}
+
+      <Link to={'/about'}>About Page</Link>
+      <Link to={'/topics'}>Topics</Link>
+      <LatestNewsList>
+       {posts.map(({node:post})=>(
+         <LatestNewsItem key={posts.id} {...post}/>
+       ))}
+      </LatestNewsList>
+
+
       
     </div>
     </Container>
@@ -68,11 +77,7 @@ const IndexPage = ({data}) => {
 export const query = graphql`
 query{
   allContentfulPost( sort: { fields: [publishDate], order: DESC }
-    filter:{
-      featured:{
-          eq:"Not_Featured"
-          }
-         }){
+    skip:3){
     edges{
       node{
         title
@@ -173,6 +178,7 @@ query{
           }
         }
       },
+
   allContentfulTag(
     limit: 10
     sort: { fields: [post___publishDate], order: DESC }

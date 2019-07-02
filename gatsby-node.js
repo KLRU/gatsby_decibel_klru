@@ -52,7 +52,7 @@ exports.createPages = ({graphql, actions}) => {
 
       tags.forEach((edge) =>{
         createPage({
-          path: `${edge.node.slug}/`,
+          path: `topics/${edge.node.slug}/`,
           component: path.resolve(`./src/templates/tag.js`),
           context:{
             slug:edge.node.slug
@@ -70,6 +70,7 @@ exports.createPages = ({graphql, actions}) => {
         edges{
            node{
               bioName
+              slug
               bioImage{
                 fluid{
                   src
@@ -85,11 +86,16 @@ exports.createPages = ({graphql, actions}) => {
           }
         }
     `).then(result =>{
-      //const bioElement = data.allContentfulBiographyElement.edges
+      const bioEntries = result.data.allContentfulBiographyElement.edges
 
-      createPage({
-        path: `/bio`,
-        component: path.resolve(`./src/templates/bio.js`),
+      bioEntries.forEach((edge)=>{
+        createPage({
+          path: `${edge.node.slug}`,
+          component: path.resolve(`./src/templates/bio.js`),
+          context:{
+            slug:edge.node.slug
+          },
+        })
       })
       resolve()
     })

@@ -7,7 +7,7 @@ import Container from "../components/Container/Container"
 const TagTemplate = ({data, pageContext}) =>{
   const posts = data.contentfulTag.post
   const { title, slug } = data.contentfulTag
-  const numberOfPost = posts.length
+  //const numberOfPost = posts.length
   const divStyle={
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr'
