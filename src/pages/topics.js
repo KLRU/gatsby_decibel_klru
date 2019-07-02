@@ -10,7 +10,7 @@ const TopicsPage = ({data}) =>{
     <div>
       {/* <h1>About Page</h1> */}
     {allTopics.map(({node:allTopic})=>(
-      <h2><Link to={allTopic.slug}>{allTopic.title}</Link></h2>
+      <h2><Link to={`/topics/${allTopic.slug}`}>{allTopic.title}</Link></h2>
     ))}
     </div>
   )
