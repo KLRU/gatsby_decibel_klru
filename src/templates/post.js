@@ -1,47 +1,41 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import TagList from '../components/TagList'
+import React from 'react';
+import { graphql } from 'gatsby';
+import TagList from '../components/TagList';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 
-const PostTemplate = ({data, pageContext}) =>{
-  const{
-    title,
-    slug,
-    publishDate,
-    heroImage,
-    featuredVideo,
-    body,
-    tags,
-  }=data.contentfulPost
-  const postNode = data.contentfulPost
+const PostTemplate = ({ data, pageContext }) => {
+  const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost
   return(
     <div>
-      <img src={heroImage.fluid.src} />
       <h1>{title}</h1>
+      <img src={heroImage.fluid.src} alt={heroImage.title} />
+      <p>{publishDate}</p>
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
       {tags && <TagList tags={tags} />}
-     
+
+      <ContentfulVideoElement {...featuredVideo}/>
     </div>
   )
 }
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulPost(slug: { eq: $slug }){
+    contentfulPost(slug: { eq: $slug }) {
       id
       title
       slug
       publishDate(formatString: "MMMM DD YYYY")
-      heroImage{
-        fluid{
+      heroImage {
+        fluid {
           src
         }
       }
-      featuredVideo{
+      featuredVideo {
         title
         embedCode
         source
       }
-      body{
+      body {
        childMarkdownRemark{
          html
          excerpt(pruneLength: 320)
@@ -53,8 +47,5 @@ export const query = graphql`
       }
     }
   }
-
-
-
 `
-export default PostTemplate
+export default PostTemplate;

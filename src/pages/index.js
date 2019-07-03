@@ -1,44 +1,29 @@
-import React from "react"
-import{graphql} from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
-import "../styles/main.css"
-import Container from "../components/Container/Container"
-import TagList from '../components/TagList'
-import FeaturedHero from "../components/FeaturedHero/FeaturedHero"
-import LatestNews from "../components/LatestNews/LatestNews"
+import '../styles/main.css'
+import Container from '../components/Container/Container';
+import TagList from '../components/TagList';
+import MainStory from '../components/MainStory/MainStory';
+import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
 
-
-const IndexPage = ({data}) => {
-  const posts=data.allContentfulPost.edges
-  const tags=data.allContentfulTag.edges
-  const mainPosts=data.featuredMainPost.edges
-  const sidePosts=data.featuredSidePost.edges
-  //const featuredPost=posts[0].node
-  return(
+const IndexPage = ({ data }) => {
+  const { title, mainStory, secondaryStories: [...secondaryStories] } = data.allContentfulHomepage.edges[0].node;
+  const [...tags] = data.allContentfulTag.edges;
+  return (
     <Container>
-      <FeaturedHero className='mainPostDiv'>
-      <div className='topImageDiv'>
-        {mainPosts.map(({node:mainPost})=>(
-          <div >
-          <img src={mainPost.heroImage.fluid.src} alt={mainPost.title}/>
-          <h2><Link to={mainPost.slug}>{mainPost.title}</Link></h2>
-          </div>
-        ))}
-        </div>
-        <div className='sidePostDiv'>
-        {sidePosts.map(({node:sidePost})=>(
-          <div>
-          <img src={sidePost.heroImage.fluid.src} alt={sidePost.title}/>
-          <h2><Link to={sidePost.slug}>{sidePost.title}</Link></h2>
-        </div>
-        ))}
-      </div>
-      </FeaturedHero>
+      <h1>{title}</h1>
+      <MainStory {...mainStory} key={mainStory.id} />
+      {secondaryStories.map((secondaryStory) => {
+        return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
+      })}
+
       <TagList>
         {tags.map(({node:tag})=>(
           <li key={tag.id}><Link to={`/${tag.slug}/`}>{tag.title}</Link></li>
         ))}
       </TagList>
+<<<<<<< HEAD
       
     <div>
       
@@ -65,130 +50,70 @@ const IndexPage = ({data}) => {
       ))}
       
     </div>
+=======
+>>>>>>> e79a2a84a43c3c8a0ea5da31579f4485c69475cc
     </Container>
   )
-}
+};
 
 export const query = graphql`
-query{
-  allContentfulPost( sort: { fields: [publishDate], order: DESC }
-    filter:{
-      featured:{
-          eq:"Not_Featured"
-          }
-         }){
-    edges{
-      node{
-        title
-        slug
-        id
-        heroImage{
-          fluid{
-            src
-          }
-        }
-        publishDate(formatString: "MMMM DD, YYYY")
-        featuredVideo{
+  query {
+    allContentfulHomepage {
+      edges {
+        node {
           title
-          embedCode
-          source
-        }
-        body{
-          childMarkdownRemark{
-            html
-            excerpt(
-              format: HTML
-              pruneLength: 140)
+          mainStory {
+            id
+            body {
+              body
+            }
+            tags {
+              title
+              slug
+            }
+            title
+            slug
+            heroImage {
+              fluid {
+                src
+              }
+              description
+            }
+          }
+          secondaryStories {
+            id
+            body {
+              body
+            }
+            heroImage {
+              fluid {
+                src
+              }
+              description
+            }
+            slug
+            title
+            tags {
+              title
+              slug
+            }
           }
         }
-        tags{
-          title
-          slug
-        }
-        featured
       }
     }
-  },
-  featuredMainPost: allContentfulPost(
-    filter:{
-      featured:{
-          eq:"Main_Featured"
-          }
-         }
+    allContentfulTag(
+      limit: 10
+      sort: { fields: [post___publishDate], order: DESC }
     ){
       edges{
         node{
           title
           slug
           id
-          heroImage{
-            fluid{
-              src
-            }
-          }
-          publishDate(formatString: "MMMM DD, YYYY")
-          featuredVideo{
-            title
-            embedCode
-            source
-          }
-          body{
-           body
-          }
-          tags{
-            title
-            slug
-          }
-          featured
         }
-      }
-    },
-    featuredSidePost: allContentfulPost(
-      filter:{
-        featured:{
-            eq:"Side_Featured"
-            }
-           }
-      ){
-        edges{
-          node{
-            title
-            slug
-            id
-            heroImage{
-              fluid{
-                src
-              }
-            }
-            publishDate(formatString: "MMMM DD, YYYY")
-            featuredVideo{
-              title
-              embedCode
-              source
-            }
-            body{
-             body
-            }
-            tags{
-              title
-              slug
-            }
-            featured
-          }
-        }
-      },
-  allContentfulTag(
-    limit: 10
-    sort: { fields: [post___publishDate], order: DESC }
-  ){
-    edges{
-      node{
-        title
-        slug
       }
     }
   }
-}
 `
 
-export default IndexPage
+export default IndexPage;
