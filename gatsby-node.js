@@ -17,14 +17,15 @@ exports.createPages = ({graphql, actions}) => {
       }
     `).then(result => {
       const pages = result.data.allContentfulPage.edges
+      console.log(pages);
 
       pages.forEach((page) => {
         createPage({
           path:`/${page.node.slug}/`,
           component: path.resolve(`./src/templates/page.js`),
           context:{
-              slug: page.node.slug,
-            },
+            slug: page.node.slug,
+          },
         })
       })
       resolve()
@@ -97,7 +98,8 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  return Promise.all([loadPage, loadPost, loadTags])
+  // return Promise.all([loadPage, loadPost, loadTags])
+  Promise.all([loadPage, loadPost, loadTags])
 }
 
 //   const loadBioPage = new Promise((resolve, reject)=>{

@@ -31,7 +31,6 @@ const PageTemplate = ({ data, pageContext }) => {
     <div>
       <h1>{title}</h1>
       {pageElements.map((pageElement) => {
-        // console.log(pageElement);
         return getBlockComponent(pageElement);
       })}
     </div>
@@ -72,15 +71,7 @@ export const query = graphql`
           embedCode
           title
         }
-        ... on ContentfulPhotoElement {
-          id
-          photo {
-            title
-            file {
-              url
-            }
-          }
-        }
+        
       }
     }
   }

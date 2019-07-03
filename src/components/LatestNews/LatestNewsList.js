@@ -1,9 +1,9 @@
 import React from 'react'
-//import {Link} from 'gatsby'
+//import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 
-const LatestNewsList = props =>{
+const LatestNewsList = props => {
   return(
     <div>{props.children}</div>
   )
