@@ -27,11 +27,6 @@ const IndexPage = ({ data }) => {
            <TagItem key={tag.id} {...tag}/>
            ))}
       </TagList>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      
-=======
->>>>>>> 7642c669db935f1f1c2e428d930333b5e921941a
     <div>
       <Link to={'/about'}>About Page</Link>
       <Link to={'/topics'}>Topics</Link>
@@ -44,11 +39,6 @@ const IndexPage = ({ data }) => {
 
       
     </div>
-<<<<<<< HEAD
-=======
->>>>>>> e79a2a84a43c3c8a0ea5da31579f4485c69475cc
-=======
->>>>>>> 7642c669db935f1f1c2e428d930333b5e921941a
     </Container>
   )
 };
@@ -100,7 +90,6 @@ query {
       }
     }
   },
-
   allContentfulHomepage {
     edges {
       node {
