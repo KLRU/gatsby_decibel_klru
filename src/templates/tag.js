@@ -14,18 +14,18 @@ const TagTemplate = ({ data, pageContext }) => {
   };
   return (
     <Container>
-      <div>
-        <h1>{title}</h1>
-        <p>{numberOfPost} Post</p>
-        <div style={divStyle}>
-          {posts.map(post =>(
-            <TagCards key={post.id}>
-              <img src={post.heroImage.fluid.src} alt={post.heroImage.title} />
-              <Link to={`/${slug}/${post.slug}`}><p>{post.title}</p></Link>
-            </TagCards>
-          ))}
-        </div>
+    <div>
+      <h1>{title}</h1>
+      <div style={divStyle}>
+    
+      {posts.map(post =>(
+        <TagCards key={post.id} {...post}/>
+        /* <img src={post.heroImage.fluid.src}/>
+        <Link to={post.slug}><p>{post.title}</p></Link> */
+        //</TagCards>
+      ))}
       </div>
+    </div>
     </Container>
   )
 };

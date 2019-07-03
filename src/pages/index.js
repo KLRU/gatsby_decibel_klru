@@ -3,16 +3,18 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/main.css'
 import Container from '../components/Container/Container';
-import TagList from '../components/TagList';
-import TagItem from '../components/TagItem'
+import TagList from '../components/TopicList/TagList';
+import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 
 const IndexPage = ({ data }) => {
+  const posts = data.allContentfulPost.edges;
   const { title, mainStory, secondaryStories: [...secondaryStories] } = data.allContentfulHomepage.edges[0].node;
   const [...tags] = data.allContentfulTag.edges;
+  console.log(data);
   return (
     <Container>
       <h1>{title}</h1>
@@ -20,29 +22,12 @@ const IndexPage = ({ data }) => {
       {secondaryStories.map((secondaryStory) => {
         return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
       })}
-
       <TagList>
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
       </TagList>
     <div>
-      
-      {/* {posts.map(({node:post}) =>(
-        <LatestNews>
-        <div className="story" key={post.id}>
-          <div className="storyImage">
-            <img className='latestNewsImage' src={post.heroImage.fluid.src} alt={post.title} />
-          </div>
-          <div className='latestNewsText'>
-            <h1><Link to={post.slug}>{post.title}</Link></h1>
-            <p>{post.publishDate}</p>
-            <p dangerouslySetInnerHTML={{__html:post.body.childMarkdownRemark.excerpt}}></p>
-          </div>  
-          </div> 
-      </LatestNews>
-      ))} */}
-
       <Link to={'/about'}>About Page</Link>
       <Link to={'/topics'}>Topics</Link>
       <LatestNewsList>
@@ -59,34 +44,34 @@ const IndexPage = ({ data }) => {
 };
 
 export const query = graphql`
-query{
+query {
   allContentfulPost( sort: { fields: [publishDate], order: DESC }
-    skip:3){
-    edges{
-      node{
+  skip:3) {
+    edges {
+      node {
         title
         slug
         id
-        heroImage{
-          fluid{
+        heroImage {
+          fluid {
             src
           }
         }
         publishDate(formatString: "MMMM DD, YYYY")
-        featuredVideo{
+        featuredVideo {
           title
           embedCode
           source
         }
-        body{
-          childMarkdownRemark{
+        body {
+          childMarkdownRemark {
             html
             excerpt(
               format: HTML
               pruneLength: 140)
           }
         }
-        tags{
+        tags {
           title
           slug
         }
@@ -94,104 +79,56 @@ query{
       }
     }
   },
-  featuredMainPost: allContentfulPost(
-    filter:{
-      featured:{
-          eq:"Main_Featured"
-          }
-         }
-    ){
-      edges{
-        node{
-          title
-          slug
-          id
-          heroImage{
-            fluid{
-              src
-            }
-          }
-          publishDate(formatString: "MMMM DD, YYYY")
-          featuredVideo{
-            title
-            embedCode
-            source
-          }
-          body{
-           body
-          }
-          tags{
-            title
-            slug
-          }
-          featured
-        }
-      }
-    },
-    featuredSidePost: allContentfulPost(
-      filter:{
-        featured:{
-            eq:"Side_Featured"
-            }
-           }
-      ){
-        edges{
-          node{
-            title
-            slug
-            id
-            heroImage{
-              fluid{
-                src
-              }
-            }
-            publishDate(formatString: "MMMM DD, YYYY")
-            featuredVideo{
-              title
-              embedCode
-              source
-            }
-            body{
-             body
-            }
-            tags{
-              title
-              slug
-            }
-            featured
-          }
-        }
-      },
   allContentfulTag(
     limit: 10
     sort: { fields: [post___publishDate], order: DESC }
   ){
-    edges{
-      node{
+    edges {
+      node {
         title
         slug
       }
     }
   },
-  
-  allContentfulHomepage{
-    edges{
-      node{
+
+  allContentfulHomepage {
+    edges {
+      node {
         title
-        mainStory{
+        mainStory {
+          id
           title
-          heroImage{
-            fluid{
+          slug
+          heroImage {
+            fluid {
               src
             }
+            description
+          }
+          body {
+            body
+          }
+          tags {
+            title
+            slug
           }
         }
-        secondaryStories{
+        secondaryStories {
+          id
           title
-          heroImage{
-            fluid{
+          slug
+          heroImage {
+            fluid {
               src
             }
+            description
+          }
+          body {
+            body
+          }
+          tags {
+            title
+            slug
           }
         }
       }

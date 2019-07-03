@@ -36,7 +36,7 @@ width:80%;
 const LatestNewsItem = props =>{
   return(
     <LatestNewsDiv>
-    <div class="news_item">
+    <div className="news_item">
       <div className='latestNewsImage'>
       <img src={props.heroImage.fluid.src} alt={props.title} />
       </div>
