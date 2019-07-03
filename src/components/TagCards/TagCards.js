@@ -1,5 +1,5 @@
 import React from 'react'
-//import {Link} from 'gatsby'
+import {Link} from 'gatsby'
 import styled from 'styled-components'
 
 
@@ -25,7 +25,10 @@ const TagCardDiv= styled.div`
 `
 const TagCards = props =>{
   return(
-    <TagCardDiv>{props.children}</TagCardDiv>
+    <TagCardDiv>
+      <img src={props.heroImage.fluid.src}/>
+      <Link to={props.slug}><p>{props.title}</p></Link>
+    </TagCardDiv>
   )
 }
 

@@ -20,10 +20,10 @@ const TagTemplate = ({data, pageContext}) =>{
       <div style={divStyle}>
     
       {posts.map(post =>(
-        <TagCards>
-        <img src={post.heroImage.fluid.src}/>
-        <Link to={post.slug}><p>{post.title}</p></Link>
-        </TagCards>
+        <TagCards key={post.id} {...post}/>
+        /* <img src={post.heroImage.fluid.src}/>
+        <Link to={post.slug}><p>{post.title}</p></Link> */
+        //</TagCards>
       ))}
      
       </div>

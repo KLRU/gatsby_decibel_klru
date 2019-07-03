@@ -90,7 +90,7 @@ exports.createPages = ({graphql, actions}) => {
 
       bioEntries.forEach((edge)=>{
         createPage({
-          path: `${edge.node.slug}`,
+          path: `about/${edge.node.slug}`,
           component: path.resolve(`./src/templates/bio.js`),
           context:{
             slug:edge.node.slug

@@ -10,7 +10,11 @@ const AboutPage = ({data}) =>{
     <div>
       <h1>About Page</h1>
     {bioEntries.map(({node:bioEntry})=>(
-      <h2><Link to={bioEntry.slug}>{bioEntry.bioName}</Link></h2>
+      <div>
+      <h2><Link to={`/about/${bioEntry.slug}`}>{bioEntry.bioName}</Link></h2>
+      <img src={bioEntry.bioImage.fluid.src}/>
+      <p dangerouslySetInnerHTML={{__html:bioEntry.bioText.childMarkdownRemark.html}}></p>
+      </div>
     ))}
     </div>
   )

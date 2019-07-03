@@ -3,8 +3,8 @@ import{graphql} from 'gatsby'
 import { Link } from 'gatsby'
 import "../styles/main.css"
 import Container from "../components/Container/Container"
-import TagList from '../components/TagList'
-import TagItem from '../components/TagItem'
+import TagList from '../components/TopicList/TagList'
+import TagItem from '../components/TopicList/TagItem'
 import FeaturedHero from "../components/FeaturedHero/FeaturedHero"
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
@@ -15,10 +15,12 @@ const IndexPage = ({data}) => {
   const tags=data.allContentfulTag.edges
   const mainPosts=data.featuredMainPost.edges
   const sidePosts=data.featuredSidePost.edges
+  const heroPosts=data.allContentfulHomepage.edges
+  //const sidePosts=heroImages.secondaryStories
   //const featuredPost=posts[0].node
   return(
     <Container>
-      <FeaturedHero className='mainPostDiv'>
+     <FeaturedHero className='mainPostDiv'>
       <div className='topImageDiv'>
         {mainPosts.map(({node:mainPost})=>(
           <div >
@@ -36,6 +38,14 @@ const IndexPage = ({data}) => {
         ))}
       </div>
       </FeaturedHero>
+{/* 
+      <div>
+        <div>
+          {heroPosts.map(({node:heroPost})=>(
+            <div>{heroPost.secondaryStories.title}</div>
+          ))}
+        </div>
+      </div> */}
  
       <TagList>
          {tags.map(({node:tag})=>(
@@ -43,22 +53,6 @@ const IndexPage = ({data}) => {
            ))}
       </TagList>
     <div>
-      
-      {/* {posts.map(({node:post}) =>(
-        <LatestNews>
-        <div className="story" key={post.id}>
-          <div className="storyImage">
-            <img className='latestNewsImage' src={post.heroImage.fluid.src} alt={post.title} />
-          </div>
-          <div className='latestNewsText'>
-            <h1><Link to={post.slug}>{post.title}</Link></h1>
-            <p>{post.publishDate}</p>
-            <p dangerouslySetInnerHTML={{__html:post.body.childMarkdownRemark.excerpt}}></p>
-          </div>  
-          </div> 
-      </LatestNews>
-      ))} */}
-
       <Link to={'/about'}>About Page</Link>
       <Link to={'/topics'}>Topics</Link>
       <LatestNewsList>
@@ -187,6 +181,30 @@ query{
       node{
         title
         slug
+      }
+    }
+  },
+  
+  allContentfulHomepage{
+    edges{
+      node{
+        title
+        mainStory{
+          title
+          heroImage{
+            fluid{
+              src
+            }
+          }
+        }
+        secondaryStories{
+          title
+          heroImage{
+            fluid{
+              src
+            }
+          }
+        }
       }
     }
   }

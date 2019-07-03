@@ -8,17 +8,20 @@ const TopicsPage = ({data}) =>{
   const allTopics=data.allContentfulTag.edges
   return(
     <div>
-      {/* <h1>About Page</h1> */}
+    
     {allTopics.map(({node:allTopic})=>(
       <h2><Link to={`/topics/${allTopic.slug}`}>{allTopic.title}</Link></h2>
     ))}
+
+    <Link to='/'>Decibel Home</Link>
     </div>
   )
 }
 export const query=graphql`
 query{
   allContentfulTag(
-    sort: { fields: [post___publishDate], order: DESC }
+    sort: { fields: title, order: ASC }
+    
   ){
     edges{
       node{
