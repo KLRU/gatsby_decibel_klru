@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import TagList from '../components/TagList';
+import TagList from '../components/TopicList/TagList';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 
 const PostTemplate = ({ data, pageContext }) => {
