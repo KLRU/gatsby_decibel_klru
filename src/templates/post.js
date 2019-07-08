@@ -8,7 +8,7 @@ import ContentfulVideoElement from '../components/PageElements/ContentfulVideoEl
 
 const PostTemplate = ({ data, pageContext }) => {
   const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost;
-  const { slug, tag, tagTitle } = pageContext;
+  const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
 
   const divStyle = {

@@ -24,7 +24,7 @@ const TagCardDiv= styled.div`
 const TagCards = props => {
   return (
     <TagCardDiv>
-      <img src={props.heroImage.fluid.src}/>
+      <img src={props.heroImage.fluid.src} alt={props.heroImage.title} />
       <Link to={`/${props.tag}/${props.slug}`}><p>{props.title}</p></Link>
     </TagCardDiv>
   )

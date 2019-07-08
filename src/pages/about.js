@@ -4,8 +4,9 @@ import ContentfulBiographyElement from '../components/PageElements/ContentfulBio
 import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import Container from '../components/Container/Container';
 
-function getBlockComponent(pageElement) {
+function determinePageElement(pageElement) {
   switch (pageElement.__typename) {
     case 'ContentfulBiographyElement':
       return <ContentfulBiographyElement key={pageElement.id} {...pageElement} />
@@ -24,22 +25,22 @@ function getBlockComponent(pageElement) {
   }
 }
 
-const PageTemplate = ({ data, pageContext }) => {
+const AboutPage = ({ data, pageContext }) => {
   const { title, pageElements: [...pageElements] } = data.contentfulPage;
 
   return (
-    <div>
+    <Container>
       <h1>{title}</h1>
       {pageElements.map((pageElement) => {
-        return getBlockComponent(pageElement);
+        return determinePageElement(pageElement);
       })}
-    </div>
+    </Container>
   )
 };
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
+  query {
+    contentfulPage(slug: { eq: "about" }) {
       title
       pageElements {
         ... on ContentfulTextElement {
@@ -77,4 +78,5 @@ export const query = graphql`
   }
 `
 
-export default PageTemplate;
+export default AboutPage;
+

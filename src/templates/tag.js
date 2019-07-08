@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
 import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 
@@ -19,10 +18,7 @@ const TagTemplate = ({ data, pageContext }) => {
       <div style={divStyle}>
     
       {posts.map(post =>(
-        <TagCards key={post.id} tag={slug} {...post} />
-        /* <img src={post.heroImage.fluid.src}/>
-        <Link to={post.slug}><p>{post.title}</p></Link> */
-        //</TagCards>
+        <TagCards key={post.id} tag={slug} { ...post } />
       ))}
       </div>
     </div>
