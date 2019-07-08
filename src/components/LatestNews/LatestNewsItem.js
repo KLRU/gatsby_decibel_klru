@@ -34,6 +34,7 @@ width:80%;
    
 `
 const LatestNewsItem = props => {
+  console.log(props);
   return(
     <LatestNewsDiv>
     <div className="news_item">

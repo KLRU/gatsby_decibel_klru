@@ -19,7 +19,7 @@ const TagTemplate = ({ data, pageContext }) => {
       <div style={divStyle}>
     
       {posts.map(post =>(
-        <TagCards key={post.id} {...post}/>
+        <TagCards key={post.id} tag={slug} {...post} />
         /* <img src={post.heroImage.fluid.src}/>
         <Link to={post.slug}><p>{post.title}</p></Link> */
         //</TagCards>
@@ -40,7 +40,7 @@ export const query = graphql`
         id
         title
         slug
-        publishDate(formatString:"MMMM DD YYYY")
+        publishDate(formatString:"MMMM D, YYYY")
         heroImage{
           title
           fluid{

@@ -60,6 +60,8 @@ exports.createPages = ({graphql, actions}) => {
             path: `/${tag.slug}/${edge.node.slug}/`,
             component: path.resolve(`./src/templates/post.js`),
             context:{
+              tag: tag.slug,
+              tagTitle: tag.title,
               slug: edge.node.slug,
             },
           })
