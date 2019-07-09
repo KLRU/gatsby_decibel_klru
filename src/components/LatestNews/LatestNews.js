@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const LatestNewsDiv = styled.div`
 box-sizing: border-box;
+
 width:80%;
 .story {
   border-bottom: 1px solid #ccc;

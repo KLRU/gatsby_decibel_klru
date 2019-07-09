@@ -1,17 +1,16 @@
 import React from 'react'
-import {Link} from 'gatsby'
+//import {Link} from 'gatsby'
 import styled from 'styled-components'
 
-const List= styled.ul`
-  margin:0;
-  position:absolute;
-  bottom:0;
-  right:0;
+const StoryDiv= styled.div`
+  display:grid;
+  grid-template-columns:50% 50%;
+  grid-gap:1px;
 `
 
-const TagList = props =>{
+const SecondaryStoryGrid = props =>{
   return(
-  <List>{props.children}</List>
+  <StoryDiv>{props.children}</StoryDiv>
   // <List>
   //   {props.tags.map(tag =>(
   //     <li key={tag.id}>
@@ -22,4 +21,4 @@ const TagList = props =>{
   )
 };
 
-export default TagList;
+export default SecondaryStoryGrid;

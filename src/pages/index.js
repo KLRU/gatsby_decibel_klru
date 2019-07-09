@@ -1,12 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby'
+import { Link } from 'gatsby';
+import Header from '../components/Header/Header'
 import '../styles/main.css'
 import Container from '../components/Container/Container';
+import HeroGrid from '../components/HeroGrid'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
+import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 
@@ -17,20 +20,29 @@ const IndexPage = ({ data }) => {
   console.log(data);
   return (
     <Container>
-      <h1>{title}</h1>
-      <MainStory {...mainStory} key={mainStory.id} />
-      {secondaryStories.map((secondaryStory) => {
-        return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
-      })}
+      <Header>
       <TagList>
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
+          <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
+      </Header>
+      {/* <h1>{title}</h1> */}
+      <HeroGrid>
+      <MainStory {...mainStory} key={mainStory.id} />
+      <SecondaryStoryGrid>
+      {secondaryStories.map((secondaryStory) => {
+        return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
+      })}
+      </SecondaryStoryGrid>
+      </HeroGrid>
+  
     <div>
-      <Link to={'/about'}>About Page</Link>
-      <Link to={'/topics'}>Topics</Link>
+      {/* <Link to={'/about'}>About Page</Link>
+      <Link to={'/topics'}>Topics</Link> */}
       <LatestNewsList>
+        <h2>Latest News</h2>
        {posts.map(({node:post})=>(
          <LatestNewsItem key={posts.id} {...post}/>
        ))}
