@@ -1,35 +1,7 @@
 const path = require('path');
 
-exports.createPages = ({graphql, actions}) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  const loadPage = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulPage {
-          edges {
-            node {
-              title
-              slug
-            }
-          }
-        }
-      }
-    `).then(result => {
-      const pages = result.data.allContentfulPage.edges
-
-      pages.forEach((page) => {
-        createPage({
-          path:`/${page.node.slug}/`,
-          component: path.resolve(`./src/templates/page.js`),
-          context:{
-              slug: page.node.slug,
-            },
-        })
-      })
-      resolve()
-    })
-  })
 
   const loadPost = new Promise((resolve, reject) => {
     graphql(`
@@ -60,6 +32,7 @@ exports.createPages = ({graphql, actions}) => {
             component: path.resolve(`./src/templates/post.js`),
             context:{
               tag: tag.slug,
+              tagTitle: tag.title,
               slug: edge.node.slug,
             },
           })
@@ -98,46 +71,5 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  return Promise.all([loadPage, loadPost, loadTags])
-}
-
-//   const loadBioPage = new Promise((resolve, reject)=>{
-//     graphql(`
-//     {
-//       allContentfulBiographyElement{
-//         edges{
-//            node{
-//               bioName
-//               slug
-//               bioImage{
-//                 fluid{
-//                   src
-//                   }
-//                 }
-//               bioText{
-//                 childMarkdownRemark{
-//                   html
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//     `).then(result =>{
-//       const bioEntries = result.data.allContentfulBiographyElement.edges
-
-//       bioEntries.forEach((edge)=>{
-//         createPage({
-//           path: `${edge.node.slug}`,
-//           component: path.resolve(`./src/templates/bio.js`),
-//           context:{
-//             slug:edge.node.slug
-//           },
-//         })
-//       })
-//       resolve()
-//     })
-//   })
-
-//   return Promise.all([loadPost, loadTags, loadBioPage])
-// }
+  Promise.all([loadPost, loadTags])
+};
