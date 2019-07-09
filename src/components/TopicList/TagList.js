@@ -3,15 +3,15 @@ import {Link} from 'gatsby'
 import styled from 'styled-components'
 
 const List= styled.ul`
-  display:inline-block;
+  padding-left:0;
   a{
-     color: #CF2C09  ;
+     color: #000
+     text-decoration:none;
+     display:inline-block;
+     padding: 10px;
   }
-  li{
-    padding:10px;
-    display:inline-block;
-    font-size: 20px;
-    
+  h2{
+    font-weight:normal;
   }
 `
 
