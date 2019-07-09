@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -33,7 +33,8 @@ width:80%;
 }
    
 `
-const LatestNewsItem = props =>{
+const LatestNewsItem = props => {
+  console.log(props);
   return(
     <LatestNewsDiv>
     <div className="news_item">

@@ -1,49 +1,101 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import TagList from '../components/TopicList/TagList';
+import TagItem from '../components/TopicList/TagItem';
+import TagCards from '../components/TagCards/tagCards';
+import Container from '../components/Container/Container';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost
-  return(
-    <div>
-      <h1>{title}</h1>
-      <img src={heroImage.fluid.src} alt={heroImage.title} />
-      <p>{publishDate}</p>
-      <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
-      {tags && <TagList tags={tags} />}
+  const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost;
+  const { tag, tagTitle } = pageContext;
+  const [ ...relatedPosts ] = data.allContentfulPost.edges;
 
+  const divStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr'
+  };
+
+  return(
+    <Container>
+      <h1>{title}</h1>
+      <p>{publishDate}</p>
       <ContentfulVideoElement {...featuredVideo}/>
-    </div>
+      <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
+
+      <h2>Tags:</h2>
+      {tags.map((tag) => {
+        return <TagItem {...tag} key={tag.id} />
+      })}
+
+      <h2>More in {tagTitle}:</h2>
+      <div style={divStyle}>
+        {relatedPosts.map((relatedPost) => {
+          return <TagCards tag={tag} { ...relatedPost.node } />
+        })}
+      </div>
+      <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a>
+    </Container>
   )
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $tag: String!) {
     contentfulPost(slug: { eq: $slug }) {
       id
       title
       slug
-      publishDate(formatString: "MMMM DD YYYY")
+      publishDate(formatString: "MMMM D, YYYY")
       heroImage {
-        fluid {
-          src
+        file {
+          url
         }
       }
       featuredVideo {
         title
-        embedCode
         source
+        embedCode
       }
       body {
-       childMarkdownRemark{
-         html
-         excerpt(pruneLength: 320)
-       }
+        childMarkdownRemark {
+          html
+        }
       }
-      tags{
+      tags {
+        id
         title
         slug
+        post {
+          title
+        }
+      }
+    }
+    allContentfulPost(
+      limit: 3,
+      filter: {
+        tags: {
+          elemMatch: {
+            slug: {
+              eq: $tag
+            }
+          }
+        },
+        slug: {
+          ne: $slug
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          title
+          slug
+          heroImage {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }

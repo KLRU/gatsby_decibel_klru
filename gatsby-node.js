@@ -3,33 +3,33 @@ const path = require('path');
 exports.createPages = ({graphql, actions}) => {
   const { createPage } = actions;
 
-  const loadPage = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulPage {
-          edges {
-            node {
-              title
-              slug
-            }
-          }
-        }
-      }
-    `).then(result => {
-      const pages = result.data.allContentfulPage.edges
+  // const loadPage = new Promise((resolve, reject) => {
+  //   graphql(`
+  //     {
+  //       allContentfulPage {
+  //         edges {
+  //           node {
+  //             title
+  //             slug
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `).then(result => {
+  //     const pages = result.data.allContentfulPage.edges
 
-      pages.forEach((page) => {
-        createPage({
-          path:`/${page.node.slug}/`,
-          component: path.resolve(`./src/templates/page.js`),
-          context:{
-              slug: page.node.slug,
-            },
-        })
-      })
-      resolve()
-    })
-  })
+  //     pages.forEach((page) => {
+  //       createPage({
+  //         path:`/${page.node.slug}/`,
+  //         component: path.resolve(`./src/templates/page.js`),
+  //         context:{
+  //             slug: page.node.slug,
+  //           },
+  //       })
+  //     })
+  //     resolve()
+  //   })
+  // })
 
   const loadPost = new Promise((resolve, reject) => {
     graphql(`

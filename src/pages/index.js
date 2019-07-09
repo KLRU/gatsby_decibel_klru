@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/main.css'
 import Container from '../components/Container/Container';
-import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
@@ -12,28 +11,25 @@ import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 
 const IndexPage = ({ data }) => {
-  const [...posts] = data.allContentfulPost.edges;
+  const posts = data.allContentfulPost.edges;
   const { title, mainStory, secondaryStories: [...secondaryStories] } = data.allContentfulHomepage.edges[0].node;
   const [...tags] = data.allContentfulTag.edges;
   console.log(data);
   return (
     <Container>
-      <div>
-      <Header />
-      <TagList>
-         {tags.map(({node:tag})=>(
-           <TagItem key={tag.id} {...tag}/>
-           ))}
-           <Link to={'/topics'}><h2>More Topics</h2></Link>
-      </TagList>
-      </div>
       <h1>{title}</h1>
       <MainStory {...mainStory} key={mainStory.id} />
       {secondaryStories.map((secondaryStory) => {
         return <SecondaryStory {...secondaryStory} key={secondaryStory.id} />
       })}
+      <TagList>
+         {tags.map(({node:tag})=>(
+           <TagItem key={tag.id} {...tag}/>
+           ))}
+      </TagList>
     <div>
-   
+      <Link to={'/about'}>About Page</Link>
+      <Link to={'/topics'}>Topics</Link>
       <LatestNewsList>
        {posts.map(({node:post})=>(
          <LatestNewsItem key={posts.id} {...post}/>
