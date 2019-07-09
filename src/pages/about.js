@@ -1,47 +1,82 @@
-import React from "react"
-import{graphql} from 'gatsby'
-import { Link } from 'gatsby'
-import "../styles/main.css"
-import Container from "../components/Container/Container"
+import React from 'react';
+import { graphql } from 'gatsby';
+import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
+import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import Container from '../components/Container/Container';
 
-const AboutPage = ({data}) =>{
-  const bioEntries=data.allContentfulBiographyElement.edges
-  return(
-    <div>
-      <h1>About Page</h1>
-    {bioEntries.map(({node:bioEntry})=>(
-      <div>
-      <h2><Link to={`/about/${bioEntry.slug}`}>{bioEntry.bioName}</Link></h2>
-      <img src={bioEntry.bioImage.fluid.src}/>
-      <p dangerouslySetInnerHTML={{__html:bioEntry.bioText.childMarkdownRemark.html}}></p>
-      </div>
-    ))}
-    </div>
-  )
+function determinePageElement(pageElement) {
+  switch (pageElement.__typename) {
+    case 'ContentfulBiographyElement':
+      return <ContentfulBiographyElement key={pageElement.id} {...pageElement} />
+
+    case 'ContentfulPhotoElement':
+      return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
+
+    case 'ContentfulTextElement':
+      return <ContentfulTextElement key={pageElement.id} {...pageElement} />
+
+    case 'ContentfulVideoElement':
+      return <ContentfulVideoElement key={pageElement.id} {...pageElement} />
+
+    default:
+      return <div className="no_block_type" />
+  }
 }
+
+const AboutPage = ({ data, pageContext }) => {
+  const { title, pageElements: [...pageElements] } = data.contentfulPage;
+
+  return (
+    <Container>
+      <h1>{title}</h1>
+      {pageElements.map((pageElement) => {
+        return determinePageElement(pageElement);
+      })}
+    </Container>
+  )
+};
 
 export const query = graphql`
   query {
-    allContentfulBiographyElement{
-      edges{
-        node{
-          bioName
-          slug
-          bioImage{
-            fluid{
-              src
+    contentfulPage(slug: { eq: "about" }) {
+      title
+      pageElements {
+        ... on ContentfulTextElement {
+          childContentfulTextElementBodyTextNode {
+            childMarkdownRemark {
+              html
             }
           }
-          bioText{
-            childMarkdownRemark{
+          id
+        }
+        ... on ContentfulBiographyElement {
+          id
+          bioImage {
+            title
+            file {
+              url
+            }
+          }
+          bioName
+          bioText {
+            childMarkdownRemark {
               html
             }
           }
         }
+        ... on ContentfulVideoElement {
+          id
+          source
+          embedCode
+          title
+        }
+        
       }
     }
   }
-
 `
 
-export default AboutPage
+export default AboutPage;
+

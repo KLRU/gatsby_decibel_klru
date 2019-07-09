@@ -36,7 +36,7 @@ div {
 }
    
 `
-const LatestNews = props =>{
+const LatestNews = props => {
   return(
     <LatestNewsDiv>{props.children}</LatestNewsDiv>
   )
