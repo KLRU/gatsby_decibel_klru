@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
-          <Link to={'/topics'}><p>+ More Topics</p></Link>
+          <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
       {/* <h1>{title}</h1> */}
@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
 query {
   allContentfulPost( sort: { fields: [publishDate], order: DESC }
-  skip:3) {
+  ) {
     edges {
       node {
         title

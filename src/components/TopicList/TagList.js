@@ -6,7 +6,8 @@ const List= styled.ul`
   margin:0;
   position:absolute;
   bottom:0;
-  right:0;
+  right:25px;
+
 `
 
 const TagList = props =>{

@@ -7,6 +7,9 @@ const HeaderMainDiv = styled.div`
   display:grid;
   border-bottom: 1px solid #ccc;
   grid-template-columns: 1fr 3fr;
+  .logoImage{
+    width: 125px;
+  }
   .linksDiv{
     display:grid;
     .navDiv{
@@ -24,6 +27,7 @@ const HeaderMainDiv = styled.div`
     text-align: start;
     align-items: start;
     position:relative;
+    padding-right:15px;
     a{
       color: #000
       text-decoration:none;
@@ -40,12 +44,12 @@ const Header =(props)=> {
   return(
     <HeaderMainDiv className="headerMainDiv">
       <div className="logoDiv">
-      <img src={Logo} alt='Logo' />
+      <Link to={'/'}><img src={Logo} alt='Logo' className='logoImage' /></Link>
       </div>
       <div className='linksDiv'>
       <div className="navDiv">
       <Link to={'/about'}>About Us</Link>
-      <Link to={'/topics'}>Topics</Link>
+      
       </div>
       <div className='topicsDiv'>
         {props.children}
