@@ -5,6 +5,7 @@ import Logo from '../../images/DesktopLoGo200px.png'
 
 const HeaderMainDiv = styled.div`
   display:grid;
+  z-index: 2;
   border-bottom: 1px solid #ccc;
   grid-template-columns: 1fr 3fr;
   .logoImage{

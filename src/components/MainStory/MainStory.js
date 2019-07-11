@@ -5,6 +5,7 @@ import Container from '../Container/Container';
 
 
 const MainStoryDiv = styled.div`
+  margin-top: 10px;
   img{
     width:100%;
     position:relative;

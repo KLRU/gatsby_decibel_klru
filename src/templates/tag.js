@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import TagCards from '../components/TagCards/tagCards';
 import TagCardContainer from '../components/TagCards/TagCardContainer';
+import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
@@ -18,6 +19,10 @@ const TagTemplate = ({ data, pageContext }) => {
     alignContent:'center',
     justifyItems:'center'
   };
+  const h1Style = {
+    textAlign:'center',
+    color:'#242323'
+  }
   return (
     <Container>
        <Header>
@@ -28,11 +33,11 @@ const TagTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
-      <h1>{title}</h1>
-      <div>
-      <div>{posts[0].title}</div>
-      <img src={posts[0].heroImage.fluid.src}/>
-      </div>
+      <h1 style={h1Style}>{title}</h1>
+      <FeaturedTagDiv>
+      <img src={posts[0].heroImage.fluid.src}/> 
+       <p>{posts[0].title}</p>
+      </FeaturedTagDiv>
     <TagCardContainer>
      
       <div style={divStyle}>

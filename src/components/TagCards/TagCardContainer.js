@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const TagCardContainerDiv = styled.div`
   width:1150px;
-  margin:0 auto;
+  margin:20px auto;
 `
 
 

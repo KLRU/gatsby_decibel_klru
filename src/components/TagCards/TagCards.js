@@ -5,20 +5,20 @@ import styled from 'styled-components';
 const TagCardDiv= styled.div`
   width: 300px;
   max-height: 300px;
-  position: relative;
+  padding:10px;
+  border: 1px solid #545252;
   img {
     width: 300px;
     height: 200px;
   }
   p {
     margin: 0;
-    margin-top: -40px;
+    margin-top: 10px;
     width: 100%;
-    padding-left: 10px;
-    position: absolute;
-    color: #fff;
+    padding-left: 0px;
+    color: #000;
     font-size: 20px;
-    background-color: #000;
+   
   }
 `
 const TagCards = props => {

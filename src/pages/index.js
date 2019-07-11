@@ -10,6 +10,8 @@ import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
 import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid';
+import BottomGridDiv from '../components/BottomGrid/BottomGridDiv';
+import TexasMutual from '../components/BottomGrid/TexasMutual';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 
@@ -41,13 +43,17 @@ const IndexPage = ({ data }) => {
     <div>
       {/* <Link to={'/about'}>About Page</Link>
       <Link to={'/topics'}>Topics</Link> */}
+      <BottomGridDiv>
       <LatestNewsList>
-        <h2>Latest News</h2>
+        <h1>Latest News</h1>
        {posts.map(({node:post})=>(
          <LatestNewsItem key={posts.id} {...post}/>
        ))}
       </LatestNewsList>
+      <TexasMutual>
 
+      </TexasMutual>
+      </BottomGridDiv>
 
       
     </div>

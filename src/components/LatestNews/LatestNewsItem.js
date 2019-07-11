@@ -6,7 +6,6 @@ import Img from 'gatsby-image'
 
 const LatestNewsDiv = styled.div`
 box-sizing: border-box;
-width:80%;
 .news_item {
   display:grid;
   grid-template-columns: 1fr 3fr;
