@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import BioElementsGrid from '../components/BioElements/BioElementsGrid'
 import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
 import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
@@ -9,7 +10,7 @@ import Container from '../components/Container/Container';
 function determinePageElement(pageElement) {
   switch (pageElement.__typename) {
     case 'ContentfulBiographyElement':
-      return <ContentfulBiographyElement key={pageElement.id} {...pageElement} />
+      return <BioElementsGrid><ContentfulBiographyElement key={pageElement.id} {...pageElement} /></BioElementsGrid>
 
     case 'ContentfulPhotoElement':
       return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />

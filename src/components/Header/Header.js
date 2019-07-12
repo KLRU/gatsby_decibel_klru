@@ -7,9 +7,11 @@ const HeaderMainDiv = styled.div`
   display:grid;
   z-index: 2;
   border-bottom: 1px solid #ccc;
+  box-shadow: 0px 2px 3px #eee;
   grid-template-columns: 1fr 3fr;
   .logoImage{
     width: 125px;
+    padding-left:50px;
   }
   .linksDiv{
     display:grid;
@@ -28,7 +30,6 @@ const HeaderMainDiv = styled.div`
     text-align: start;
     align-items: start;
     position:relative;
-    padding-right:15px;
     a{
       color: #000
       text-decoration:none;
