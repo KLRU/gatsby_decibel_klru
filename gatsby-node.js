@@ -84,7 +84,6 @@ exports.createPages = ({graphql, actions}) => {
       }
     `).then(result => {
       const tags = result.data.allContentfulTag.edges
-
       tags.forEach((edge) =>{
         createPage({
           path: `/${edge.node.slug}/`,
@@ -97,46 +96,5 @@ exports.createPages = ({graphql, actions}) => {
       resolve()
     })
   })
-  return Promise.all([loadPage, loadPost, loadTags])
-}
-
-//   const loadBioPage = new Promise((resolve, reject)=>{
-//     graphql(`
-//     {
-//       allContentfulBiographyElement{
-//         edges{
-//            node{
-//               bioName
-//               slug
-//               bioImage{
-//                 fluid{
-//                   src
-//                   }
-//                 }
-//               bioText{
-//                 childMarkdownRemark{
-//                   html
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//     `).then(result =>{
-//       const bioEntries = result.data.allContentfulBiographyElement.edges
-
-//       bioEntries.forEach((edge)=>{
-//         createPage({
-//           path: `${edge.node.slug}`,
-//           component: path.resolve(`./src/templates/bio.js`),
-//           context:{
-//             slug:edge.node.slug
-//           },
-//         })
-//       })
-//       resolve()
-//     })
-//   })
-
-//   return Promise.all([loadPost, loadTags, loadBioPage])
-// }
+  Promise.all([loadPost, loadTags])
+};

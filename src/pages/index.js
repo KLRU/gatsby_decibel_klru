@@ -92,27 +92,6 @@ query {
         tags {
           title
           slug
-        }
-        featured
-      }
-    }
-  },
-  allContentfulTag(
-    limit: 10
-    sort: { fields: [post___publishDate], order: DESC }
-  ){
-    edges {
-      node {
-        title
-        slug
-      }
-    }
-  },
-  allContentfulHomepage {
-    edges {
-      node {
-        title
-        mainStory {
           id
           title
           slug
@@ -134,9 +113,29 @@ query {
           id
           title
           slug
-          heroImage {
-            fluid {
-              src
+        }
+      }
+    },
+    allContentfulHomepage {
+      edges {
+        node {
+          title
+          mainStory {
+            id
+            title
+            slug
+            heroImage {
+              fluid {
+                src
+              }
+              description
+            }
+            body {
+              body
+            }
+            tags {
+              title
+              slug
             }
             description
           }
