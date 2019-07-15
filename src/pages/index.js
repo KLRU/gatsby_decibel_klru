@@ -47,27 +47,6 @@ export const query = graphql`
         node {
           title
           slug
-        }
-        featured
-      }
-    }
-  },
-  allContentfulTag(
-    limit: 10
-    sort: { fields: [post___publishDate], order: DESC }
-  ){
-    edges {
-      node {
-        title
-        slug
-      }
-    }
-  },
-  allContentfulHomepage {
-    edges {
-      node {
-        title
-        mainStory {
           id
           heroImage {
             fluid {
@@ -107,7 +86,6 @@ export const query = graphql`
         }
       }
     },
-
     allContentfulHomepage {
       edges {
         node {
