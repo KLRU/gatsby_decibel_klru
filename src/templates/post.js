@@ -23,7 +23,7 @@ const PostTemplate = ({ data, pageContext }) => {
       {/* <ContentfulVideoElement {...featuredVideo}/> */}
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
 
-      {/* <h2>Tags:</h2>
+      <h2>Tags:</h2>
       {tags.map((tag) => {
         return <TagItem {...tag} key={tag.id} />
       })}
@@ -33,8 +33,8 @@ const PostTemplate = ({ data, pageContext }) => {
         {relatedPosts.map((relatedPost) => {
           return <TagCards tag={tag} { ...relatedPost.node } />
         })}
-      </div> */}
-      {/* <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> */}
+      </div>
+      <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> 
     </Container>
   )
 }
@@ -101,3 +101,5 @@ export const query = graphql`
   }
 `
 export default PostTemplate;
+
+

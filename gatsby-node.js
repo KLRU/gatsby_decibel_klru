@@ -1,41 +1,13 @@
 const path = require('path');
 
-exports.createPages = ({graphql, actions}) => {
+exports.createPages = ({ actions, graphql }) =>{
   const { createPage } = actions;
-
-  // const loadPage = new Promise((resolve, reject) => {
-  //   graphql(`
-  //     {
-  //       allContentfulPage {
-  //         edges {
-  //           node {
-  //             title
-  //             slug
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `).then(result => {
-  //     const pages = result.data.allContentfulPage.edges
-
-  //     pages.forEach((page) => {
-  //       createPage({
-  //         path:`/${page.node.slug}/`,
-  //         component: path.resolve(`./src/templates/page.js`),
-  //         context:{
-  //             slug: page.node.slug,
-  //           },
-  //       })
-  //     })
-  //     resolve()
-  //   })
-  // })
 
   const loadPost = new Promise((resolve, reject) => {
     graphql(`
       {
         allContentfulPost (
-          sort: { fields: [publishDate], order:DESC }
+          sort: { fields: [publishDate] }
           limit: 1000
         ){
           edges {
@@ -59,6 +31,8 @@ exports.createPages = ({graphql, actions}) => {
             path: `/${tag.slug}/${edge.node.slug}/`,
             component: path.resolve(`./src/templates/post.js`),
             context:{
+              tag: tag.slug,
+              tagTitle: tag.title,
               slug: edge.node.slug,
             },
           })
@@ -69,7 +43,7 @@ exports.createPages = ({graphql, actions}) => {
   })
 
   const loadTags = new Promise((resolve, reject) =>{
-    graphql(`
+     graphql(`
       {
         allContentfulTag{
           edges{
@@ -84,6 +58,7 @@ exports.createPages = ({graphql, actions}) => {
       }
     `).then(result => {
       const tags = result.data.allContentfulTag.edges
+
       tags.forEach((edge) =>{
         createPage({
           path: `/${edge.node.slug}/`,
@@ -98,3 +73,5 @@ exports.createPages = ({graphql, actions}) => {
   })
   Promise.all([loadPost, loadTags])
 };
+
+

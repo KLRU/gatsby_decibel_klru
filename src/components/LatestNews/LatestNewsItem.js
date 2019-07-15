@@ -41,7 +41,7 @@ const LatestNewsItem = props => {
       <img src={props.heroImage.fluid.src} alt={props.title} />
       </div>
       <div className='story'>
-      <h1><Link to={props.slug}>{props.title}</Link></h1>
+      <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1>
             <p className='date'>{props.publishDate}</p>
             <p className='excerpt' dangerouslySetInnerHTML={{__html:props.body.childMarkdownRemark.excerpt}}></p>
       </div>
