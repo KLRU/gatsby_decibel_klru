@@ -20,7 +20,7 @@ const PostTemplate = ({ data, pageContext }) => {
     <Container>
       <h1>{title}</h1>
       <p>{publishDate}</p>
-      {/* <ContentfulVideoElement {...featuredVideo}/> */}
+      <ContentfulVideoElement {...featuredVideo}/>
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
 
       <h2>Tags:</h2>
