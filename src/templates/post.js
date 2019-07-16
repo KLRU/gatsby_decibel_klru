@@ -1,15 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import Header from '../components/Header/Header';
+
 
 const PostTemplate = ({ data, pageContext }) => {
   const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
+  const tags2 = data.allContentfulTag.edges;
 
   const divStyle = {
     display: 'grid',
@@ -18,9 +22,17 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return(
     <Container>
+      <Header>
+      <TagList>
+         {tags2.map(({node:tag})=>(
+           <TagItem key={tag.id} {...tag}/>
+           ))}
+          <Link to={'/topics'}><p>+ More Topics</p></Link>
+      </TagList>
+      </Header>
       <h1>{title}</h1>
       <p>{publishDate}</p>
-      {/* <ContentfulVideoElement {...featuredVideo}/> */}
+       <ContentfulVideoElement {...featuredVideo}/>
       <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
 
       <h2>Tags:</h2>
@@ -95,6 +107,17 @@ export const query = graphql`
               src
             }
           }
+        }
+      }
+    },
+    allContentfulTag(
+      limit: 10
+      sort: { fields: [post___publishDate], order: DESC }
+    ){
+      edges {
+        node {
+          title
+          slug
         }
       }
     }

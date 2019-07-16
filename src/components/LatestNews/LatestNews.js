@@ -4,38 +4,11 @@ import styled from 'styled-components';
 
 
 const LatestNewsDiv = styled.div`
-box-sizing: border-box;
-
-width:80%;
-.story {
-  border-bottom: 1px solid #ccc;
-}
-div {
+  width: 1150px;
+  margin: 0 auto;
   display:grid;
-  grid-template-columns: 1fr 3fr;
-  margin-bottom: 20px;
-  .storyImage {
-    img {
-      width: 200px;
-    }
-  }
-  .latestNewsText {
-    padding-left:20px;
-    display:block;
-    align-items:center;
-    h1 {
-      font-size: 20px;
-      margin:0;
-      padding-top:10px;
-    }
-    p {
-      font-size: 18px;
-      padding: 1px;
-      margin-top: 2px;
-    }
-  }
-}
-   
+  grid-template-columns: 70% 30%;
+
 `
 const LatestNews = props => {
   return(

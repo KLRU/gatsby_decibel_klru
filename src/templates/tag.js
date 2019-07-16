@@ -10,6 +10,7 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 
 const TagTemplate = ({ data, pageContext }) => {
+  //const topicTag = data.contentfulTag
   const posts = data.contentfulTag.post;
   const tags = data.allContentfulTag.edges;
   const { title, slug } = data.contentfulTag;
@@ -36,7 +37,7 @@ const TagTemplate = ({ data, pageContext }) => {
       <h1 style={h1Style}>{title}</h1>
       <FeaturedTagDiv>
       <img src={posts[0].heroImage.fluid.src}/> 
-       <p>{posts[0].title}</p>
+      <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>
     <TagCardContainer>
      

@@ -3,12 +3,17 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/main.css'
 import Container from '../components/Container/Container';
+import Header from '../components/Header/Header';
+import HeroGrid from '../components/HeroGrid'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
+import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid'
+import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
+import TexasMutual from '../components/LatestNews/TexasMutual'
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
@@ -16,25 +21,28 @@ const IndexPage = ({ data }) => {
   const [ ...tags ] = data.allContentfulTag.edges;
   return (
     <Container>
-      <h1>{title}</h1>
-      <MainStory {...mainStory} key={mainStory.id} />
-      {secondaryStories.map((secondaryStory) => {
-        return <SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
-      })}
+      <Header>
       <TagList>
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
       </TagList>
-      <div>
-        <Link to={'/about'}>About Page</Link>
-        <Link to={'/topics'}>Topics</Link>
+      </Header>
+      <HeroGrid>
+      <MainStory {...mainStory} key={mainStory.id} /> 
+      <SecondaryStoryGrid>
+      {secondaryStories.map((secondaryStory) => {
+        return<SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
+      })}</SecondaryStoryGrid>
+      </HeroGrid>
+     <LatestNews>
         <LatestNewsList>
          {posts.map(({node:post})=>(
            <LatestNewsItem key={posts.id} {...post}/>
          ))}
-        </LatestNewsList>        
-      </div>
+        </LatestNewsList> 
+        <TexasMutual />       
+    </LatestNews>
     </Container>
   )
 };
