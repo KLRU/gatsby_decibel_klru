@@ -5,8 +5,10 @@ import styled from 'styled-components';
 const TagCardDiv= styled.div`
   width: 300px;
   max-height: 300px;
+  margin: 0 auto;
   padding:10px;
-  border: 1px solid #545252;
+  border: 1px solid #E7E9E9;
+  box-shadow: 0px 2px 3px #eee;
   img {
     width: 300px;
     height: 200px;

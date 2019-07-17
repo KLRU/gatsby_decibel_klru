@@ -1,16 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import BioElementsGrid from '../components/BioElements/BioElementsGrid'
 import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
 import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import BioElementsBotttomDiv from '../components/BioElements/BioElementsBottomDiv'
+import Header from '../components/Header/Header';
+import TagList from '../components/TopicList/TagList';
+import TagItem from '../components/TopicList/TagItem';
 import Container from '../components/Container/Container';
 
 function determinePageElement(pageElement) {
   switch (pageElement.__typename) {
     case 'ContentfulBiographyElement':
-      return <BioElementsGrid><ContentfulBiographyElement key={pageElement.id} {...pageElement} /></BioElementsGrid>
+      return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
 
     case 'ContentfulPhotoElement':
       return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
@@ -28,13 +31,28 @@ function determinePageElement(pageElement) {
 
 const AboutPage = ({ data, pageContext }) => {
   const { title, pageElements: [...pageElements] } = data.contentfulPage;
-
+  const [ ...tags ] = data.allContentfulTag.edges;
+  const h1Style ={
+    textAlign:'center'
+  }
   return (
     <Container>
-      <h1>{title}</h1>
+       <Header>
+      <TagList>
+         {tags.map(({node:tag})=>(
+           <TagItem key={tag.id} {...tag}/>
+           ))}
+      </TagList>
+      </Header>
+      <h1 style={h1Style}>{title}</h1>
+  <BioElementsBotttomDiv>
+    <div className='bioElementEntryDiv'>
       {pageElements.map((pageElement) => {
         return determinePageElement(pageElement);
       })}
+    </div>
+  </BioElementsBotttomDiv>
+  
     </Container>
   )
 };
@@ -74,6 +92,17 @@ export const query = graphql`
           title
         }
         
+      }
+    },
+    allContentfulTag(
+      limit: 10
+      sort: { fields: [post___publishDate], order: DESC }
+    ){
+      edges {
+        node {
+          title
+          slug
+        }
       }
     }
   }

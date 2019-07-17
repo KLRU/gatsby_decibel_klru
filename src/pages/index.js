@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/main.css'
 import Container from '../components/Container/Container';
-import Header from '../components/Header/Header';
 import HeroGrid from '../components/HeroGrid'
+import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';

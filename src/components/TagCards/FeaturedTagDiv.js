@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const FeaturedTagCardDiv= styled.div`
   min-width:650px;
   margin:0 auto;
-  border: 1px solid #545252;
+  border: 1px solid #E7E9E9;
+  box-shadow: 0px 2px 3px #eee;
   padding:20px;
   img{
     width:100%;

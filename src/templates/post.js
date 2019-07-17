@@ -7,6 +7,8 @@ import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
+import PostDiv from '../components/Posts/PostDiv';
+import VideoDiv from '../components/Posts/VideoDiv'
 
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -30,10 +32,13 @@ const PostTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
-      <h1>{title}</h1>
-      <p>{publishDate}</p>
+        <VideoDiv>
        <ContentfulVideoElement {...featuredVideo}/>
-      <p dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
+       </VideoDiv>
+       <PostDiv>
+        <h1>{title}</h1>
+        <p className='publishDate'>{publishDate}</p>
+        <p className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
 
       <h2>Tags:</h2>
       {tags.map((tag) => {
@@ -47,6 +52,7 @@ const PostTemplate = ({ data, pageContext }) => {
         })}
       </div>
       <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> 
+      </PostDiv>
     </Container>
   )
 }
