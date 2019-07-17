@@ -4,10 +4,10 @@ import BioElementsGrid from '../BioElements/BioElementsGrid';
 
 const ContentfulBiographyElement = props => {
   return (
-    <BioElementsGrid>
+    <BioElementsGrid>  
+      <p>{props.bioName}</p>
       <img src={`https:${props.bioImage.file.url}`} alt={props.bioName} />
      <div>
-      <p>{props.bioName}</p>
       <p dangerouslySetInnerHTML={{__html:props.bioText.childMarkdownRemark.html}}></p>
     </div>
     </BioElementsGrid>

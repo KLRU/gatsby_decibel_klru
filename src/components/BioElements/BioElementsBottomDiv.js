@@ -10,7 +10,6 @@ const BioBottomDiv =styled.div`
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
-
 }
 .bioElementEntryDiv div:nth-child(1){
   grid-column: span 2;
