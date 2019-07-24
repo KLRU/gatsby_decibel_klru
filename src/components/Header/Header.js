@@ -26,15 +26,31 @@ const HeaderMainDiv = styled.div`
     }
   }
   .topicsDiv{
-    display:inline;
-    text-align: start;
+    display:inline-block;
+    text-align: end;
     align-items: start;
     position:relative;
+    ul{
+      margin:0;
+      margin-top:30px;
+    }
+    li{
+      display: inline;
+      text-align:end;
+      padding: 0 10px;
+    }
+    .allTopicsDrop{
+      text-align:end;
+      margin-right:25px;
+      margin-left:0;
+      padding:0;
+    }
     a{
       color: #000
       text-decoration:none;
-      display:inline-block;
+      display:block;
       padding: 10px;
+      background-color: #fff;
    }
   }
   }
@@ -42,23 +58,56 @@ const HeaderMainDiv = styled.div`
 `
 
 
-const Header =(props)=> {
-  return(
-    <HeaderMainDiv className="headerMainDiv">
-      <div className="logoDiv">
-      <Link to={'/'}><img src={Logo} alt='Logo' className='logoImage' /></Link>
-      </div>
-      <div className='linksDiv'>
-      <div className="navDiv">
-      <Link to={'/about'}>About Us</Link>
-      
-      </div>
-      <div className='topicsDiv'>
-        {props.children}
-      </div>
-      </div>
-  </HeaderMainDiv>
-  )
+class Header extends React.Component {
+  state={
+    open:false,
+  }
+  handleDropdown = () =>{
+    this.setState(state =>{
+      return{
+        open: !state.open,
+      }
+    })
+  }
+
+  render(){
+    // function showTopics(e){
+    //   console.log(e.target)
+    //   const x= document.getElementById('topicsDiv');
+    //   x.style.display='block'
+    // }
+    return(
+      <HeaderMainDiv className="headerMainDiv">
+        <div className="logoDiv">
+        <Link to={'/'}><img src={Logo} alt='Logo' className='logoImage' /></Link>
+        </div>
+        <div className='linksDiv'>
+        <div className="navDiv">
+        <Link to={'/about'}>About Us</Link>
+        
+        </div>
+        
+        <div className='topicsDiv'>
+          <div>
+            <ul>
+              <li>Decibel Dialogue</li>
+              <li>Episodes</li>
+              <li>Blog</li>
+             <li className='allTopicsDrop' onClick={this.handleDropdown}>All Topics + </li>
+           </ul>
+           </div>
+           {this.state.open && (
+               <div className='dropdownMenu'>
+            {this.props.children}
+            </div>
+           )}
+         
+        </div>
+        </div>
+    </HeaderMainDiv>
+    )
+  }
+  
 }
 
 export default Header

@@ -49,8 +49,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulPost( sort: { fields: [publishDate], order: DESC }
-    skip:3) {
+    allContentfulPost( sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           title

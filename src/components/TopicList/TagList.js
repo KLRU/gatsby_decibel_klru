@@ -4,15 +4,16 @@ import styled from 'styled-components'
 
 const List= styled.ul`
   margin:0;
+  margin-top:60px;
+  display: block;
   position:absolute;
-  bottom:0;
   right:25px;
 
 `
 
 const TagList = props =>{
   return(
-  <List>{props.children}</List>
+  <List id='topicsDiv'>{props.children}</List>
   // <List>
   //   {props.tags.map(tag =>(
   //     <li key={tag.id}>
