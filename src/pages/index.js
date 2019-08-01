@@ -8,6 +8,8 @@ import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import MainStory from '../components/MainStory/MainStory';
+import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
 import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid'
 import LatestNews from '../components/LatestNews/LatestNews';
@@ -106,6 +108,10 @@ export const query = graphql`
                 src
               }
               description
+            }
+            featuredVideo{
+              embedCode
+              source
             }
             body {
               body

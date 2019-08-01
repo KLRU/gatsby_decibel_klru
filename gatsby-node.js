@@ -71,7 +71,39 @@ exports.createPages = ({ actions, graphql }) =>{
       resolve()
     })
   })
-  Promise.all([loadPost, loadTags])
+
+  const loadBlog = new Promise((resolve, reject) =>{
+    graphql(`
+      {
+        allContentfulBlogPost{
+          edges{
+            node{
+              slug
+              date
+              tags{
+                title
+                slug
+              }
+            }
+          }
+        }
+      }
+    `).then(result =>{
+      const blogPosts = result.data.allContentfulBlogPost.edges
+
+      blogPosts.forEach((edge) =>{
+        createPage({
+          path:`/${edge.node.slug}/`,
+          component: path.resolve('./src/templates/blogTemplate.js'),
+          context:{
+            slug:edge.node.slug
+          },
+        })
+      })
+      resolve()
+    })
+  })
+  Promise.all([loadPost, loadTags, loadBlog])
 };
 
 

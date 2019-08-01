@@ -32,6 +32,7 @@ const PostTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
+      
         <VideoDiv>
        <ContentfulVideoElement {...featuredVideo}/>
        </VideoDiv>
