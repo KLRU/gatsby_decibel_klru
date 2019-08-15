@@ -6,6 +6,7 @@ import TagCardContainer from '../components/TagCards/TagCardContainer';
 import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 
@@ -47,6 +48,7 @@ const TagTemplate = ({ data, pageContext }) => {
       ))}
       </div>
     </TagCardContainer>
+    <Footer />
     </Container>
   )
 };

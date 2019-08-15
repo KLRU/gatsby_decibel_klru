@@ -15,6 +15,9 @@ h1{
   padding: 0 30px;
   font-size: 20px;
 }
+h2{
+  font-size:18px;
+}
 `
 const PostDiv = (props)=>{
   return(

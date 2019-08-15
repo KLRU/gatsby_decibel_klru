@@ -10,7 +10,7 @@ const TexasMutualDiv = styled.div`
 const TexasMutual = (props) =>{
   return(
     <TexasMutualDiv>
-       <Link to={'https://www.texasmutual.com/'}><img src={TexasMutualLogo} alt='TMLogo' className='logoImage' /></Link>
+      <a href='https://www.texasmutual.com/'><img src={TexasMutualLogo} alt='TMLogo' className='logoImage' /></a>
     </TexasMutualDiv>
   )
 }

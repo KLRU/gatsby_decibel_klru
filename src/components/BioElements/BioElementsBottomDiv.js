@@ -6,10 +6,10 @@ const BioBottomDiv =styled.div`
 
 .bioElementEntryDiv{
   width:1100px;
-  margin:0 auto; 
+  margin:10px auto; 
   display:grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 50px;
+  grid-gap: 25px;
 }
 .bioElementEntryDiv div:nth-child(1){
   grid-column: span 2;
@@ -18,7 +18,7 @@ const BioBottomDiv =styled.div`
 }
 .bioElementEntryDiv p:nth-child(2){
   grid-column: span 2;
-  font-size:20px;
+  font-size:26px;
   margin-top:0px;
   margin-bottom:0;
 }

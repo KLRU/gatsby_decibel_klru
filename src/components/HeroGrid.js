@@ -3,7 +3,7 @@ import {Link} from 'gatsby'
 import styled from 'styled-components'
 
 const HeroGridDiv = styled.div`
-  max-width:1150px;
+  width:1150px;
   margin: 0 auto;
   
 `

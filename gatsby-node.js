@@ -1,6 +1,6 @@
 const path = require('path');
 
-exports.createPages = ({ actions, graphql }) =>{
+exports.createPages = async ({ actions, graphql }) =>{
   const { createPage } = actions;
 
   const loadPost = new Promise((resolve, reject) => {
@@ -96,14 +96,14 @@ exports.createPages = ({ actions, graphql }) =>{
           path:`/${edge.node.slug}/`,
           component: path.resolve('./src/templates/blogTemplate.js'),
           context:{
-            slug:edge.node.slug
+            slug:edge.node.slug,
           },
         })
       })
       resolve()
     })
   })
-  Promise.all([loadPost, loadTags, loadBlog])
+  await Promise.all([loadPost, loadTags, loadBlog])
 };
 
 

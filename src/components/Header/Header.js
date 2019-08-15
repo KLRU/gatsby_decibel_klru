@@ -9,6 +9,7 @@ const HeaderMainDiv = styled.div`
   border-bottom: 1px solid #ccc;
   box-shadow: 0px 2px 3px #eee;
   grid-template-columns: 1fr 3fr;
+  height:125px;
   .logoImage{
     width: 125px;
     padding-left:50px;
@@ -34,7 +35,7 @@ const HeaderMainDiv = styled.div`
       margin:0;
       margin-top:30px;
     }
-    li{
+   .topicLink{
       display: inline;
       text-align:end;
       padding: 0 10px;
@@ -90,10 +91,10 @@ class Header extends React.Component {
         <div className='topicsDiv'>
           <div>
             <ul>
-              <li>Decibel Dialogue</li>
-              <li>Episodes</li>
-              <li>Blog</li>
-             <li className='allTopicsDrop' onClick={this.handleDropdown}>All Topics + </li>
+              <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link>
+              <Link className='topicLink' to={`/episodes`}>Episodes</Link>
+              <Link className='topicLink'to={`/blog`}>Blog</Link>
+             <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>All Topics + </li>
            </ul>
            </div>
            {this.state.open && (

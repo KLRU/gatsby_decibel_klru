@@ -15,6 +15,7 @@ import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid'
 import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
+import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual'
 
 const IndexPage = ({ data }) => {
@@ -45,6 +46,7 @@ const IndexPage = ({ data }) => {
         </LatestNewsList> 
         <TexasMutual />       
     </LatestNews>
+    <Footer />
     </Container>
   )
 };
@@ -86,7 +88,7 @@ export const query = graphql`
     },
     allContentfulTag(
       limit: 10
-      sort: { fields: [post___publishDate], order: DESC }
+      sort: { fields: title, order: ASC  }
     ){
       edges {
         node {
@@ -103,6 +105,7 @@ export const query = graphql`
             id
             title
             slug
+            publishDate(formatString: "MMMM DD, YYYY")
             heroImage {
               fluid {
                 src
@@ -125,6 +128,7 @@ export const query = graphql`
             id
             title
             slug
+            publishDate(formatString: "MMMM DD, YYYY")
             heroImage {
               fluid {
                 src

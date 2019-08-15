@@ -4,8 +4,10 @@ import styled from 'styled-components'
 
 const StoryDiv= styled.div`
   display:grid;
-  grid-template-columns:50% 50%;
-  grid-gap:1px;
+  width:1150px;
+  grid-template-columns:550px 550px;
+ 
+  grid-gap:50px;
 `
 
 const SecondaryStoryGrid = props =>{

@@ -15,6 +15,9 @@ padding:10px;
   img{
     width:100%;
   }
+  p{
+    font-size: 24px;
+  }
 `
 
 

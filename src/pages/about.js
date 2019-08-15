@@ -8,6 +8,7 @@ import BioElementsBotttomDiv from '../components/BioElements/BioElementsBottomDi
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
+import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 
 function determinePageElement(pageElement) {
@@ -52,7 +53,7 @@ const AboutPage = ({ data, pageContext }) => {
       })}
     </div>
   </BioElementsBotttomDiv>
-  
+  <Footer />
     </Container>
   )
 };
@@ -96,7 +97,7 @@ export const query = graphql`
     },
     allContentfulTag(
       limit: 10
-      sort: { fields: [post___publishDate], order: DESC }
+      sort: { fields: title, order: ASC  }
     ){
       edges {
         node {
