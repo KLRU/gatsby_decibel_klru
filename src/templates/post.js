@@ -129,7 +129,7 @@ export const query = graphql`
     },
     allContentfulTag(
       limit: 10
-      sort: { fields: [post___publishDate], order: DESC }
+      sort: { fields: title, order: ASC}
     ){
       edges {
         node {

@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const PostDivDiv = styled.div`
-width:1150px;
+width:100%;
 margin: 10px auto;
 h1{
   margin:0;

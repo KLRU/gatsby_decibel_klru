@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
-import '../styles/main.css'
+import '../styles/global.css'
 import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid'
 import Header from '../components/Header/Header';
@@ -29,6 +29,7 @@ const IndexPage = ({ data }) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
+           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
       <HeroGrid>

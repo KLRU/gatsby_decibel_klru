@@ -9,11 +9,12 @@ const FooterDiv = styled.div`
   display:grid;
   margin:0;
   width:100%;
-  height: 200px;
+  min-height: 200px;
   padding-top: 20px;
   background-color: #000;
   color:#fff;
-  grid-template-columns: 1fr 1fr 1fr;
+  //grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   text-align:center;
   a{
     color:#fff;

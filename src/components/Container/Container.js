@@ -1,6 +1,19 @@
 import React from 'react';
-import containerStyles from './container.module.css';
+import {Link} from 'gatsby'
+import styled from 'styled-components'
 
-export default ({ children }) => (
-  <div className={containerStyles.container}>{children}</div>
-);
+const ContainerDiv = styled.div`
+margin: 0 auto;
+max-width: 1200px;
+display:grid;
+`
+
+const Container = props => {
+  return (
+    <ContainerDiv>
+      {props.children}
+    </ContainerDiv>
+  )
+}
+
+export default Container;

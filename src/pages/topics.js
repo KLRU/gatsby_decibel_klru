@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
-import '../styles/main.css';
+import '../styles/global.css';
 import Container from '../components/Container/Container';
 
 const TopicsPage = ({ data }) => {

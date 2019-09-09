@@ -17,7 +17,10 @@ const TagTemplate = ({ data, pageContext }) => {
   const { title, slug } = data.contentfulTag;
   const divStyle = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    width:'1150px',
+    margin: '20px auto',
+    //marginTop: '20px',
     alignContent:'center',
     justifyItems:'center'
   };
@@ -40,14 +43,13 @@ const TagTemplate = ({ data, pageContext }) => {
       <img src={posts[0].heroImage.fluid.src}/> 
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>
-    <TagCardContainer>
-     
-      <div style={divStyle}>
+    <div style={divStyle}>
+    
       {posts.slice(1).map(post =>(
         <TagCards key={post.id} tag={slug} { ...post } />
       ))}
-      </div>
-    </TagCardContainer>
+   
+    </div>
     <Footer />
     </Container>
   )
@@ -77,7 +79,7 @@ export const query = graphql`
     },
     allContentfulTag(
       limit: 10
-      sort: { fields: [post___publishDate], order: DESC }
+      sort: { fields: title, order: ASC }
     ){
       edges {
         node {

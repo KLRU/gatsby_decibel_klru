@@ -6,11 +6,11 @@ import Container from '../Container/Container';
 
 
 const SecondaryStoryDiv = styled.div`
-  display:grid;
+  //display:grid;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 4px #eee;
   img{
-    width:550px;
+    width:100%;
     height:300px;
     position:relative;
   }
@@ -35,11 +35,11 @@ const SecondaryStory = props => {
   return (
    
     <SecondaryStoryDiv>
-      <div>
+     
       <Link to={`/${secondaryStory.tags[0].slug}/${secondaryStory.slug}`}><img src={`http:${secondaryStory.heroImage.fluid.src}`} alt={secondaryStory.heroImage.title} className='latestNewsImage' /></Link>
       <Link to={`/${secondaryStory.tags[0].slug}/${secondaryStory.slug}`}><div className='secondaryTitle'><h2>{secondaryStory.title}</h2>
       <p>{secondaryStory.publishDate}</p></div></Link>
-      </div>
+     
     </SecondaryStoryDiv>
 
   )

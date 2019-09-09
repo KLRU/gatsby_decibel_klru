@@ -5,13 +5,14 @@ import Logo from '../../images/DesktopLoGo200px.png'
 
 const HeaderMainDiv = styled.div`
   display:grid;
+  width:100%;
   z-index: 2;
   border-bottom: 1px solid #ccc;
-  box-shadow: 0px 2px 3px #eee;
   grid-template-columns: 1fr 3fr;
   height:125px;
   .logoImage{
-    width: 125px;
+    width: 100%;
+    height:100%;
     padding-left:50px;
   }
   .linksDiv{

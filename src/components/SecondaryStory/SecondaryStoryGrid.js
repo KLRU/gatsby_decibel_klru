@@ -4,10 +4,14 @@ import styled from 'styled-components'
 
 const StoryDiv= styled.div`
   display:grid;
-  width:1150px;
-  grid-template-columns:550px 550px;
- 
-  grid-gap:50px;
+  //width:100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  //grid-auto-rows: auto;
+  grid-column-gap:50px;
+  grid-row-gap:20px;
+  // @media only screen and (max-width: 1170px){
+  //   display:none;
+  // }
 `
 
 const SecondaryStoryGrid = props =>{

@@ -7,28 +7,45 @@ import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 const MainStoryDiv = styled.div`
   margin-top: 10px;
+  width:100%;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 4px #eee;
   margin-bottom:10px;
   box-sizing:border-box;
-  iframe{
-    width:1150px;
-    height: 650px;
+  display:grid;
+  .videoDiv{
+    width:100%; 
+    height:0;
+    padding-bottom:56.25%;
     position:relative;
-    border:0;
   }
-  img{
+  .videoDiv iframe{
+    position:absolute;
     width:100%;
-    position:relative;
+    height:100%;
+    border:none;
+  }
+  .videoDiv img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:none;
   }
   .mainTitle{
     background-color:#fff;
-    width:1150px;
+    width:100%;
     margin-top:-85px;
     padding: 20px 0 0 0;
-    position:absolute;
-     h1{
+    z-index:5;
     //position:absolute;
+  }
+  p{
+    text-align:center;
+    margin:0;
+  }
+  h1{
+    //position:absolute;
+    width:100%;
     text-align:center;
     z-index:3;
     margin:0;
@@ -36,12 +53,6 @@ const MainStoryDiv = styled.div`
     color:#000;
     //padding: 10px;
   }
-  p{
-    text-align:center;
-    margin:0;
-  }
-  }
- 
 `
 const MainStory = props => {
   const mainStory = props;
@@ -49,7 +60,7 @@ const MainStory = props => {
   function HeroDiv(){
     if(mainStory.featuredVideo.source === 'Facebook'){
       return <iframe
-      src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${mainStory.featuredVideo.embedCode}/`}
+      src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${mainStory.featuredVideo.embedCode}/` }
       //title={mainStory.featuredVideo.title}
     />
     }else if(mainStory.featuredVideo.source === 'YouTube'){
@@ -73,13 +84,19 @@ const MainStory = props => {
   }
   return(
     <MainStoryDiv>
+    
+      {/* <Link to={`/${mainStory.tags[0].slug}/${mainStory.slug}/`}>
+      
+      </Link> */}
+      <div className='videoDiv'>
+      <HeroDiv />
+      </div>
+      <div className = 'mainTitle'>
       <Link to={`/${mainStory.tags[0].slug}/${mainStory.slug}/`}>
-        </Link>
-        <HeroDiv />
-      <Link to={`/${mainStory.tags[0].slug}/${mainStory.slug}/`}><div className='mainTitle'>
         <h1>{mainStory.title}</h1>
         <p>{mainStory.publishDate}</p>
-        </div></Link>
+      </Link>
+     </div>
     </MainStoryDiv>
   )
 };
