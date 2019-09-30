@@ -22,12 +22,20 @@ const PostTemplate = ({ data, pageContext }) => {
     if(featuredVideo){
       return <ContentfulVideoElement {...featuredVideo}/>
     }
-    return <img src={`http:${heroImage.file.url}`} alt={heroImage.title}/>
+    return <img width='100%' src={`http:${heroImage.file.url}`} alt={heroImage.title}/>
   }
 
   const divStyle = {
+    // display: 'grid',
+    // gridTemplateColumns: '1fr 1fr 1fr'
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr'
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gridRowGap: '5px',
+    width:'100%',
+    margin: '20px auto',
+    //marginTop: '20px',
+    alignContent:'center',
+    justifyItems:'center'
   };
 
   return(
@@ -41,10 +49,10 @@ const PostTemplate = ({ data, pageContext }) => {
       </TagList>
       </Header>
       
-        <VideoDiv>
+        {/* <VideoDiv> */}
        {/* <ContentfulVideoElement {...featuredVideo}/> */}
        <VideoOrImage />
-       </VideoDiv>
+       {/* </VideoDiv> */}
        <PostDiv>
         <h1>{title}</h1>
         <p className='publishDate'>{publishDate}</p>

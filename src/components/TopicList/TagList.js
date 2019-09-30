@@ -4,10 +4,11 @@ import styled from 'styled-components'
 
 const List= styled.ul`
   margin:0;
-  margin-top:60px;
+  margin-top:125px;
   display: block;
   position:absolute;
-  right:25px;
+  z-index:500;
+  right:0px;
 
 `
 

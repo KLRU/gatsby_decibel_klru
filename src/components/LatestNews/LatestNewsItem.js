@@ -8,13 +8,15 @@ const LatestNewsDiv = styled.div`
 box-sizing: border-box;
 .news_item {
   display:grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(min-content, 150px) 1fr;
   margin-bottom: 20px;
   border-bottom: 1px solid #ccc;
   .latestNewsImage{
+    display:grid;
+    align-items: center;
     img{
       width:100%;
-      height:100%;
+      //height:100%;
     }
   }
   .story{

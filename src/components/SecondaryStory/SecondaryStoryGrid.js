@@ -6,7 +6,7 @@ const StoryDiv= styled.div`
   display:grid;
   //width:100%;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  //grid-auto-rows: auto;
+  grid-auto-rows: minmax(100px, auto);
   grid-column-gap:50px;
   grid-row-gap:20px;
   // @media only screen and (max-width: 1170px){

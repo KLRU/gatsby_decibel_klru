@@ -14,7 +14,7 @@ const FooterDiv = styled.div`
   background-color: #000;
   color:#fff;
   //grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   text-align:center;
   a{
     color:#fff;
@@ -43,8 +43,12 @@ const Footer = props => {
           <a><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a>
         </ul>
       </div>
-      <div>About Us</div>
-      <div>KLRU</div>
+      <div>
+        <h3>About Us</h3>
+      </div>
+      <div>
+        <h3>KLRU</h3>
+        </div>
     </FooterDiv>
   )
 };

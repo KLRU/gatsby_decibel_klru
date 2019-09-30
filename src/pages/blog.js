@@ -19,7 +19,7 @@ const AllBlogsDiv = styled.div`
   padding: 10px;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 4px #eee;
-  width: 1100px;
+  width: 100%;
   h2{
     margin:10px 0 0 0;
     font-size:30px;
@@ -27,8 +27,11 @@ const AllBlogsDiv = styled.div`
   p{
     margin-top:0;
   }
+  img{
+    width:70%;
+  }
   .blogBody{
-    width:800px;
+    width:70%;
     margin-top:20px;
     font-size:22px;
   }

@@ -8,6 +8,7 @@ width:1150px;
 margin:0 auto;
 border: 1px solid #E7E9E9;
 box-shadow: 0px 2px 4px #eee;
+position:relative;
 img{
   width:100%;
 }

@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 const BioElementsWrapper = styled.div`
 margin: 0 auto;
+display:grid;
 border: 1px solid #E7E9E9;
 box-shadow: 0px 2px 3px #eee;
 padding:10px;

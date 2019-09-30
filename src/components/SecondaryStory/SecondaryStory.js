@@ -6,7 +6,7 @@ import Container from '../Container/Container';
 
 
 const SecondaryStoryDiv = styled.div`
-  //display:grid;
+  display:grid;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 4px #eee;
   img{

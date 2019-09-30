@@ -11,16 +11,16 @@ import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 
-function determinePageElement(pageElement) {
+function DeterminePageElement(pageElement) {
   switch (pageElement.__typename) {
     case 'ContentfulBiographyElement':
-      return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
+    return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
 
     case 'ContentfulPhotoElement':
-      return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
+     return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
 
     case 'ContentfulTextElement':
-      return <ContentfulTextElement key={pageElement.id} {...pageElement} />
+     return <ContentfulTextElement key={pageElement.id} {...pageElement} />
 
     case 'ContentfulVideoElement':
       return <ContentfulVideoElement key={pageElement.id} {...pageElement} />
@@ -33,8 +33,13 @@ function determinePageElement(pageElement) {
 const AboutPage = ({ data, pageContext }) => {
   const { title, pageElements: [...pageElements] } = data.contentfulPage;
   const [ ...tags ] = data.allContentfulTag.edges;
+  const [...bios] = data.allContentfulBiographyElement.edges;
+  
   const h1Style ={
-    textAlign:'center'
+    textAlign:'center',
+    width:'100%',
+    margin:'0',
+    padding: '20px 0'
   }
   return (
     <Container>
@@ -49,10 +54,19 @@ const AboutPage = ({ data, pageContext }) => {
   <BioElementsBotttomDiv>
     <div className='bioElementEntryDiv'>
       {pageElements.map((pageElement) => {
-        return determinePageElement(pageElement);
+        return DeterminePageElement(pageElement);
       })}
     </div>
+
   </BioElementsBotttomDiv>
+
+  {/* <DeterminePageElement key={pageElements.id} {...pageElements} />
+
+  <BioElementsBotttomDiv>
+    {bios.map(({node:bio})=>(
+      <ContentfulBiographyElement key={bio.id} {...bio}/>
+    ))}
+  </BioElementsBotttomDiv> */}
   <Footer />
     </Container>
   )
@@ -103,6 +117,23 @@ export const query = graphql`
         node {
           title
           slug
+        }
+      }
+    },
+    allContentfulBiographyElement{
+      edges{
+        node{
+          bioName
+          bioImage{
+            file{
+              url
+            }
+          }
+          bioText{
+            childMarkdownRemark{
+              html
+            }
+          }
         }
       }
     }

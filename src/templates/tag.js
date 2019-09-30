@@ -18,7 +18,7 @@ const TagTemplate = ({ data, pageContext }) => {
   const divStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    width:'1150px',
+    width:'100%',
     margin: '20px auto',
     //marginTop: '20px',
     alignContent:'center',

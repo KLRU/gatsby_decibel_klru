@@ -3,11 +3,11 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const FeaturedTagCardDiv= styled.div`
-  min-width:650px;
+  width:70%;
   margin:0 auto;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 3px #eee;
-  padding:20px;
+  padding:5px;
   img{
     width:100%;
     position:relative;

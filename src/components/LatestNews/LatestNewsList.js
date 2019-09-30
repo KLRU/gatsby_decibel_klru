@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const LatestNewsListDiv = styled.div`
 margin: 50px auto;
-max-width: 1150px;
+max-width: 100%;
 
 
 `
