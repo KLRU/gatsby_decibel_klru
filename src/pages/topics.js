@@ -10,7 +10,10 @@ const TopicsPage = ({ data }) => {
     <Container>
       <h1>All Topics</h1>
       {allTopics.map(({node:allTopic}) => (
+        <div>
+        <img src={allTopic.image.fluid.src} alt={allTopic.title} />
         <h2 key={allTopic.id}><Link to={`/${allTopic.slug}`}>{allTopic.title}</Link></h2>
+        </div>
       ))}
       <Link to='/'>Decibel Home</Link>
     </Container>
@@ -26,6 +29,11 @@ export const query =graphql`
         node {
           title
           slug
+          image{
+            fluid{
+              src
+            }
+          }
           id
         }
       }

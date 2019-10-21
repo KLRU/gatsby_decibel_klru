@@ -23,7 +23,7 @@ const HeaderMainDiv = styled.div`
     div{
       height:100%;
       display:grid;
-      align-items: end;
+     //align-items: center;
       //position:absolute;
     }
     ul{
@@ -47,7 +47,7 @@ const HeaderMainDiv = styled.div`
       padding:0;
     }
     .dropdownMenu{
-      margin-top:70px;   
+      //margin-top:70px;   
       //position:absolute;
       margin-right:0;
        a{

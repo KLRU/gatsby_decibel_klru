@@ -3,21 +3,23 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const FeaturedTagCardDiv= styled.div`
-  width:70%;
+  width:100%;
   margin:0 auto;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 3px #eee;
   padding:5px;
+  display:grid;
+  grid-template-columns: 70% 30%;
   img{
     width:100%;
-    position:relative;
+    //position:relative;
   }
   p{
-    position:absolute;
-    color:#FFF;
-    margin-top: -40px;
+    //position:absolute;
+    color:#000;
+    //margin-top: -40px;
     font-size: 25px;
-    padding-left: 10px;
+    text-align:center;
   }
 `
 const FeaturedTagDiv = props => {

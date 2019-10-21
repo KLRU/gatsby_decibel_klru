@@ -13,6 +13,8 @@ const MainStoryDiv = styled.div`
   margin-bottom:10px;
   box-sizing:border-box;
   display:grid;
+  grid-template-columns: 70% 30%;
+  align-items:center;
   .videoDiv{
     width:100%; 
     height:0;
@@ -34,9 +36,9 @@ const MainStoryDiv = styled.div`
   .mainTitle{
     background-color:#fff;
     width:100%;
-    margin-top:-85px;
+    //margin-top:-85px;
     padding: 20px 0 0 0;
-    z-index:5;
+    //z-index:5;
     //position:absolute;
   }
   p{
@@ -52,6 +54,9 @@ const MainStoryDiv = styled.div`
     //text-shadow: 2px 2px #000;
     color:#000;
     //padding: 10px;
+  }
+  .bodyParagraph{
+    padding: 10px;
   }
 `
 const MainStory = props => {
@@ -94,7 +99,8 @@ const MainStory = props => {
       <div className = 'mainTitle'>
       <Link to={`/${mainStory.tags[0].slug}/${mainStory.slug}/`}>
         <h1>{mainStory.title}</h1>
-        <p>{mainStory.publishDate}</p>
+        <p class="dateParagraph">{mainStory.publishDate}</p>
+        <p class="bodyParagraph" dangerouslySetInnerHTML={{__html:mainStory.body.childMarkdownRemark.excerpt}}></p>
       </Link>
      </div>
     </MainStoryDiv>

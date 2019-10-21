@@ -54,7 +54,16 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulPost( sort: { fields: [publishDate], order: DESC }) {
+    allContentfulPost( 
+      sort: { fields: [publishDate], order: DESC }
+      filter:{
+        tags:{
+          elemMatch:{
+            featuredTopic: {eq: true}
+          }
+        }
+      }
+     ) {
       edges {
         node {
           title
@@ -82,6 +91,7 @@ export const query = graphql`
           tags {
             title
             slug
+            featuredTopic
           }
           featured
         }
@@ -118,7 +128,12 @@ export const query = graphql`
               source
             }
             body {
-              body
+              childMarkdownRemark {
+                html
+                excerpt(
+                  format: HTML
+                  pruneLength: 140)
+              }
             }
             tags {
               title
@@ -142,6 +157,7 @@ export const query = graphql`
             tags {
               title
               slug
+              featuredTopic
             }
           }
         }
