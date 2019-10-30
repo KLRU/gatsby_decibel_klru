@@ -19,6 +19,7 @@ const HeaderMainDiv = styled.div`
   .topicsDiv{
     display:grid;
     text-align: end;
+    align-content:end;
     position:relative;
     div{
       height:100%;
@@ -29,18 +30,18 @@ const HeaderMainDiv = styled.div`
     ul{
       display:block;
       list-style-type: disc;
-      margin-block-start: none;
-      margin-block-end: 1em;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
-      padding-inline-start: 40px;
+      //margin-block-start: none;
+      //margin-block-end: 1em;
+      //margin-inline-start: 0px;
+      //margin-inline-end: 0px;
+      //padding-inline-start: 40px;
       .topicLink{
         display:inline-block;
         padding: 10px;
       }
     }
     .allTopicsDrop{
-      text-align:end;
+      text-align:center;
       //margin-right:25px;
       margin-left:0;
       //margin-top:30px;
@@ -57,6 +58,7 @@ const HeaderMainDiv = styled.div`
       padding: 10px;
       background-color: #fff;
       z-index: 100;
+      text-align:center;
    }
     }
   }
@@ -97,11 +99,11 @@ class Header extends React.Component {
         <div className='topicsDiv'>
          <div>
             <ul>
-              <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link>
+              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link>
               <Link className='topicLink' to={`/episodes`}>Episodes</Link>
-              <Link className='topicLink'to={`/blog`}>Blog</Link>
+              <Link className='topicLink'to={`/blog`}>Blog</Link> */}
               <Link className='topicLink' to={'/about'}>About Us</Link>
-             <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>All Topics + </li>
+             <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>More Topics + </li>
            </ul>
         
            {this.state.open && (

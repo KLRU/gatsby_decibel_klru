@@ -9,6 +9,8 @@ const List= styled.ul`
   position:absolute;
   z-index:500;
   right:0px;
+  box-shadow: 0px 1px 3px 2px #ccc;
+  padding-inline-start: 0;
 
 `
 

@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const PostVideoDiv = styled.div`
-width:1150px;
+width:100%;
 //height:600px;
 margin:0 auto;
 border: 1px solid #E7E9E9;

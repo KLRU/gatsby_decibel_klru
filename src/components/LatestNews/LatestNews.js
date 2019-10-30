@@ -7,11 +7,10 @@ const LatestNewsDiv = styled.div`
   width: 100%;
   margin: 0 auto;
   display:grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 100%;
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }
-
 `
 const LatestNews = props => {
   return(

@@ -7,7 +7,7 @@ import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer/Footer';
 import PostDiv from '../components/Posts/PostDiv';
 import VideoDiv from '../components/Posts/VideoDiv'
 
@@ -54,10 +54,11 @@ const PostTemplate = ({ data, pageContext }) => {
        <VideoOrImage />
        {/* </VideoDiv> */}
        <PostDiv>
+        <div className="postBodyDiv">
         <h1>{title}</h1>
         <p className='publishDate'>{publishDate}</p>
         <p className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
-
+        </div>
       <h2>Tags:</h2>
       {tags.map((tag) => {
         return <TagItem {...tag} key={tag.id} />

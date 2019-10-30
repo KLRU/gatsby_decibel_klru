@@ -6,21 +6,32 @@ import Img from 'gatsby-image'
 
 const LatestNewsDiv = styled.div`
 box-sizing: border-box;
+display: 'grid';
+width:'100%'; 
+border-bottom: 1px solid #ccc;
 .news_item {
   display:grid;
-  grid-template-columns: minmax(min-content, 150px) 1fr;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
+  grid-template-columns: minmax(min-content, 200px) 1fr;
+  grid-template-rows: minmax(min-content, 175px) 1fr;
+  @media screen and (max-width: 500px){
+    grid-template-columns: 1fr;
+  }
+  height:100%;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  //justify-items:center;
   .latestNewsImage{
     display:grid;
-    align-items: center;
+    //align-items: center;
+    //width:100%
     img{
-      width:100%;
-      //height:100%;
+     object-fit:cover;
+     width:100%;
+     height:100%;
     }
   }
   .story{
-    padding-left:20px;
+    padding-left:5px;
     h1{
       margin:0;
     }
@@ -35,7 +46,7 @@ box-sizing: border-box;
    
 `
 const LatestNewsItem = props => {
-  console.log(props);
+  //console.log(props);
   return(
     <LatestNewsDiv>
     <div className="news_item">

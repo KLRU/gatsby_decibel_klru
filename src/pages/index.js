@@ -29,15 +29,15 @@ const IndexPage = ({ data }) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
-           <Link to={'/topics'}><p>+ More Topics</p></Link>
+           <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
       <HeroGrid>
       <MainStory {...mainStory} key={mainStory.id} /> 
-      <SecondaryStoryGrid>
+      {/* <SecondaryStoryGrid>
       {secondaryStories.map((secondaryStory) => {
         return<SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
-      })}</SecondaryStoryGrid>
+      })}</SecondaryStoryGrid> */}
       </HeroGrid>
      <LatestNews>
         <LatestNewsList>
@@ -45,8 +45,8 @@ const IndexPage = ({ data }) => {
            <LatestNewsItem key={posts.id} {...post}/>
          ))}
         </LatestNewsList> 
-        <TexasMutual />       
-    </LatestNews>
+    </LatestNews>     
+    <TexasMutual /> 
     <Footer />
     </Container>
   )

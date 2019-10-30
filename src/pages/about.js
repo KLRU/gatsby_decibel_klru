@@ -1,17 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
-import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
-import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
-import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
-import BioElementsBotttomDiv from '../components/BioElements/BioElementsBottomDiv'
+//import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
+//import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+//import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
+//import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
+import BioGrid from '../components/BioElements/BioGrid';
+import BioItem from '../components/BioElements/BioItem';
 
-function DeterminePageElement(pageElement) {
+/*function DeterminePageElement(pageElement) {
   switch (pageElement.__typename) {
     case 'ContentfulBiographyElement':
     return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
@@ -28,7 +29,7 @@ function DeterminePageElement(pageElement) {
     default:
       return <div className="no_block_type" />
   }
-}
+}*/
 
 const AboutPage = ({ data, pageContext }) => {
   const { title, pageElements: [...pageElements] } = data.contentfulPage;
@@ -51,14 +52,14 @@ const AboutPage = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <h1 style={h1Style}>{title}</h1>
-  <BioElementsBotttomDiv>
+  {/* <BioElementsBotttomDiv>
     <div className='bioElementEntryDiv'>
       {pageElements.map((pageElement) => {
         return DeterminePageElement(pageElement);
       })}
     </div>
 
-  </BioElementsBotttomDiv>
+  </BioElementsBotttomDiv> */}
 
   {/* <DeterminePageElement key={pageElements.id} {...pageElements} />
 
@@ -67,6 +68,11 @@ const AboutPage = ({ data, pageContext }) => {
       <ContentfulBiographyElement key={bio.id} {...bio}/>
     ))}
   </BioElementsBotttomDiv> */}
+  <BioGrid>
+  {bios.map(({node:bio})=>(
+     <BioItem key={bio.id} {...bio}/>
+  ))}
+  </BioGrid>
   <Footer />
     </Container>
   )

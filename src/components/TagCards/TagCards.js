@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const TagCardDiv= styled.div`
   width: 300px;
   max-height: 300px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding:10px;
   border: 1px solid #E7E9E9;
   box-shadow: 0px 2px 3px #eee;

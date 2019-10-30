@@ -1,5 +1,5 @@
 import React from 'react';
-import BioElementsGrid from '../BioElements/BioElementsGrid';
+//import BioElementsGrid from '../BioElements/BioElementsGrid';
 import styled from 'styled-components';
 
 const BioElementsGridFrame = styled.div`

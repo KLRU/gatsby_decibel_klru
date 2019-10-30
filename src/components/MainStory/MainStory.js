@@ -14,6 +14,9 @@ const MainStoryDiv = styled.div`
   box-sizing:border-box;
   display:grid;
   grid-template-columns: 70% 30%;
+  @media screen and (max-width: 675px){
+    grid-template-columns: 1fr;
+  }
   align-items:center;
   .videoDiv{
     width:100%; 

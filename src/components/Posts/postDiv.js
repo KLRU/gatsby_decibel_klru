@@ -5,18 +5,22 @@ import styled from 'styled-components';
 const PostDivDiv = styled.div`
 width:100%;
 margin: 10px auto;
-h1{
+.postBodyDiv{
+  width:100%;
+  h1{
   margin:0;
 }
 .publishDate{
   margin:0;
 }
 .paragraphText{
-  padding: 0 30px;
-  font-size: 20px;
+  padding: 0;
+  font-size: 1em;
 }
+}
+
 h2{
-  font-size:18px;
+  font-size:1em;
 }
 `
 const PostDiv = (props)=>{
