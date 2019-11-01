@@ -11,7 +11,7 @@ width:'100%';
 border-bottom: 1px solid #ccc;
 .news_item {
   display:grid;
-  grid-template-columns: minmax(min-content, 200px) 1fr;
+  grid-template-columns: minmax(min-content, 275px) 1fr;
   grid-template-rows: minmax(min-content, 175px) 1fr;
   @media screen and (max-width: 500px){
     grid-template-columns: 1fr;
@@ -31,7 +31,7 @@ border-bottom: 1px solid #ccc;
     }
   }
   .story{
-    padding-left:5px;
+    padding-left:10px;
     h1{
       margin:0;
     }
