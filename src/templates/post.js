@@ -59,10 +59,10 @@ const PostTemplate = ({ data, pageContext }) => {
         <p className='publishDate'>{publishDate}</p>
         <p className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
         </div>
-      <h2>Tags:</h2>
+      {/* <h2>Tags:</h2>
       {tags.map((tag) => {
         return <TagItem {...tag} key={tag.id} />
-      })}
+      })} */}
 
       <h2>More in {tagTitle}:</h2>
       <div style={divStyle}>

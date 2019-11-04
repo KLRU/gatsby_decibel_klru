@@ -32,6 +32,7 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
+      <h1>{mainStory.tags[0].title} is Decibel's Topic of the Month</h1>
       <HeroGrid>
       <MainStory {...mainStory} key={mainStory.id} /> 
       {/* <SecondaryStoryGrid>

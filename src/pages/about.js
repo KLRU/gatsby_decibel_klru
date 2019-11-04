@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-//import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
+import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 //import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
-//import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
@@ -12,16 +12,16 @@ import Container from '../components/Container/Container';
 import BioGrid from '../components/BioElements/BioGrid';
 import BioItem from '../components/BioElements/BioItem';
 
-/*function DeterminePageElement(pageElement) {
+function DisplayPageElement(pageElement) {
   switch (pageElement.__typename) {
-    case 'ContentfulBiographyElement':
-    return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
+    //case 'ContentfulBiographyElement':
+    //return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
 
-    case 'ContentfulPhotoElement':
-     return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
+    //case 'ContentfulPhotoElement':
+     //return <ContentfulPhotoElement key={pageElement.id} {...pageElement} />
 
-    case 'ContentfulTextElement':
-     return <ContentfulTextElement key={pageElement.id} {...pageElement} />
+   // case 'ContentfulTextElement':
+     //return <ContentfulTextElement key={pageElement.id} {...pageElement} />
 
     case 'ContentfulVideoElement':
       return <ContentfulVideoElement key={pageElement.id} {...pageElement} />
@@ -29,7 +29,17 @@ import BioItem from '../components/BioElements/BioItem';
     default:
       return <div className="no_block_type" />
   }
-}*/
+}
+
+function DisplayBiographies(pageElement){
+  switch (pageElement.__typename){
+    case 'ContentfulBiographyElement':
+    return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
+
+    default:
+      return <div className="no_block_type" />
+  }
+}
 
 const AboutPage = ({ data, pageContext }) => {
   const { title, pageElements: [...pageElements] } = data.contentfulPage;
@@ -52,27 +62,37 @@ const AboutPage = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <h1 style={h1Style}>{title}</h1>
-  {/* <BioElementsBotttomDiv>
+  <div>
     <div className='bioElementEntryDiv'>
       {pageElements.map((pageElement) => {
-        return DeterminePageElement(pageElement);
+        return DisplayPageElement(pageElement);
       })}
     </div>
 
-  </BioElementsBotttomDiv> */}
+  </div>
 
-  {/* <DeterminePageElement key={pageElements.id} {...pageElements} />
+  {/* <DeterminePageElement key={pageElements.id} {...pageElements} /> */}
 
-  <BioElementsBotttomDiv>
+  {/* <div>
     {bios.map(({node:bio})=>(
       <ContentfulBiographyElement key={bio.id} {...bio}/>
     ))}
-  </BioElementsBotttomDiv> */}
-  <BioGrid>
+  </div> */}
+
+  {/* <DeterminePageElement /> */}
+
+  <div className='bioElementEntryDiv'>
+      {pageElements.map((pageElement) => {
+        return DisplayBiographies(pageElement);
+      })}
+    </div>
+
+
+  {/* <BioGrid>
   {bios.map(({node:bio})=>(
      <BioItem key={bio.id} {...bio}/>
   ))}
-  </BioGrid>
+  </BioGrid> */}
   <Footer />
     </Container>
   )

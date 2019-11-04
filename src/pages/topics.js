@@ -22,6 +22,12 @@ const AllTopicsWrapper = styled.div`
      width: 250px;
      height: 200px;
    }
+   h2{
+    margin-bottom:0;
+   }
+   p{
+     margin:0;
+   }
  }
 
 
@@ -47,6 +53,7 @@ const TopicsPage = ({ data }) => {
         <div>
         <img src={allTopic.image.fluid.src} alt={allTopic.title} />
         <h2 key={allTopic.id}><Link to={`/${allTopic.slug}`}>{allTopic.title}</Link></h2>
+        <p>{allTopic.updatedAt}</p>
         </div>
       ))}
       </AllTopicsWrapper>
@@ -70,6 +77,7 @@ export const query =graphql`
             }
           }
           id
+          updatedAt(formatString: "MMMM YYYY")
         }
       }
     }
