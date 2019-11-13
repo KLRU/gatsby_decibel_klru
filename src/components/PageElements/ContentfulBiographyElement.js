@@ -4,14 +4,27 @@ import styled from 'styled-components';
 
 const BioElementsGridFrame = styled.div`
 display:grid;
-grid-template-columns: 1fr 3fr;
+grid-template-columns: minmax(min-content, 275px) 1fr;
+//grid-template-rows: minmax(min-content, 175px) 1fr;
+@media screen and (max-width: 500px){
+  grid-template-columns: 1fr;
+}
 text-align:center;
 align-items:center;
 border: 1px solid #ccc;
 grid-gap:20px;
 margin-top:30px;
-img{
-  width:100%;
+.imageDiv{
+  width:100%; 
+  height:0;
+  padding-bottom:56.25%;
+  position:relative;
+  img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:none;
+    }
 }
 `
 
@@ -19,14 +32,15 @@ img{
 const ContentfulBiographyElement = props => {
   return (
     <BioElementsGridFrame> 
-      <div> 
-      
+   
+      <div class='imageDiv'> 
       <img src={`https:${props.bioImage.file.url}`} alt={props.bioName} />
       </div>
      <div>
-       <h2>{props.bioName}</h2>
+      <h2>{props.bioName}</h2>
       <p dangerouslySetInnerHTML={{__html:props.bioText.childMarkdownRemark.html}}></p>
     </div>
+
     </BioElementsGridFrame>
   )
 };

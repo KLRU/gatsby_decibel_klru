@@ -20,7 +20,7 @@ import TexasMutual from '../components/LatestNews/TexasMutual'
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
-  const { title, mainStory, secondaryStories: [...secondaryStories] } = data.allContentfulHomepage.edges[0].node;
+  const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
   const [ ...tags ] = data.allContentfulTag.edges;
   return (
     <Container>
@@ -40,6 +40,10 @@ const IndexPage = ({ data }) => {
         return<SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
       })}</SecondaryStoryGrid> */}
       </HeroGrid>
+      <div>
+      <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
+      <TexasMutual /> 
+      </div>
      <LatestNews>
         <LatestNewsList>
          {posts.map(({node:post})=>(
@@ -47,7 +51,7 @@ const IndexPage = ({ data }) => {
          ))}
         </LatestNewsList> 
     </LatestNews>     
-    <TexasMutual /> 
+    
     <Footer />
     </Container>
   )
@@ -93,6 +97,11 @@ export const query = graphql`
             title
             slug
             featuredTopic
+            topicDescription{
+              childMarkdownRemark{
+                html
+              }
+            }
           }
           featured
         }
@@ -106,6 +115,11 @@ export const query = graphql`
         node {
           title
           slug
+          topicDescription{
+            childMarkdownRemark{
+              html
+            }
+          }
         }
       }
     },
@@ -139,6 +153,11 @@ export const query = graphql`
             tags {
               title
               slug
+              topicDescription{
+                childMarkdownRemark{
+                  html
+                }
+              }
             }
           }
           secondaryStories {

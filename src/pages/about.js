@@ -63,7 +63,7 @@ const AboutPage = ({ data, pageContext }) => {
       </Header>
       <h1 style={h1Style}>{title}</h1>
   <div>
-    <div className='bioElementEntryDiv'>
+    <div>
       {pageElements.map((pageElement) => {
         return DisplayPageElement(pageElement);
       })}
@@ -81,11 +81,11 @@ const AboutPage = ({ data, pageContext }) => {
 
   {/* <DeterminePageElement /> */}
 
-  <div className='bioElementEntryDiv'>
+  <div>
       {pageElements.map((pageElement) => {
         return DisplayBiographies(pageElement);
       })}
-    </div>
+</div>
 
 
   {/* <BioGrid>

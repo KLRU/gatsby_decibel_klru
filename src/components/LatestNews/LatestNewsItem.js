@@ -21,13 +21,15 @@ border-bottom: 1px solid #ccc;
   padding-top: 20px;
   //justify-items:center;
   .latestNewsImage{
-    display:grid;
-    //align-items: center;
-    //width:100%
+    width:100%; 
+    height:0;
+    padding-bottom:56.25%;
+    position:relative;
     img{
-     object-fit:cover;
-     width:100%;
-     height:100%;
+      position:absolute;
+      width:100%;
+      height:100%;
+      border:none;
     }
   }
   .story{

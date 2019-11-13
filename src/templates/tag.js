@@ -14,10 +14,10 @@ const TagTemplate = ({ data, pageContext }) => {
   //const topicTag = data.contentfulTag
   const posts = data.contentfulTag.post;
   const tags = data.allContentfulTag.edges;
-  const { title, slug } = data.contentfulTag;
+  const { title, slug, topicDescription } = data.contentfulTag;
   const divStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
     width:'100%',
     margin: '20px auto',
     //marginTop: '20px',
@@ -43,8 +43,9 @@ const TagTemplate = ({ data, pageContext }) => {
       <img src={posts[0].heroImage.fluid.src}/> 
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>
+      <div><p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p></div>
+    <h2>More stories on this topic:</h2>
     <div style={divStyle}>
-    
       {posts.slice(1).map(post =>(
         <TagCards key={post.id} tag={slug} { ...post } />
       ))}
@@ -61,6 +62,11 @@ export const query = graphql`
       title
       id
       slug
+      topicDescription{
+        childMarkdownRemark{
+          html
+        }
+      }
       post{
         id
         title

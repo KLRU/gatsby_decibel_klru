@@ -10,6 +10,9 @@ const FeaturedTagCardDiv= styled.div`
   padding:5px;
   display:grid;
   grid-template-columns: 70% 30%;
+  @media screen and (max-width: 675px){
+    grid-template-columns: 1fr;
+  }
   img{
     width:100%;
     //position:relative;
