@@ -45,4 +45,4 @@ const SecondaryStory = props => {
   )
 };
 
-export default SecondaryStory;
+//export default SecondaryStory;

@@ -22,6 +22,15 @@ const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
   const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
   const [ ...tags ] = data.allContentfulTag.edges;
+  const divStyle = {
+    display: 'grid',
+    gridTemplateColumns:'70% 30%',
+    width:'100%',
+    margin: '20px auto',
+    //marginTop: '20px',
+    alignContent:'center',
+    justifyItems:'center'
+  };
   return (
     <Container>
       <Header>
@@ -40,18 +49,20 @@ const IndexPage = ({ data }) => {
         return<SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
       })}</SecondaryStoryGrid> */}
       </HeroGrid>
-      <div>
-      <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
-      <TexasMutual /> 
+      <div style={divStyle}>
+      
+      
       </div>
      <LatestNews>
+        <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
         <LatestNewsList>
          {posts.map(({node:post})=>(
            <LatestNewsItem key={posts.id} {...post}/>
          ))}
         </LatestNewsList> 
+ 
     </LatestNews>     
-    
+           <TexasMutual /> 
     <Footer />
     </Container>
   )
@@ -103,7 +114,6 @@ export const query = graphql`
               }
             }
           }
-          featured
         }
       }
     },
@@ -158,26 +168,6 @@ export const query = graphql`
                   html
                 }
               }
-            }
-          }
-          secondaryStories {
-            id
-            title
-            slug
-            publishDate(formatString: "MMMM DD, YYYY")
-            heroImage {
-              fluid {
-                src
-              }
-              description
-            }
-            body {
-              body
-            }
-            tags {
-              title
-              slug
-              featuredTopic
             }
           }
         }

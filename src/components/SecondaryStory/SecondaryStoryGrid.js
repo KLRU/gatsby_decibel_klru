@@ -27,4 +27,4 @@ const SecondaryStoryGrid = props =>{
   )
 };
 
-export default SecondaryStoryGrid;
+//export default SecondaryStoryGrid;

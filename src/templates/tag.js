@@ -41,8 +41,10 @@ const TagTemplate = ({ data, pageContext }) => {
       <h1 style={h1Style}>{title}</h1>
       <FeaturedTagDiv>
       <img src={posts[0].heroImage.fluid.src}/> 
+      {/* <iframe src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${posts[0].featuredVideo.embedCode}/`} />  */}
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>
+      {/* <p>{posts.featuredVideo.title}</p> */}
       <div><p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p></div>
     <h2>More stories on this topic:</h2>
     <div style={divStyle}>
@@ -71,6 +73,10 @@ export const query = graphql`
         id
         title
         slug
+        featuredVideo{
+          title
+          embedCode
+        }
         publishDate(formatString:"MMMM D, YYYY")
         heroImage{
           title

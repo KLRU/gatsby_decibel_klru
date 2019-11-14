@@ -13,6 +13,7 @@ const TexasMutualDiv = styled.div`
 const TexasMutual = (props) =>{
   return(
     <TexasMutualDiv>
+      <h2>Decibel is Sponsored By:</h2>
       <a href='https://www.texasmutual.com/'><img src={TexasMutualLogo} alt='TMLogo' className='logoImage' /></a>
     </TexasMutualDiv>
   )

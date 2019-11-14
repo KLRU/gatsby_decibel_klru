@@ -26,11 +26,48 @@ const FeaturedTagCardDiv= styled.div`
   }
 `
 const FeaturedTagDiv = props => {
+  const featuredStory = props;
+  //const featuredVideo = mainStory.featuredVideo;
+  function HeroDiv(){
+    if(featuredStory.featuredVideo.source === 'Facebook'){
+      return <iframe
+      src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${featuredStory.featuredVideo.embedCode}/` }
+      //title={featuredStory.featuredVideo.title}
+    />
+    }else if(featuredStory.featuredVideo.source === 'YouTube'){
+      return <iframe
+      src={ `https://www.youtube.com/embed/${featuredStory.featuredVideo.embedCode}`}
+      //title={featuredStory.featuredVideo.title}
+    />
+    }else if(featuredStory.featuredVideo.source === 'Media Manager'){
+      return <iframe
+      src={ `https://video.klru.tv/widget/partnerplayer/${featuredStory.featuredVideo.embedCode}`}
+      //title={featuredStory.featuredVideo.title}
+    />
+    }else if(featuredStory.featuredVideo.source === 'Vimeo'){
+      return <iframe
+      src={ `http://player.vimeo.com/video/${featuredStory.featuredVideo.embedCode}`}
+      //title={featuredStory.featuredVideo.title}
+    />
+    }else{
+      return <img src={`http:${featuredStory.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} className='latestNewsImage' />
+    }
+  }
   return (
     <FeaturedTagCardDiv>
       {/* <img src={props.heroImage.fluid.src} alt={props.heroImage.title} />
       <Link to={`/${props.tag}/${props.slug}`}><p>{props.title}</p></Link> */}
       {props.children}
+      {/* <div className='videoDiv'>
+      <HeroDiv />
+      </div>
+      <div className = 'mainTitle'>
+      <Link to={`/${featuredStory.tags[0].slug}/${featuredStory.slug}/`}>
+        <h1>{featuredStory.title}</h1>
+        <p class="dateParagraph">{featuredStory.publishDate}</p>
+        <p class="bodyParagraph" dangerouslySetInnerHTML={{__html:featuredStory.body.childMarkdownRemark.excerpt}}></p>
+      </Link>
+     </div> */}
     </FeaturedTagCardDiv>
   )
 };

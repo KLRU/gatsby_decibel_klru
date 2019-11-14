@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const LatestNewsDiv = styled.div`
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   display:grid;
   grid-template-columns: 100%;
   @media screen and (max-width: 750px){
