@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid'
 import Header from '../components/Header/Header';
@@ -29,7 +30,8 @@ const IndexPage = ({ data }) => {
     margin: '20px auto',
     //marginTop: '20px',
     alignContent:'center',
-    justifyItems:'center'
+    justifyItems:'center',
+    fontSize:'18px'
   };
   return (
     <Container>
@@ -50,19 +52,28 @@ const IndexPage = ({ data }) => {
       })}</SecondaryStoryGrid> */}
       </HeroGrid>
       <div style={divStyle}>
-      
-      
+      <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
+      <TexasMutual /> 
       </div>
      <LatestNews>
-        <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
         <LatestNewsList>
          {posts.map(({node:post})=>(
            <LatestNewsItem key={posts.id} {...post}/>
          ))}
         </LatestNewsList> 
  
-    </LatestNews>     
-           <TexasMutual /> 
+    </LatestNews>   
+    <div className="centerContent">
+    <div className="selfCenter standardWidth">
+      <TwitterTimelineEmbed
+      sourceType="profile"
+      screenName="DecibelAtx"
+      options={{height: 600}}
+//       onComplete={action}
+    />
+</div>
+</div>  
+           
     <Footer />
     </Container>
   )

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 const BioElementsGridFrame = styled.div`
 display:grid;
-grid-template-columns: minmax(min-content, 275px) 1fr;
-//grid-template-rows: minmax(min-content, 175px) 1fr;
+grid-template-columns: 30% 70%;
+grid-template-rows: minmax(min-content, 175px) 1fr;
 @media screen and (max-width: 500px){
   grid-template-columns: 1fr;
 }
@@ -15,14 +15,15 @@ border: 1px solid #ccc;
 grid-gap:20px;
 margin-top:30px;
 .imageDiv{
-  width:100%; 
-  height:0;
-  padding-bottom:56.25%;
-  position:relative;
+  //width:100%; 
+  //height:0;
+  //padding-bottom:56.25%;
+  //position:relative;
   img{
-    position:absolute;
-    width:100%;
-    height:100%;
+    //position:absolute;
+
+    width:200px;
+    height:200px;
     border:none;
     }
 }
