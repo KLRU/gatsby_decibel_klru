@@ -111,7 +111,6 @@ export const query = graphql`
           tags {
             title
             slug
-            featuredTopic
             topicDescription{
               childMarkdownRemark{
                 html
