@@ -83,13 +83,7 @@ export const query = graphql`
   query {
     allContentfulPost( 
       sort: { fields: [publishDate], order: DESC }
-      filter:{
-        tags:{
-          elemMatch:{
-            featuredTopic: {eq: true}
-          }
-        }
-      }
+     
      ) {
       edges {
         node {

@@ -102,8 +102,8 @@ const MainStory = props => {
       <div className = 'mainTitle'>
       <Link to={`/${mainStory.tags[0].slug}/${mainStory.slug}/`}>
         <h1>{mainStory.title}</h1>
-        <p class="dateParagraph">{mainStory.publishDate}</p>
-        <p class="bodyParagraph" dangerouslySetInnerHTML={{__html:mainStory.body.childMarkdownRemark.excerpt}}></p>
+        <p className="dateParagraph">{mainStory.publishDate}</p>
+        <p className="bodyParagraph" dangerouslySetInnerHTML={{__html:mainStory.body.childMarkdownRemark.excerpt}}></p>
       </Link>
      </div>
     </MainStoryDiv>
