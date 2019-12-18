@@ -83,7 +83,6 @@ export const query = graphql`
   query {
     allContentfulPost( 
       sort: { fields: [publishDate], order: DESC }
-     
      ) {
       edges {
         node {
