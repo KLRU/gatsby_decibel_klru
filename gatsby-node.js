@@ -17,7 +17,6 @@ exports.createPages = async ({ actions, graphql }) =>{
               tags {
                 title
                 slug
-                featuredTopic
               }
             }
           }
