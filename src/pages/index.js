@@ -54,7 +54,10 @@ const IndexPage = ({ data }) => {
       <div style={divStyle}>
       <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
       <TexasMutual /> 
+
       </div>
+
+     
      <LatestNews>
         <LatestNewsList>
          {posts.map(({node:post})=>(
