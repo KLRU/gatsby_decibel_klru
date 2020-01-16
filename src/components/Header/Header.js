@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
-import Logo from '../../images/DesktopLoGo200px.png'
+import Logo from '../../images/Decibel-Logo-AustinPBS-Blue.png'
 
 const HeaderMainDiv = styled.div`
   display:grid;
@@ -35,9 +35,19 @@ const HeaderMainDiv = styled.div`
       //margin-inline-start: 0px;
       //margin-inline-end: 0px;
       //padding-inline-start: 40px;
+      //margin:0;
+      padding:0;
       .topicLink{
         display:inline-block;
-        padding: 10px;
+        padding: 20px 20px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+      }
+      .topicLink:hover {
+        background-color: #009AA6;
+      }
+      span{
+        padding-left: 10px;
       }
     }
     .allTopicsDrop{
@@ -52,6 +62,8 @@ const HeaderMainDiv = styled.div`
       //position:absolute;
       margin-right:0;
        a{
+      width: 300px;
+      max-width: 300px;
       color: #000
       text-decoration:none;
       display:block;
@@ -60,6 +72,9 @@ const HeaderMainDiv = styled.div`
       z-index: 100;
       text-align:center;
    }
+   a:hover {
+    background-color: #009AA6;
+  }
     }
   }
   }
@@ -102,12 +117,14 @@ class Header extends React.Component {
               {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link>
               <Link className='topicLink' to={`/episodes`}>Episodes</Link>
               <Link className='topicLink'to={`/blog`}>Blog</Link> */}
+              <Link className='topicLink' to={'/episodes'}>Episodes</Link>
+              <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span></li>
               <Link className='topicLink' to={'/about'}>About Us</Link>
-             <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>More Topics + </li>
+             
            </ul>
         
            {this.state.open && (
-              <div className='dropdownMenu'>
+            <div className='dropdownMenu'>
             {this.props.children}
             </div>
            )}  

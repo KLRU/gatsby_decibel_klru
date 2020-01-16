@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const LatestNewsListDiv = styled.div`
-margin: 50px 0;
+margin: 20px 0;
 max-width: 100%;
 display:grid;
 //grid-template-columns: 1fr 1fr 1fr 1fr;

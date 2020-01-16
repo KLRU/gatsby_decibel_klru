@@ -15,4 +15,4 @@ const TagNav = props => {
   )
 };
 
-export default TagNav;
+//export default TagNav;

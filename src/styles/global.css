@@ -1,11 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
 a{
   text-decoration: none;
   color:#000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 li{
   list-style: none;
   color:#000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 .standardWidth{
   width: 400px;
+}
+
+p{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3{
+  font-family: 'Rubik', sans-serif;
+}
+
+Link{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }

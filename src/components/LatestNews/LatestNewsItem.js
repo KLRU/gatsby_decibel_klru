@@ -8,7 +8,7 @@ const LatestNewsDiv = styled.div`
 box-sizing: border-box;
 display: 'grid';
 width:'100%'; 
-border-bottom: 1px solid #ccc;
+border-bottom: 1px solid #003946;
 .news_item {
   display:grid;
   grid-template-columns: minmax(min-content, 275px) 1fr;

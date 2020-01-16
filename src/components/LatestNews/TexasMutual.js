@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const TexasMutualDiv = styled.div`
   display:grid;
   justify-items:center;
+  padding-top:10px;
   .logoImage{
     width:100%;
   }

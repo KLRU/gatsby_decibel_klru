@@ -21,4 +21,4 @@ const HeroGrid = (props) =>{
   )
 }
 
-export default HeroGrid
+export default HeroGrid;

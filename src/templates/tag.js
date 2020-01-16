@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import TagCards from '../components/TagCards/tagCards';
-import TagCardContainer from '../components/TagCards/TagCardContainer';
 import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
@@ -40,7 +39,7 @@ const TagTemplate = ({ data, pageContext }) => {
       </Header>
       <h1 style={h1Style}>{title}</h1>
       <FeaturedTagDiv>
-      <img src={posts[0].heroImage.fluid.src}/> 
+      <img src={posts[0].heroImage.fluid.src} alt={posts[0].heroImage.title}/> 
       {/* <iframe src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${posts[0].featuredVideo.embedCode}/`} />  */}
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>

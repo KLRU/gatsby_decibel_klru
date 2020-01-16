@@ -2,13 +2,19 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import ContactForm from '../components/ContactForm/ContactForm';
 import Container from '../components/Container/Container';
-import HeroGrid from '../components/HeroGrid'
+import HeroGrid from '../components/HeroGrid';
+import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
-import MainStory from '../components/MainStory/MainStory';
+//import MainStory from '../components/MainStory/MainStory';
+import FacebookLive from '../components/FacebookLive/FacebookLive';
+import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
+import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
+//import DropDownMenu from '../components/Navigation/DropdownMenu/Dropdown';
 import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
@@ -22,6 +28,9 @@ import TexasMutual from '../components/LatestNews/TexasMutual'
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
   const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
+  const featuredStory = data.contentfulFeaturedStoryBlock;
+  const featuredTopic = data.contentfulFeaturedTopicBlock;
+  const facebookLive = data.contentfulFacebookLiveEvent;
   const [ ...tags ] = data.allContentfulTag.edges;
   const divStyle = {
     display: 'grid',
@@ -43,39 +52,44 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
-      <h1>{mainStory.tags[0].title} is Decibel's Topic of the Month</h1>
+      {/* <DropDownMenu>
+          {tags.map(({node:tag})=>(
+           <TagItem key={tag.id} {...tag}/>
+           ))}
+      </DropDownMenu> */}
+      <FacebookLive {...facebookLive} key={facebookLive.id}/>
+      {/* <iframe src={facebookLive.iFrameSrc}></iframe> */}
       <HeroGrid>
-      <MainStory {...mainStory} key={mainStory.id} /> 
-      {/* <SecondaryStoryGrid>
-      {secondaryStories.map((secondaryStory) => {
-        return<SecondaryStory { ...secondaryStory } key={secondaryStory.id} />
-      })}</SecondaryStoryGrid> */}
+        {/* <MainStory {...mainStory} key={mainStory.id} />  */}
+        <FeaturedStoryBlock {...featuredStory} key={featuredStory.id}/>
       </HeroGrid>
-      <div style={divStyle}>
-      <div><p dangerouslySetInnerHTML={{__html:mainStory.tags[0].topicDescription.childMarkdownRemark.html}}></p></div>
-      <TexasMutual /> 
-
-      </div>
-
-     
-     <LatestNews>
-        <LatestNewsList>
-         {posts.map(({node:post})=>(
-           <LatestNewsItem key={posts.id} {...post}/>
-         ))}
-        </LatestNewsList> 
- 
-    </LatestNews>   
-    <div className="centerContent">
-    <div className="selfCenter standardWidth">
-      <TwitterTimelineEmbed
-      sourceType="profile"
-      screenName="DecibelAtx"
-      options={{height: 600}}
-//       onComplete={action}
-    />
-</div>
-</div>  
+      <MainGrid>
+        <section>
+          <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
+        <LatestNews>
+          <LatestNewsList>
+            {posts.map(({node:post})=>(
+              <LatestNewsItem key={posts.id} {...post}/>
+            ))}
+          </LatestNewsList> 
+        </LatestNews>   
+        </section>
+        <aside>
+           <TexasMutual /> 
+           <ContactForm />
+           <div>
+            <div>
+              <TwitterTimelineEmbed
+                sourceType="profile"
+                screenName="DecibelAtx"
+                options={{height: 600}}
+                //onComplete={action}
+                />
+            </div>
+          </div> 
+         
+        </aside>
+      </MainGrid>
            
     <Footer />
     </Container>
@@ -86,6 +100,7 @@ export const query = graphql`
   query {
     allContentfulPost( 
       sort: { fields: [publishDate], order: DESC }
+      limit: 5
      ) {
       edges {
         node {
@@ -126,6 +141,11 @@ export const query = graphql`
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC  }
+      filter:{
+        title:{
+          ne:"Episodes"
+        }
+      }
     ){
       edges {
         node {
@@ -178,6 +198,71 @@ export const query = graphql`
           }
         }
       }
+    },
+    contentfulFeaturedTopicBlock{
+      title
+      id
+      featuredTopicImage{
+        fluid{
+          src
+        }
+      }
+      featuredTopicTag{
+        title
+        slug
+      }
+      shortTopicDescription{
+        childMarkdownRemark{
+          html
+        }
+      }
+      associatedTopicPost{
+        id
+        slug
+        title
+        publishDate(formatString: "MMMM DD, YYYY")
+      }
+    },
+    contentfulFeaturedStoryBlock{
+      id
+      title
+      storyPostDate(formatString: "MMMM DD, YYYY")
+      shortDescription{
+        childMarkdownRemark{
+          html
+        }
+      }
+      heroImage{
+        fluid{
+          src
+        }
+      }
+      associatedPost{
+        id
+        title
+        slug
+        publishDate(formatString: "MMMM DD, YYYY")
+        heroImage{
+          fluid{
+            src
+          }
+        }
+        featuredVideo{
+          title
+          embedCode
+          source
+        }
+        tags{
+          slug
+          title
+        }
+      }
+    },
+    contentfulFacebookLiveEvent{
+      title
+      embedCode
+      isLive
+      iFrameSrc
     }
   }
 `

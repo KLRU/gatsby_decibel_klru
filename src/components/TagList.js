@@ -28,4 +28,4 @@ const TagList = props =>{
   )
 };
 
-export default TagList;
+//export default TagList;
