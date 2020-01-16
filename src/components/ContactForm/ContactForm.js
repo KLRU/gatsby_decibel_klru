@@ -4,23 +4,37 @@ import styled from 'styled-components'
 
 const ContactFormDiv = styled.div`
 width:100%;
-padding: 20px;
+margin-top: 40px;
+box-sizing:border-box;
+h1{
+  text-align:center;
+}
 form{
   display:block;
+  width:100%;
   input{
     width: 100%;
     padding: 10px 5px;
     margin: 20px 0;
+    border-radius: 3px;
+    box-shadow: none;
   }
   textarea{
     width: 100%;
     padding: 10px 5px;
     margin: 20px 0;
+    border-radius: 5px;
   }
   button{
     width: 100%;
     padding: 10px 5px;
     margin: 20px 0;
+    background-color: #009AA6;
+    border-radius: 5px;
+    a{
+      color:#fff;
+      font-size: 18px;
+    }
   }
 }
 
@@ -37,7 +51,7 @@ const ContactForm = props =>{
       <br/>
       <textarea type='text' name='message' placeholder="Your message for Decibel"></textarea>
       <br/>
-      <button>Submit</button>
+      <button><a>Submit</a></button>
       </form>
     </ContactFormDiv>
   )

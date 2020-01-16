@@ -36,6 +36,7 @@ const FeaturedStoryDiv =styled.div`
           color: #fff;
           margin:0;
           padding: 0;
+          text-shadow: 1px 1px #003946;
           span{
             padding: 0 5px;
             img{
@@ -46,12 +47,15 @@ const FeaturedStoryDiv =styled.div`
         p{
           color:#fff;
           padding-left: 10px;
-          margin-top: 5px;
+          margin-top:0;
+          margin-bottom: 5px;
+          text-shadow: 1px 1px #003946;
         }
         .shortDescription{
           padding:0;
           margin:0;
           font-size: 18px;
+          text-shadow: 1px 1px #003946;
         }
       }
 

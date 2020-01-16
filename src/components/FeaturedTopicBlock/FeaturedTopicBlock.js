@@ -4,10 +4,15 @@ import styled from 'styled-components';
 
 const FeaturedTopicDiv = styled.div`
 display: grid;
-align-items:end;
 padding:20px;
+@media screen and (max-width: 930px){
+  padding:10px 0;
+}
 .imageDiv{
   width:100%; 
+  display:grid;
+  align-items: end;
+  justify-content: end;
   height:0;
   padding-bottom:56.25%;
   position:relative;
@@ -19,7 +24,22 @@ padding:20px;
   }
   .storyTitle{
     position: absolute;
-
+    h2{
+    color: #fff;
+    text-shadow: 1px 1px #003946;
+    padding-left:10px;
+    margin-bottom:5px;
+    }
+    p{
+    color: #fff;
+    text-shadow: 1px 1px #003946;
+    padding-left: 10px;
+    margin: 0 0 10px 0;
+    p{
+      padding:0;
+      margin:0;
+    }
+    }
   }
 }
 
@@ -32,9 +52,10 @@ const FeaturedTopicBlock = props =>{
     <FeaturedTopicDiv>
       <div className='imageDiv'>
         <img src={`http:${featuredTopic.featuredTopicImage.fluid.src}`} alt={featuredTopic.featuredTopicImage.title} />
-        <h2 className="storyTitle">{featuredTopic.title}</h2>
+        <div className="storyTitle">
+        <h2>{featuredTopic.title}</h2>
+        <p dangerouslySetInnerHTML={{__html:featuredTopic.shortTopicDescription.childMarkdownRemark.html}}></p> </div>
       </div>
-      
     </FeaturedTopicDiv>
   )
 }

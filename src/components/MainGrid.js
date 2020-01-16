@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const MainGridDiv = styled.div`
   width:100%;
   display:grid;
+  box-sizing:border-box;
   grid-template-columns: 70% 30%;
   //grid-template-columns: minmax(min-content, 500px) 1fr;
   margin: 0 auto;

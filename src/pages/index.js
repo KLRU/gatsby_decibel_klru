@@ -24,6 +24,7 @@ import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual'
+import TwoStoryBlock from '../components/TwoStoryBlock/TwoStoryBlock';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
@@ -31,6 +32,7 @@ const IndexPage = ({ data }) => {
   const featuredStory = data.contentfulFeaturedStoryBlock;
   const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
+  const twoStoryBlock = data.contentfulTwoStoryBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
   const divStyle = {
     display: 'grid',
@@ -65,7 +67,8 @@ const IndexPage = ({ data }) => {
       </HeroGrid>
       <MainGrid>
         <section>
-          <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
+        <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
+        <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/>
         <LatestNews>
           <LatestNewsList>
             {posts.map(({node:post})=>(
@@ -263,6 +266,24 @@ export const query = graphql`
       embedCode
       isLive
       iFrameSrc
+    },
+    contentfulTwoStoryBlock{
+      title
+      secondaryFeaturedPost{
+        id
+        title
+        slug
+        publishDate(formatString: "MMMM DD, YYYY")
+        heroImage{
+          fluid{
+            src
+          }
+        }
+        tags{
+          slug
+          title
+        }
+      }
     }
   }
 `
