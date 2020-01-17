@@ -12,25 +12,32 @@ h1{
 form{
   display:block;
   width:100%;
+  box-sizing:border-box;
   input{
     width: 100%;
     padding: 10px 5px;
     margin: 20px 0;
     border-radius: 3px;
     box-shadow: none;
+    border-width:1px;
+    box-sizing:border-box;
   }
   textarea{
     width: 100%;
+    height: 200px;
     padding: 10px 5px;
     margin: 20px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    border-width:1px;
+    box-sizing:border-box;
   }
   button{
     width: 100%;
     padding: 10px 5px;
     margin: 20px 0;
     background-color: #009AA6;
-    border-radius: 5px;
+    border-radius: 3px;
     a{
       color:#fff;
       font-size: 18px;

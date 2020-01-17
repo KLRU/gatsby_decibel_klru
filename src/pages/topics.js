@@ -15,7 +15,8 @@ const AllTopicsWrapper = styled.div`
  justify-items:center;
  div{
    padding: 20px;
-   border: 1px solid #ccc;
+   border: 1px solid rgba(0, 57, 70, .25);
+   box-shadow: 0px 2px 3px rgba(0, 57, 70, .25);
    margin-bottom: 20px;
    img{
      object-fit:cover;

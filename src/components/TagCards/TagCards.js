@@ -7,13 +7,13 @@ const TagCardDiv= styled.div`
   max-height: 300px;
   margin: 10px auto;
   padding:10px;
-  border: 1px solid #E7E9E9;
-  box-shadow: 0px 2px 3px #eee;
+  border: 1px solid rgba(0, 57, 70, .25);
+  box-shadow: 0px 2px 3px rgba(0, 57, 70, .25);
   img {
     width: 300px;
     height: 200px;
   }
-  p {
+  h2 {
     margin: 0;
     margin-top: 10px;
     width: 100%;
@@ -27,7 +27,7 @@ const TagCards = props => {
   return (
     <TagCardDiv>
       <img src={props.heroImage.fluid.src} alt={props.heroImage.title} />
-      <Link to={`/${props.tag}/${props.slug}`}><p>{props.title}</p></Link>
+      <Link to={`/${props.tag}/${props.slug}`}><h2>{props.title}</h2></Link>
     </TagCardDiv>
   )
 };

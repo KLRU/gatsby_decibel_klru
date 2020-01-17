@@ -76,7 +76,7 @@ const FeaturedStoryBlock = props =>{
       </div>
       <div className = 'storyTitleDiv'>
       <Link to={`/${featuredStory.associatedPost.tags[0].slug}/${featuredStory.associatedPost.slug}/`}>
-      <h1><span><img src={PlayButton}/></span>{featuredStory.title}</h1>
+      <h1><span><img src={PlayButton} alt={"Play Button"}/></span>{featuredStory.title}</h1>
       <p>{featuredStory.storyPostDate}</p>
       <p className='shortDescription' dangerouslySetInnerHTML={{__html:featuredStory.shortDescription.childMarkdownRemark.html}}></p>
       </Link>

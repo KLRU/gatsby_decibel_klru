@@ -53,9 +53,11 @@ const FeaturedTopicBlock = props =>{
     <FeaturedTopicDiv>
       <div className='imageDiv'>
         <img src={`http:${featuredTopic.featuredTopicImage.fluid.src}`} alt={featuredTopic.featuredTopicImage.title} />
+        
         <div className="storyTitle">
+        <Link to={`/${featuredTopic.featuredTopicTag.slug}`}>
         <h2>{featuredTopic.title}</h2>
-        <p dangerouslySetInnerHTML={{__html:featuredTopic.shortTopicDescription.childMarkdownRemark.html}}></p> </div>
+        <p dangerouslySetInnerHTML={{__html:featuredTopic.shortTopicDescription.childMarkdownRemark.html}}></p>  </Link></div>      
       </div>
     </FeaturedTopicDiv>
   )

@@ -10,15 +10,11 @@ import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
-//import MainStory from '../components/MainStory/MainStory';
 import FacebookLive from '../components/FacebookLive/FacebookLive';
 import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
 import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
-//import DropDownMenu from '../components/Navigation/DropdownMenu/Dropdown';
-import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
-import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
-import SecondaryStory from '../components/SecondaryStory/SecondaryStory';
-import SecondaryStoryGrid from '../components/SecondaryStory/SecondaryStoryGrid'
+//import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+//import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
@@ -28,22 +24,13 @@ import TwoStoryBlock from '../components/TwoStoryBlock/TwoStoryBlock';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
-  const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
+  //const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
   const featuredStory = data.contentfulFeaturedStoryBlock;
   const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
   const twoStoryBlock = data.contentfulTwoStoryBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
-  const divStyle = {
-    display: 'grid',
-    gridTemplateColumns:'70% 30%',
-    width:'100%',
-    margin: '20px auto',
-    //marginTop: '20px',
-    alignContent:'center',
-    justifyItems:'center',
-    fontSize:'18px'
-  };
+
   return (
     <Container>
       <Header>
@@ -54,15 +41,10 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
-      {/* <DropDownMenu>
-          {tags.map(({node:tag})=>(
-           <TagItem key={tag.id} {...tag}/>
-           ))}
-      </DropDownMenu> */}
+  
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
-      {/* <iframe src={facebookLive.iFrameSrc}></iframe> */}
+  
       <HeroGrid>
-        {/* <MainStory {...mainStory} key={mainStory.id} />  */}
         <FeaturedStoryBlock {...featuredStory} key={featuredStory.id}/>
       </HeroGrid>
       <MainGrid>
@@ -91,7 +73,6 @@ const IndexPage = ({ data }) => {
                 />
             </div>
           </div> 
-         
         </aside>
       </MainGrid>
            
@@ -158,46 +139,6 @@ export const query = graphql`
           topicDescription{
             childMarkdownRemark{
               html
-            }
-          }
-        }
-      }
-    },
-    allContentfulHomepage {
-      edges {
-        node {
-          title
-          mainStory {
-            id
-            title
-            slug
-            publishDate(formatString: "MMMM DD, YYYY")
-            heroImage {
-              fluid {
-                src
-              }
-              description
-            }
-            featuredVideo{
-              embedCode
-              source
-            }
-            body {
-              childMarkdownRemark {
-                html
-                excerpt(
-                  format: HTML
-                  pruneLength: 140)
-              }
-            }
-            tags {
-              title
-              slug
-              topicDescription{
-                childMarkdownRemark{
-                  html
-                }
-              }
             }
           }
         }

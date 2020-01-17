@@ -39,14 +39,19 @@ const TwoStoryBlock = props =>{
   const twoStory = props;
   const twoStoryPosts = twoStory.secondaryFeaturedPost
   return(
+    <div>
     <TwoStoryBlockDiv>
-      {twoStoryPosts.map((twoStoryPost)=>(
+      {twoStoryPosts.map((twoStoryPost)=>( 
+      <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
         <PostDiv>
+       
         <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
-        <h2>{twoStoryPost.title}</h2>
-        </PostDiv>
+       <h2>{twoStoryPost.title}</h2>
+       
+        </PostDiv></Link>
       ))}
     </TwoStoryBlockDiv>
+    </div>
   )
 }
 

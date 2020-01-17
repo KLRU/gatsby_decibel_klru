@@ -6,7 +6,7 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer'
 import styled from 'styled-components';
-import TagCards from '../components/TagCards/tagCards';
+//import TagCards from '../components/TagCards/tagCards';
 
 const BlogPost =styled.div`
 display:grid;
@@ -36,10 +36,6 @@ const BlogTemplate = ({data, pageContext}) =>{
  // const [ ...relatedPosts ] = data.allContentfulPost.edges;
   //const { tag, tagTitle } = pageContext;
 
-  const divStyle = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr'
-  };
 
   return(
   
@@ -53,10 +49,11 @@ const BlogTemplate = ({data, pageContext}) =>{
       </TagList>
       </Header>
       <BlogPost>
-    <h2>{title}</h2>
-    <p>{date}</p>
-    <img src={`http:${images[0].fluid.src}`}/>
-    <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
+      <h2>{title}</h2>
+      <p>{date}</p>
+      <p>{author}</p>
+      <img src={`http:${images[0].fluid.src}`}/>
+      <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
     
     <div>
     <p>Related Decibel Topics:

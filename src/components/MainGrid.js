@@ -14,14 +14,20 @@ const MainGridDiv = styled.div`
   }
   section{
     padding-right:20px;
+    display:grid;
+    grid-row-gap:30px;
+    grid-auto-rows: minmax(300px, auto);
     @media screen and (max-width: 750px){
       grid-template-columns: 1fr;
       padding:0;
     }
   }
   aside{
+    display:grid;
+    grid-row-gap:30px;
+    grid-auto-rows: minmax(300px, auto);
     padding: 0 20px;
-    border-left: 1px solid #003946;
+    border-left: 1px solid rgba(0, 57, 70, .25);
     @media screen and (max-width: 750px){
       grid-template-columns: 1fr;
       padding:0;

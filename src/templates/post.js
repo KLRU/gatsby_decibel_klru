@@ -9,11 +9,11 @@ import ContentfulVideoElement from '../components/PageElements/ContentfulVideoEl
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import PostDiv from '../components/Posts/PostDiv';
-import VideoDiv from '../components/Posts/VideoDiv'
+//import VideoDiv from '../components/Posts/VideoDiv'
 
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, heroImage, featuredVideo, body, tags } = data.contentfulPost;
+  const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const tags2 = data.allContentfulTag.edges;

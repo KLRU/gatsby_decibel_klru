@@ -7,11 +7,11 @@ import Twitter from '../../images/twitter.svg'
 
 const FooterDiv = styled.div`
   display:grid;
-  margin:0;
+  margin:20px 0 0 0;
   width:100%;
   min-height: 200px;
   padding-top: 20px;
-  background-color: #000;
+  background-color: #003946;
   color:#fff;
   //grid-template-columns: 1fr 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -47,7 +47,7 @@ const Footer = props => {
         <h3>About Us</h3>
       </div>
       <div>
-        <h3>KLRU</h3>
+        <h3>AustinPBS</h3>
         </div>
     </FooterDiv>
   )

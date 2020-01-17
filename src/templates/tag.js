@@ -1,13 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import styled from 'styled-components'
 import TagCards from '../components/TagCards/tagCards';
-import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
+//import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
+import TexasMutual from '../components/LatestNews/TexasMutual';
+
+const TopicIntroDiv =styled.div`
+display:grid;
+grid-template-columns: 70% 30%;
+padding: 20px;
+p{
+  line-height: 1.6;
+}
+`
 
 const TagTemplate = ({ data, pageContext }) => {
   //const topicTag = data.contentfulTag
@@ -38,16 +49,17 @@ const TagTemplate = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <h1 style={h1Style}>{title}</h1>
-      <FeaturedTagDiv>
+      {/* <FeaturedTagDiv>
       <img src={posts[0].heroImage.fluid.src} alt={posts[0].heroImage.title}/> 
-      {/* <iframe src={ `https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${posts[0].featuredVideo.embedCode}/`} />  */}
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
-      </FeaturedTagDiv>
-      {/* <p>{posts.featuredVideo.title}</p> */}
-      <div><p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p></div>
-    <h2>More stories on this topic:</h2>
-    <div style={divStyle}>
-      {posts.slice(1).map(post =>(
+      </FeaturedTagDiv>  */}
+      <TopicIntroDiv>
+        <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p>
+        <TexasMutual />
+      </TopicIntroDiv>
+      <h2>Stories on this topic:</h2>
+      <div style={divStyle}>
+      {posts.map(post =>(
         <TagCards key={post.id} tag={slug} { ...post } />
       ))}
    
