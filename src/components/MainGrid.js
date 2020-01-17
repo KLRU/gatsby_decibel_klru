@@ -7,7 +7,7 @@ const MainGridDiv = styled.div`
   display:grid;
   box-sizing:border-box;
   grid-template-columns: 70% 30%;
-  //grid-template-columns: minmax(min-content, 500px) 1fr;
+  //grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
   margin: 0 auto;
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;

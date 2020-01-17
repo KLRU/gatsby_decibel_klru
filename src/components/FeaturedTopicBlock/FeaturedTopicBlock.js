@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const FeaturedTopicDiv = styled.div`
 display: grid;
 padding:20px;
+margin: 25px 0;
 @media screen and (max-width: 930px){
   padding:10px 0;
 }

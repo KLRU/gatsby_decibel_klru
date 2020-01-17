@@ -70,6 +70,7 @@ const IndexPage = ({ data }) => {
         <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
         <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/>
         <LatestNews>
+          <h1>More Stories from Decibel:</h1>
           <LatestNewsList>
             {posts.map(({node:post})=>(
               <LatestNewsItem key={posts.id} {...post}/>

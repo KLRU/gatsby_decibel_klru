@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const TwoStoryBlockDiv = styled.div`
   width:100%;
+  margin: 50px 0;
   display:grid;
   grid-gap: 5px 5px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
