@@ -2,15 +2,14 @@ import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
 import Logo from '../../images/Decibel-Logo-AustinPBS-Blue.png'
+import MobileNav from './MobileNav';
 
 const HeaderMainDiv = styled.div`
   display:grid;
   width:100%;
   z-index: 100;
   border-bottom: 1px solid #ccc;
-  //grid-template-columns: 1fr 3fr;
   grid-template-columns: minmax(min-content, 125px) 1fr;
-  //max-height:125px;
   .logoImage{
     width: 100%;
     height:auto;
@@ -21,21 +20,16 @@ const HeaderMainDiv = styled.div`
     text-align: end;
     align-content:end;
     position:relative;
+    @media screen and (max-width: 675px){
+      margin-bottom: 50px;
+    }
     div{
       height:100%;
       display:grid;
-     //align-items: center;
-      //position:absolute;
     }
     ul{
       display:block;
       list-style-type: disc;
-      //margin-block-start: none;
-      //margin-block-end: 1em;
-      //margin-inline-start: 0px;
-      //margin-inline-end: 0px;
-      //padding-inline-start: 40px;
-      //margin:0;
       padding:0;
       .topicLink{
         display:inline-block;
@@ -58,9 +52,10 @@ const HeaderMainDiv = styled.div`
       padding:0;
     }
     .dropdownMenu{
-      //margin-top:70px;   
-      //position:absolute;
       margin-right:0;
+      @media screen and (max-width: 675px){
+        margin-top: 300px;
+      }
        a{
       width: 300px;
       max-width: 300px;
@@ -114,13 +109,13 @@ class Header extends React.Component {
         <div className='topicsDiv'>
          <div>
             <ul>
-              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link>
-              <Link className='topicLink' to={`/episodes`}>Episodes</Link>
-              <Link className='topicLink'to={`/blog`}>Blog</Link> */}
-              <Link className='topicLink' to={'/episodes'}>Episodes</Link>
+            
+              
+              <Link className='topicLink' to={'/episodes'}>Episodes</Link>  
+              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link> */}
+              <Link className='topicLink'to={`/blog`}>Judy's Blog</Link> 
               <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span></li>
-              <Link className='topicLink' to={'/about'}>About Us</Link>
-             
+              <Link className='topicLink' to={'/about'}>About Us</Link> 
            </ul>
         
            {this.state.open && (

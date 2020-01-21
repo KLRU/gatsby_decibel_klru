@@ -19,7 +19,8 @@ form{
     margin: 20px 0;
     border-radius: 3px;
     box-shadow: none;
-    border-width:1px;
+    border: 1px solid rgba(0, 57, 70, .25);
+    //border-width:1px;
     box-sizing:border-box;
   }
   textarea{
@@ -27,7 +28,7 @@ form{
     height: 200px;
     padding: 10px 5px;
     margin: 20px 0;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 57, 70, .25);
     border-radius: 5px;
     border-width:1px;
     box-sizing:border-box;
@@ -38,6 +39,7 @@ form{
     margin: 20px 0;
     background-color: #009AA6;
     border-radius: 3px;
+    border: 1px solid rgba(0, 57, 70, .25);
     a{
       color:#fff;
       font-size: 18px;

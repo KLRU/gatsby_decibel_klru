@@ -50,12 +50,18 @@ const FeaturedStoryDiv =styled.div`
           margin-top:0;
           margin-bottom: 5px;
           text-shadow: 1px 1px #003946;
+          @media screen and (max-width: 675px){
+            display:none
+          }
         }
         .shortDescription{
           padding:0;
           margin:0;
           font-size: 18px;
           text-shadow: 1px 1px #003946;
+          @media screen and (max-width: 675px){
+            display:none
+          }
         }
       }
 

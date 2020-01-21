@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Facebook from '../../images/facebook.svg'
 import Instagram from '../../images/instagram.svg'
 import Twitter from '../../images/twitter.svg'
+import AustinPBS from '../../images/AustinPBSWhiteandBlack.png'
 
 const FooterDiv = styled.div`
   display:grid;
@@ -19,13 +20,16 @@ const FooterDiv = styled.div`
   a{
     color:#fff;
   }
+  img{
+    width:80%;
+  }
   ul{
     margin-block-start:0;
     padding-left:0;
     a{
       img{
         width: 40px;
-        padding:10px;
+        padding: 10px;
       }
     }
   }
@@ -36,7 +40,7 @@ const Footer = props => {
     <FooterDiv>
       <div>
         <h3>Contact Us</h3>
-        <p>email us at <a>news@klru.org</a></p>
+        <p>Email us at <a href="mailto:news@klru.org">news@klru.org</a> </p>
         <ul>
           <a href='https://www.facebook.com/decibelatx/'><img src={Facebook} alt='Facebook' className='facebookLogo' /></a>
           <a><img src={Instagram} alt='Instagram' className='instagramLogo' /></a>
@@ -44,11 +48,15 @@ const Footer = props => {
         </ul>
       </div>
       <div>
-        <h3>About Us</h3>
+        <a href ='/'><h3>DECIBEL ATX</h3></a>
+        <a href ='/about'><h3>About Us</h3></a>
+        <a href ='/episodes'><h3>Episodes</h3></a>
+        <a href ='/topics'><h3>Topics</h3></a>
       </div>
       <div>
-        <h3>AustinPBS</h3>
-        </div>
+        <a href='https://www.austinpbs.org'><h3>AustinPBS, KLRU-TV</h3></a>
+        <a href='https://www.austinpbs.org'><img src={AustinPBS} alt='AustinPBS Homepage Link' className='AustinPBSLogo' /></a>
+      </div>
     </FooterDiv>
   )
 };

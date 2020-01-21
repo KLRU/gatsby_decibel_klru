@@ -13,11 +13,31 @@ import TexasMutual from '../components/LatestNews/TexasMutual';
 
 const TopicIntroDiv =styled.div`
 display:grid;
-grid-template-columns: 70% 30%;
+grid-template-columns: minmax(min-content, 70%) 1fr;
+grid-template-rows: minmax(max-content, 175px) 1fr;
 padding: 20px;
+@media screen and (max-width: 675px){
+  grid-template-columns: 1fr;
+  padding: 5px;;
+}
 p{
   line-height: 1.6;
 }
+`
+
+const MoreStoriesDiv =styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    width: 100%;
+    margin: 20px auto:
+    align-content:center;
+    justify-items:center;
+    @media screen and (max-width: 675px){
+      grid-template-columns: 1fr;
+      margin: 5px 0;
+    }
+
 `
 
 const TagTemplate = ({ data, pageContext }) => {
@@ -58,12 +78,12 @@ const TagTemplate = ({ data, pageContext }) => {
         <TexasMutual />
       </TopicIntroDiv>
       <h2>Stories on this topic:</h2>
-      <div style={divStyle}>
+      <MoreStoriesDiv>
       {posts.map(post =>(
         <TagCards key={post.id} tag={slug} { ...post } />
       ))}
    
-    </div>
+    </MoreStoriesDiv>
     <Footer />
     </Container>
   )
