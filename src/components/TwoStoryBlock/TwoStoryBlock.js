@@ -44,10 +44,8 @@ const TwoStoryBlock = props =>{
       {twoStoryPosts.map((twoStoryPost)=>( 
       <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
         <PostDiv>
-       
         <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
        <h2>{twoStoryPost.title}</h2>
-       
         </PostDiv></Link>
       ))}
     </TwoStoryBlockDiv>

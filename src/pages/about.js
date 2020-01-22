@@ -10,6 +10,7 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
+import MainGrid from '../components/MainGrid';
 //import BioGrid from '../components/BioElements/BioGrid';
 //import BioItem from '../components/BioElements/BioItem';
 
@@ -58,6 +59,8 @@ const VideoDiv = styled.div`
 
 const BioDiv =styled.div`
   display:grid;
+  width: 80%;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 30px;
@@ -81,7 +84,8 @@ const BioItem = styled.div`
     width:100%;
     padding:25px;
     box-sizing:border-box;
-    border: 1px solid #003946;
+    //border: 1px solid rgba(0, 57, 70, .25);
+    box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
     //border: 1px solid #ccc;
 `
 
@@ -106,6 +110,7 @@ const AboutPage = ({ data, pageContext }) => {
       <iframe src={`https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoIntro.embedCode}/`}/>
       </VideoDiv>
       <h1 style={{textAlign: 'center'}}>{title}</h1>
+    
       <BioDiv>
       {bios.map(({node:bio})=>(
         <BioItem>
@@ -117,6 +122,7 @@ const AboutPage = ({ data, pageContext }) => {
         </BioItem>
       ))}   
       </BioDiv>
+  
   <Footer />
     </Container>
   )

@@ -21,7 +21,7 @@ const FooterDiv = styled.div`
     color:#fff;
   }
   img{
-    width:80%;
+    width:50%;
   }
   ul{
     margin-block-start:0;

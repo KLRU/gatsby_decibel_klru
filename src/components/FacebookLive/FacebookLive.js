@@ -6,7 +6,7 @@ const FacebookLiveDiv =styled.div`
 width:70%;
 margin: 10px auto;
 padding:20px;
-border: 1px solid #003946;
+border: 1px solid rgba(0, 57, 70, .25);
 //position:relative
 .iframeDiv{
   width:100%; 
@@ -26,17 +26,17 @@ const FacebookLive = props =>{
   const facebookLive = props
   function FacebookIsLive(){
     if (facebookLive.isLive === true){
-      return <iframe src={facebookLive.iFrameSrc}></iframe>
+      return  <FacebookLiveDiv><div className='iframeDiv'><iframe src={facebookLive.iFrameSrc}></iframe></div></FacebookLiveDiv>
     }else{
       return null;
     }
   }
   return(
-    <FacebookLiveDiv>
-      <div className='iframeDiv'>
+    
+     
       <FacebookIsLive />
-      </div>
-    </FacebookLiveDiv>
+      
+    
   )
 }
 

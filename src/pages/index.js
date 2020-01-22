@@ -24,11 +24,11 @@ import TwoStoryBlock from '../components/TwoStoryBlock/TwoStoryBlock';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
-  //const { title, mainStory} = data.allContentfulHomepage.edges[0].node;
   const featuredStory = data.contentfulFeaturedStoryBlock;
   const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
   const twoStoryBlock = data.contentfulTwoStoryBlock;
+  const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
 
   return (
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         </LatestNews>   
         </section>
         <aside>
-           <TexasMutual /> 
+           <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> 
            <ContactForm />
            <div>
             <div>
@@ -224,6 +224,19 @@ export const query = graphql`
         tags{
           slug
           title
+        }
+      }
+    },
+    contentfulSponsorsBlock{
+      id
+      title
+      sponsors{
+        sponsorTitle
+        sponsorLink
+        image{
+          fluid{
+            src
+          }
         }
       }
     }

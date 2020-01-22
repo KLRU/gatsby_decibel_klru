@@ -9,8 +9,12 @@ const List= styled.ul`
   position:absolute;
   z-index:500;
   right:0px;
-  box-shadow: 0px 1px 3px 2px #ccc;
+  box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
   padding-inline-start: 0;
+  @media screen and (max-width: 750px){
+    margin-top: 0px;
+    width:100%;
+  }
 
 `
 
