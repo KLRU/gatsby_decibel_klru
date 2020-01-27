@@ -27,7 +27,7 @@ const TexasMutual = (props) =>{
   return(
     <TexasMutualDiv>
       <div>
-       <h2>Decibel is Sponsored By:</h2>
+       {/* <h2>Decibel is Sponsored By:</h2> */}
        {sponsorships.map((sponsorship)=>(
          <a href={`${sponsorship.sponsorLink}`}><img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' /></a> 
        ))}

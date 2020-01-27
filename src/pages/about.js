@@ -1,18 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+
 import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
-//import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
-//import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
-import MainGrid from '../components/MainGrid';
-//import BioGrid from '../components/BioElements/BioGrid';
-//import BioItem from '../components/BioElements/BioItem';
+import SmallContainer from "../components/Container/SmallContainer";
 
 //function DisplayPageElement(pageElement) {
   //switch (pageElement.__typename) {
@@ -33,18 +31,10 @@ import MainGrid from '../components/MainGrid';
   //}
 //}
 
-function DisplayBiographies(pageElement){
-  switch (pageElement.__typename){
-    case 'ContentfulBiographyElement':
-    return<ContentfulBiographyElement key={pageElement.id} {...pageElement} />
 
-    default:
-      return <div className="no_block_type" />
-  }
-}
 
 const VideoDiv = styled.div`
-    width:80%; 
+    width:100%; 
     margin: 20px auto;
     height:0;
     padding-bottom:56.25%;
@@ -59,7 +49,7 @@ const VideoDiv = styled.div`
 
 const BioDiv =styled.div`
   display:grid;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: minmax(100px, auto);
@@ -102,9 +92,10 @@ const AboutPage = ({ data, pageContext }) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
+            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
-      
+      <SmallContainer>
       <VideoDiv> 
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
       <iframe src={`https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoIntro.embedCode}/`}/>
@@ -122,7 +113,7 @@ const AboutPage = ({ data, pageContext }) => {
         </BioItem>
       ))}   
       </BioDiv>
-  
+      </SmallContainer>
   <Footer />
     </Container>
   )

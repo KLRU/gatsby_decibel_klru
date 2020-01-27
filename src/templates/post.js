@@ -1,16 +1,64 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
+import SmallContainer from '../components/Container/SmallContainer';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import PostDiv from '../components/Posts/PostDiv';
-//import VideoDiv from '../components/Posts/VideoDiv'
+//import PostDiv from '../components/Posts/PostDiv';
 
+const PostDiv = styled.div`
+width:100%;
+margin: 10px auto;
+.postBodyDiv{
+  width:100%;
+  h1{
+  margin:0;
+}
+.publishDate{
+  margin:0;
+}
+.paragraphText{
+  padding: 0;
+  font-size: 1em;
+}
+}
+
+h2{
+  font-size:1em;
+}
+
+`
+
+const ImageDiv = styled.div`
+width:100%; 
+height:0;
+margin-top:10px;
+padding-bottom:56.25%;
+position:relative;
+img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:none;
+}
+`
+
+const RelatedPostDiv = styled.div`
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+grid-row-gap:5px;
+width:100%;
+margin:20px auto;
+align-content:center;
+justify-items: center;
+
+`
 
 const PostTemplate = ({ data, pageContext }) => {
   const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
@@ -22,21 +70,8 @@ const PostTemplate = ({ data, pageContext }) => {
     if(featuredVideo){
       return <ContentfulVideoElement {...featuredVideo}/>
     }
-    return <img width='100%' src={`http:${heroImage.file.url}`} alt={heroImage.title}/>
+    return <ImageDiv><img width='100%' src={`http:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
   }
-
-  const divStyle = {
-    // display: 'grid',
-    // gridTemplateColumns: '1fr 1fr 1fr'
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gridRowGap: '5px',
-    width:'100%',
-    margin: '20px auto',
-    //marginTop: '20px',
-    alignContent:'center',
-    justifyItems:'center'
-  };
 
   return(
     <Container>
@@ -48,7 +83,7 @@ const PostTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
-      
+      <SmallContainer>
         {/* <VideoDiv> */}
        {/* <ContentfulVideoElement {...featuredVideo}/> */}
        <VideoOrImage />
@@ -65,13 +100,14 @@ const PostTemplate = ({ data, pageContext }) => {
       })} */}
 
       <h2>More in {tagTitle}:</h2>
-      <div style={divStyle}>
+      <RelatedPostDiv>
         {relatedPosts.map((relatedPost) => {
           return <TagCards tag={tag} { ...relatedPost.node } />
         })}
-      </div>
+      </RelatedPostDiv>
       <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> 
       </PostDiv>
+      </SmallContainer>
       <Footer />
     </Container>
   )

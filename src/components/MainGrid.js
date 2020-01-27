@@ -31,7 +31,7 @@ const MainGridDiv = styled.div`
     border-left: 1px solid rgba(0, 57, 70, .25);
     @media screen and (max-width: 750px){
       grid-template-columns: 1fr;
-      padding:0;
+      padding:50px;
       border-left:none;
     }
   }

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import '../styles/global.css';
 import Container from '../components/Container/Container';
+import SmallContainer from "../components/Container/SmallContainer";
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
@@ -13,26 +14,25 @@ const AllTopicsWrapper = styled.div`
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
  justify-items:center;
- div{
-   padding: 20px;
+
+`
+const TopicCard = styled.div`
+  padding: 20px;
    border: 1px solid rgba(0, 57, 70, .25);
    box-shadow: 0px 2px 3px rgba(0, 57, 70, .25);
    margin-bottom: 20px;
    img{
-     object-fit:cover;
-     width: 250px;
-     height: 200px;
-   }
-   h2{
-    margin-bottom:0;
-   }
-   p{
-     margin:0;
-   }
- }
-
-
-
+    object-fit:cover;
+    width: 250px;
+    height: 200px;
+  }
+    h2{
+      margin-bottom:0;
+     }
+     p{
+       margin:0;
+     }
+  }
 `
 
 const TopicsPage = ({ data }) => {
@@ -48,16 +48,20 @@ const TopicsPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
+          <SmallContainer>
       <h1>All Topics</h1>
       <AllTopicsWrapper>
       {allTopics.map(({node:allTopic}) => (
+        <TopicCard>
         <div>
         <img src={allTopic.image.fluid.src} alt={allTopic.title} />
+        </div>
         <h2 key={allTopic.id}><Link to={`/${allTopic.slug}`}>{allTopic.title}</Link></h2>
         <p>{allTopic.updatedAt}</p>
-        </div>
+        </TopicCard>
       ))}
       </AllTopicsWrapper>
+      </SmallContainer>
       <Footer/>
     </Container>
   )

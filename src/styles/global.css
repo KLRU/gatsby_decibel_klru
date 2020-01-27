@@ -17,7 +17,7 @@ li{
   width: 400px;
 }
 
-p{
+p, button, input, textarea{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   line-height: 1.6;

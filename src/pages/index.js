@@ -19,18 +19,35 @@ import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 import Footer from '../components/Footer/Footer';
-import TexasMutual from '../components/LatestNews/TexasMutual'
-import TwoStoryBlock from '../components/TwoStoryBlock/TwoStoryBlock';
+import TexasMutual from '../components/LatestNews/TexasMutual';
+import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
+import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
   const featuredStory = data.contentfulFeaturedStoryBlock;
   const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
-  const twoStoryBlock = data.contentfulTwoStoryBlock;
+  //const twoStoryBlock = data.contentfulTwoStoryBlock;
+  const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
 
+  function DisplayStories(){
+    if(twoStoryBlocks){
+      return <TwoStorySection>
+      {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
+      {twoStoryBlocks.map(({node:twoStoryBlock})=>(
+        <div>
+        <h2>{twoStoryBlock.title}</h2>
+        <TwoStories {...twoStoryBlock} />
+        </div>
+      ))}
+      </TwoStorySection>
+    }else{
+      return null;
+    }   
+  }
   return (
     <Container>
       <Header>
@@ -50,7 +67,10 @@ const IndexPage = ({ data }) => {
       <MainGrid>
         <section>
         <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
-        <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/>
+      
+          <DisplayStories />
+
+
         <LatestNews>
           <h1>More Stories from Decibel:</h1>
           <LatestNewsList>
@@ -84,8 +104,13 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query {
     allContentfulPost( 
-      sort: { fields: [publishDate], order: DESC }
       limit: 5
+      filter:{
+        featuredStory:{
+          ne: true
+        }
+      }
+      sort: { fields: [publishDate], order: DESC }
      ) {
       edges {
         node {
@@ -224,6 +249,27 @@ export const query = graphql`
         tags{
           slug
           title
+        }
+      }
+    },
+    allContentfulTwoStoryBlock{
+      edges{
+        node{
+          title
+          secondaryFeaturedPost{
+            title
+            slug
+            publishDate(formatString: "MMMM DD, YYYY")
+            heroImage{
+              fluid{
+              src
+              }
+            }
+          tags{
+            slug
+            title
+          }
+          }
         }
       }
     },

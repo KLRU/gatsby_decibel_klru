@@ -31,4 +31,4 @@ const PostDiv = (props)=>{
   )
 }
 
-export default PostDiv
+//export default PostDiv

@@ -14,12 +14,13 @@ const PageTitle = styled.h1`
 
 const AllBlogsDiv = styled.div`
   display:grid;
+  width: 100%;
   justify-items:center;
   margin: 10px auto;
-  padding: 10px;
-  border: 1px solid #E7E9E9;
-  box-shadow: 0px 2px 4px #eee;
-  width: 100%;
+  padding-bottom: 10px;
+  border: 1px solid rgba(0, 57, 70, .25);
+  box-shadow: 0px 2px 4px rgba(0, 57, 70, .25);
+  
   h2{
     margin:10px 0 0 0;
     font-size:30px;
@@ -37,7 +38,7 @@ const AllBlogsDiv = styled.div`
   }
   a{
     button{
-    border: 1px solid #000;
+      border: 1px solid rgba(0, 57, 70, .5);
     font-size:16px;
   }
   }
@@ -57,6 +58,7 @@ const BlogPage = ({data}) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
+            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
       <PageTitle>Decibel Blog</PageTitle>

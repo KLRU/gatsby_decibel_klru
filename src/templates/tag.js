@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import TagCards from '../components/TagCards/tagCards';
 //import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
+import SmallContainer from '../components/Container/SmallContainer';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer'
 import TagList from '../components/TopicList/TagList';
@@ -44,16 +45,8 @@ const TagTemplate = ({ data, pageContext }) => {
   //const topicTag = data.contentfulTag
   const posts = data.contentfulTag.post;
   const tags = data.allContentfulTag.edges;
+  const sponsorsBlock = data.contentfulSponsorsBlock;
   const { title, slug, topicDescription } = data.contentfulTag;
-  const divStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-    width:'100%',
-    margin: '20px auto',
-    //marginTop: '20px',
-    alignContent:'center',
-    justifyItems:'center'
-  };
   const h1Style = {
     textAlign:'center',
     color:'#242323'
@@ -68,6 +61,7 @@ const TagTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
+      <SmallContainer>
       <h1 style={h1Style}>{title}</h1>
       {/* <FeaturedTagDiv>
       <img src={posts[0].heroImage.fluid.src} alt={posts[0].heroImage.title}/> 
@@ -75,7 +69,7 @@ const TagTemplate = ({ data, pageContext }) => {
       </FeaturedTagDiv>  */}
       <TopicIntroDiv>
         <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p>
-        <TexasMutual />
+        <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
       </TopicIntroDiv>
       <h2>Stories on this topic:</h2>
       <MoreStoriesDiv>
@@ -84,6 +78,7 @@ const TagTemplate = ({ data, pageContext }) => {
       ))}
    
     </MoreStoriesDiv>
+    </SmallContainer>
     <Footer />
     </Container>
   )
@@ -133,6 +128,19 @@ export const query = graphql`
         node {
           title
           slug
+        }
+      }
+    },
+    contentfulSponsorsBlock{
+      id
+      title
+      sponsors{
+        sponsorTitle
+        sponsorLink
+        image{
+          fluid{
+            src
+          }
         }
       }
     }
