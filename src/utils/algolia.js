@@ -5,18 +5,33 @@ const postQuery= `query{
   allContentfulPost{
     edges{
       node{
+        id
         title
         slug
-        id
-        body {
-          childMarkdownRemark {
-            html
+        publishDate(formatString: "MMMM DD, YYYY")
+        body{
+          childMarkdownRemark{
+            excerpt
           }
         }
-        tags {
-          title
+        tags{
+          id
           slug
+          title
+          
         }
+      }
+    }
+  }
+}`
+
+const tagQuery = `query{
+  allContentfulTag{
+    edges{
+      node{
+        id
+        title
+        slug
       }
     }
   }
@@ -29,8 +44,10 @@ const queries = [
     query: postQuery,
     transformer: ({ data }) =>
     data.allContentfulPost.edges.map(edge => edge.node),
-    indexName: 'Posts'
-    
+  },
+  {
+    query: tagQuery,
+    transformer: ({data}) => data.allContentfulTag.edges.map(edge=>edge.node),
   }
 ]
 

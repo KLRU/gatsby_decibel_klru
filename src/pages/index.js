@@ -10,6 +10,8 @@ import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
+import algoliasearch from 'algoliasearch/lite';
+import { InstantSearch, SearchBox, Hits, Highlight, Index} from 'react-instantsearch-dom';
 import FacebookLive from '../components/FacebookLive/FacebookLive';
 import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
 import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
@@ -32,6 +34,16 @@ const IndexPage = ({ data }) => {
   const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
+  const searchClient = algoliasearch('465BL44UJ0', '7e97084438ea03e0abf87df591b68438');
+  const Hit = ({ hit }) => (
+    <div>
+    <p>
+      <Highlight attribute="title" hit={hit}/>
+    </p>
+    <p><Highlight attribute='body.childMarkdownRemark.excerpt' hit={hit}/></p>
+    </div>
+  );
+ 
 
   function DisplayStories(){
     if(twoStoryBlocks){
@@ -58,6 +70,10 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
+      <InstantSearch searchClient={searchClient} indexName="Decibel">
+      <SearchBox />
+      <Hits hitComponent={Hit}/>
+      </InstantSearch>
   
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
   

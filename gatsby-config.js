@@ -1,9 +1,13 @@
 const dotenv = require('dotenv');
-//const queries = require("./src/utils/algolia");
+const queries = require("./src/utils/algolia");
 
-if(process.env.NODE_ENV !== 'production'){
+if(process.env.NODE_ENV  !== 'production'){
   dotenv.config();
 }
+
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
 
 module.exports = {
   siteMetadata: {
@@ -43,16 +47,16 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-algolia`,
-    //   options: {
-    //     appId: process.env.ALGOLIA_APP_ID,
-    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
-    //     //indexName: process.env.ALGOLIA_INDEX_NAME,
-    //     queries,
-    //     chunkSize: 20000, // default: 1000
-    //     },
-    //   },
+    {
+     resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000, // default: 1000
+        },
+      },
       `gatsby-plugin-styled-components`,
   ],
 }
