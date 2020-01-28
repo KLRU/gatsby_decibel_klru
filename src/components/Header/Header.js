@@ -168,6 +168,7 @@ class Header extends React.Component {
               <Link className='topicLink'to={`/blog`}>Judy's Blog</Link> 
               <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span></li>
               <Link className='topicLink' to={'/about'}>About Us</Link> 
+              <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
         
            {this.state.open && (
@@ -187,6 +188,7 @@ class Header extends React.Component {
               <Link to={'/episodes'}>Episodes</Link>  
               <Link to={`/blog`}>Judy's Blog</Link> 
               <Link to={'/about'}>About Us</Link> 
+              <Link to={'/search'}>Search</Link>
               <Link >Topics<span>:</span></Link> 
               {this.props.children} 
               </ul>

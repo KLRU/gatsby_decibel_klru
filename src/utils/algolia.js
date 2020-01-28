@@ -25,17 +25,17 @@ const postQuery= `query{
   }
 }`
 
-const tagQuery = `query{
-  allContentfulTag{
-    edges{
-      node{
-        id
-        title
-        slug
-      }
-    }
-  }
-}`
+// const tagQuery = `query{
+//   allContentfulTag{
+//     edges{
+//       node{
+//         id
+//         title
+//         slug
+//       }
+//     }
+//   }
+// }`
 
 
 
@@ -45,10 +45,10 @@ const queries = [
     transformer: ({ data }) =>
     data.allContentfulPost.edges.map(edge => edge.node),
   },
-  {
-    query: tagQuery,
-    transformer: ({data}) => data.allContentfulTag.edges.map(edge=>edge.node),
-  }
+  // {
+  //   query: tagQuery,
+  //   transformer: ({data}) => data.allContentfulTag.edges.map(edge=>edge.node),
+  // }
 ]
 
 
