@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Facebook from '../../images/facebook.svg'
 import Instagram from '../../images/instagram.svg'
 import Twitter from '../../images/twitter.svg'
+import YouTube from '../../images/YouTube.png'
 import AustinPBS from '../../images/AustinPBSWhiteandBlack.png'
 
 const FooterDiv = styled.div`
@@ -21,14 +22,14 @@ const FooterDiv = styled.div`
     color:#fff;
   }
   img{
-    width:50%;
+    width:60%;
   }
   ul{
     margin-block-start:0;
     padding-left:0;
     a{
       img{
-        width: 40px;
+        width: 50px;
         padding: 10px;
       }
     }
@@ -43,8 +44,9 @@ const Footer = props => {
         <p>Email us at <a href="mailto:news@klru.org">news@klru.org</a> </p>
         <ul>
           <a href='https://www.facebook.com/decibelatx/'><img src={Facebook} alt='Facebook' className='facebookLogo' /></a>
-          <a><img src={Instagram} alt='Instagram' className='instagramLogo' /></a>
-          <a><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a>
+          <a href="https://www.instagram.com/decibelatx"><img src={Instagram} alt='Instagram' className='instagramLogo' /></a>
+          <a href='https://twitter.com/decibelatx'><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a>
+          <a><img src={YouTube} alt='YouTube' /></a>
         </ul>
       </div>
       <div>
@@ -52,6 +54,7 @@ const Footer = props => {
         <a href ='/about'><h3>About Us</h3></a>
         <a href ='/episodes'><h3>Episodes</h3></a>
         <a href ='/topics'><h3>Topics</h3></a>
+        <a href ='/search'><h3>Search</h3></a>
       </div>
       <div>
         <a href='https://www.austinpbs.org'><h3>AustinPBS, KLRU-TV</h3></a>
