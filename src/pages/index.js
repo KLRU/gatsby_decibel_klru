@@ -73,14 +73,14 @@ const IndexPage = ({ data }) => {
           <DisplayStories />
 
 
-        <LatestNews>
+        {/* <LatestNews>
           <h1>More Stories from Decibel:</h1>
           <LatestNewsList>
             {posts.map(({node:post})=>(
               <LatestNewsItem key={posts.id} {...post}/>
             ))}
           </LatestNewsList> 
-        </LatestNews>   
+        </LatestNews>    */}
         </section>
         <aside>
            <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> 

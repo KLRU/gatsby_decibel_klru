@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components'
 import PlayButton from '../../images/PlayButtonWhite.png'
+import BlackPlayButton from '../../images/BlackPlayButton.png'
 
 const FeaturedStoryDiv =styled.div`
       margin-top: 10px;
@@ -32,8 +33,9 @@ const FeaturedStoryDiv =styled.div`
         position:absolute;
         width:100%;
         padding: 10px;
+        background-color: #fff;
         h1{
-          color: #fff;
+          color: #000;
           margin:0;
           padding: 0;
           text-shadow: 1px 1px #003946;
@@ -45,11 +47,11 @@ const FeaturedStoryDiv =styled.div`
           }
         }
         p{
-          color:#fff;
+          color:#000;
           padding-left: 10px;
           margin-top:0;
           margin-bottom: 5px;
-          text-shadow: 1px 1px #003946;
+          //text-shadow: 1px 1px #003946;
           @media screen and (max-width: 675px){
             display:none
           }
@@ -58,7 +60,7 @@ const FeaturedStoryDiv =styled.div`
           padding:0;
           margin:0;
           font-size: 18px;
-          text-shadow: 1px 1px #003946;
+          //text-shadow: 1px 1px #003946;
           @media screen and (max-width: 675px){
             display:none
           }
@@ -82,7 +84,7 @@ const FeaturedStoryBlock = props =>{
       </div>
       <div className = 'storyTitleDiv'>
       <Link to={`/${featuredStory.associatedPost.tags[0].slug}/${featuredStory.associatedPost.slug}/`}>
-      <h1><span><img src={PlayButton} alt={"Play Button"}/></span>{featuredStory.title}</h1>
+      <h1><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{featuredStory.title}</h1>
       <p>{featuredStory.storyPostDate}</p>
       <p className='shortDescription' dangerouslySetInnerHTML={{__html:featuredStory.shortDescription.childMarkdownRemark.html}}></p>
       </Link>
