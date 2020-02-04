@@ -56,13 +56,13 @@ const HeaderMainDiv = styled.div`
       padding:0;
     }
     .dropdownMenu{
-      margin-right:0;
+      margin-right:30px;
       @media screen and (max-width: 675px){
         //margin-top: 300px;
       }
        a{
-      width: 300px;
-      max-width: 300px;
+      width: 100%;
+      //max-width: 300px;
       color: #000
       text-decoration:none;
       display:block;
@@ -97,6 +97,7 @@ const MobileNavDiv = styled.div`
     .dropdownNavigation{
       position:absolute;
       z-index: 1000;
+      width:100%;
       p{
           text-align:left;
           padding: 0 20px;
@@ -108,7 +109,7 @@ const MobileNavDiv = styled.div`
         padding-inline-start:0;
         box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
           a{
-            width:300px;
+            width:100%;
             color: #000
             text-decoration:none;
             display:block;

@@ -7,6 +7,7 @@ const List= styled.ul`
   margin-top:125px;
   display: block;
   position:absolute;
+  width: 40%;
   z-index:500;
   right:0px;
   box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
