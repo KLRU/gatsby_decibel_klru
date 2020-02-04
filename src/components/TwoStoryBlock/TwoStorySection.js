@@ -11,6 +11,12 @@ const TwoStoryDiv = styled.div`
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }
+  .blockTitle{
+    color:#fff;
+    background-color: #003946;
+    padding: 10px;
+  }
+
 `
 const TwoStorySection = props => {
   return(

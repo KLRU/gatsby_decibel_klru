@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import '../styles/global.css'
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import ContactForm from '../components/ContactForm/ContactForm';
+import Newsletter from '../components/ContactForm/Newsletter';
 import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid';
 import MainGrid from '../components/MainGrid';
@@ -41,13 +42,13 @@ const IndexPage = ({ data }) => {
       {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
       {twoStoryBlocks.map(({node:twoStoryBlock})=>(
         <div>
-        <h2>{twoStoryBlock.title}</h2>
+        <h2 className='blockTitle'>{twoStoryBlock.title}</h2>
         <TwoStories {...twoStoryBlock} />
         </div>
       ))}
       </TwoStorySection>
     }else{
-      return null;
+      return <div></div>;
     }   
   }
   return (
@@ -70,21 +71,21 @@ const IndexPage = ({ data }) => {
         <section>
         <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
       
-          <DisplayStories />
+        <DisplayStories />
 
 
-        {/* <LatestNews>
+       <LatestNews>
           <h1>More Stories from Decibel:</h1>
           <LatestNewsList>
             {posts.map(({node:post})=>(
               <LatestNewsItem key={posts.id} {...post}/>
             ))}
           </LatestNewsList> 
-        </LatestNews>    */}
+        </LatestNews>
         </section>
         <aside>
            <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> 
-           <ContactForm />
+           <Newsletter />
            <div>
             <div>
               <TwitterTimelineEmbed
@@ -153,11 +154,6 @@ export const query = graphql`
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC  }
-      filter:{
-        title:{
-          ne:"Episodes"
-        }
-      }
     ){
       edges {
         node {

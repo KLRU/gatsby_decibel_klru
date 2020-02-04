@@ -24,9 +24,9 @@ const MainGridDiv = styled.div`
     }
   }
   aside{
-    display:grid;
-    grid-row-gap:30px;
-    grid-auto-rows: minmax(300px, auto);
+    display:block;
+    //grid-row-gap:30px;
+    //grid-auto-rows: minmax(300px, auto);
     padding: 0 20px;
     border-left: 1px solid rgba(0, 57, 70, .25);
     @media screen and (max-width: 750px){

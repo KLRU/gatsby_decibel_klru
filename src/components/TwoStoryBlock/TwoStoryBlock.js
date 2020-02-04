@@ -25,8 +25,7 @@ const PostDiv = styled.div`
     height:100%;
     border:none;
   }
- 
-  h2{
+  .postTitle{
     position:absolute;
     padding-left:10px;
     margin-bottom:5px;
@@ -45,8 +44,9 @@ const TwoStoryBlock = props =>{
          <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
          <PostDiv>
            <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
-           <h2>{twoStoryPost.title}</h2>
-           </PostDiv></Link>
+           <h2 className='postTitle'>{twoStoryPost.title}</h2>
+         </PostDiv>
+         </Link>
          ))}
          </TwoStoryBlockDiv> 
     </div>

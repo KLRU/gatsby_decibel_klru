@@ -104,10 +104,11 @@ const MobileNavDiv = styled.div`
         }
       ul{
         margin-bottom:0;
+        width:100%;
         padding-inline-start:0;
         box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
           a{
-            width: 300px;
+            width:300px;
             color: #000
             text-decoration:none;
             display:block;
@@ -163,10 +164,10 @@ class Header extends React.Component {
         <div className='topicsDiv'>
          <div>
             <ul>
-              <Link className='topicLink' to={'/episodes'}>Episodes</Link>  
-              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link> */}
-              <Link className='topicLink'to={`/blog`}>Judy's Blog</Link> 
+              {/* <Link className='topicLink' to={'/episodes'}>Episodes</Link>   */}
+              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link> */} 
               <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span></li>
+              <Link className='topicLink'to={`/blog`}>Judy's Journal</Link> 
               <Link className='topicLink' to={'/about'}>About Us</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
@@ -184,9 +185,8 @@ class Header extends React.Component {
             {this.state.open && (
             <div className='dropdownNavigation'>
               <p onClick={this.closeMenu}>X Close</p>
-            <ul>
-              <Link to={'/episodes'}>Episodes</Link>  
-              <Link to={`/blog`}>Judy's Blog</Link> 
+            <ul> 
+              <Link to={`/blog`}>Judy's Journal</Link> 
               <Link to={'/about'}>About Us</Link> 
               <Link to={'/search'}>Search</Link>
               <Link >Topics<span>:</span></Link> 
