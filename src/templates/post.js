@@ -10,6 +10,7 @@ import SmallContainer from '../components/Container/SmallContainer';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import TexasMutual from '../components/LatestNews/TexasMutual';
 //import PostDiv from '../components/Posts/PostDiv';
 
 const PostDiv = styled.div`
@@ -17,16 +18,21 @@ width:100%;
 margin: 10px auto;
 .postBodyDiv{
   width:100%;
+  display:grid;
+  grid-template-columns:70% 30%;
+ .postTextDiv{
+  padding: 10px;
   h1{
-  margin:0;
-}
-.publishDate{
-  margin:0;
-}
-.paragraphText{
-  padding: 0;
-  font-size: 1em;
-}
+    margin:0;
+  }
+  .publishDate{
+    margin:0;
+  }
+  .paragraphText{
+    padding: 0;
+    font-size: 1em;
+  }
+ }
 }
 
 h2{
@@ -64,6 +70,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
+  const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
 
   function VideoOrImage(){
@@ -90,9 +97,12 @@ const PostTemplate = ({ data, pageContext }) => {
        {/* </VideoDiv> */}
        <PostDiv>
         <div className="postBodyDiv">
+          <div className='postTextDiv'>
         <h1>{title}</h1>
         <p className='publishDate'>{publishDate}</p>
         <p className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
+        </div>
+        <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
         </div>
       {/* <h2>Tags:</h2>
       {tags.map((tag) => {
@@ -180,6 +190,19 @@ export const query = graphql`
         node {
           title
           slug
+        }
+      }
+    },
+    contentfulSponsorsBlock{
+      id
+      title
+      sponsors{
+        sponsorTitle
+        sponsorLink
+        image{
+          fluid{
+            src
+          }
         }
       }
     }

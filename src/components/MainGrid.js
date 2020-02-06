@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const MainGridDiv = styled.div`
   width:100%;
-  max-width:1200px;
+  max-width:1250px;
   display:grid;
   box-sizing:border-box;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 75% 25%;
   //grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
   margin: 0 auto;
   @media screen and (max-width: 750px){

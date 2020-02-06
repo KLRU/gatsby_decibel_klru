@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
-import Logo from '../../images/Decibel-Logo-AustinPBS-Blue.png'
+import Logo from '../../images/DecibelLogo200X100.png'
 import MobileMenu from '../../images/MobileMenu.png'
 
 const HeaderMainDiv = styled.div`
@@ -9,13 +9,22 @@ const HeaderMainDiv = styled.div`
   width:100%;
   //z-index: 100;
   border-bottom: 1px solid rgba(0, 57, 70, .25);
-  grid-template-columns: minmax(min-content, 125px) 1fr;
+  grid-template-columns: minmax(min-content, 200px) 1fr;
+  grid-template-rows: 115px;
+  @media screen and (max-width: 675px){
+    grid-template-columns: minmax(min-content, 150px) 1fr;
+    grid-template-rows: 115px;
+  }
+  .logoDiv{
+    background-color: #009AA6;
+  }
   .logoImage{
     width: 100%;
     height:auto;
     padding-left:0px;
     @media screen and (max-width: 675px){
-      width:100px;
+      width:150px;
+      height: 100px;
     }
   }
   .topicsDiv{
@@ -34,10 +43,11 @@ const HeaderMainDiv = styled.div`
     ul{
       display:block;
       list-style-type: disc;
+      //margin: 0;
       padding:0;
       .topicLink{
         display:inline-block;
-        padding: 20px 20px;
+        padding: 10px 20px;
         font-family: 'Lato', sans-serif;
         font-weight: 400;
       }
@@ -87,12 +97,12 @@ const MobileNavDiv = styled.div`
       text-align: end;
       align-content:end;
       width:100%;
-      background-color: #009AA6;
+      background-color: #fff;
       z-index: 500;
       position:relative;
     h2{
        padding-right: 10px;
-       color:#fff;
+       color:#000;
     }
     .dropdownNavigation{
       position:absolute;

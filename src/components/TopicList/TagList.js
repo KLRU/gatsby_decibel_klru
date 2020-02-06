@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const List= styled.ul`
   margin:0;
-  margin-top:125px;
+  margin-top:115px;
   display: block;
   position:absolute;
   width: 40%;

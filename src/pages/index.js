@@ -244,6 +244,18 @@ export const query = graphql`
             src
           }
         }
+        featuredVideo{
+          embedCode
+          title
+          source
+        }
+        body{
+          childMarkdownRemark{
+            excerpt(
+              format: HTML
+              pruneLength: 140)
+          }
+        }
         tags{
           slug
           title
@@ -261,6 +273,18 @@ export const query = graphql`
             heroImage{
               fluid{
               src
+              }
+            }
+            featuredVideo{
+              embedCode
+              title
+              source
+            }
+            body{
+              childMarkdownRemark{
+                excerpt(
+                  format: HTML
+                  pruneLength: 140)
               }
             }
           tags{

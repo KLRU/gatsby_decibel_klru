@@ -12,10 +12,12 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 
+
 const TopicIntroDiv =styled.div`
 display:grid;
 grid-template-columns: minmax(min-content, 70%) 1fr;
 grid-template-rows: minmax(max-content, 175px) 1fr;
+align-items:center;
 padding: 20px;
 @media screen and (max-width: 675px){
   grid-template-columns: 1fr;
@@ -62,13 +64,13 @@ const TagTemplate = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <SmallContainer>
-      <h1 style={h1Style}>{title}</h1>
       {/* <FeaturedTagDiv>
       <img src={posts[0].heroImage.fluid.src} alt={posts[0].heroImage.title}/> 
       <Link to={`${slug}/${posts[0].slug}/`}><p>{posts[0].title}</p></Link>
       </FeaturedTagDiv>  */}
       <TopicIntroDiv>
-        <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p>
+        {/* <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p> */}
+        <h1 style={h1Style}>{title}</h1>
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
       </TopicIntroDiv>
       <h2>Stories on this topic:</h2>
