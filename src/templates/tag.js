@@ -120,11 +120,6 @@ export const query = graphql`
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC }
-      filter:{
-        title:{
-          ne:"Episodes"
-        }
-      }
     ){
       edges {
         node {

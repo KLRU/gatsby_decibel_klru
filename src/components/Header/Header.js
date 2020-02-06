@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
 import Logo from '../../images/DecibelLogo200X100.png'
-import MobileMenu from '../../images/MobileMenu.png'
+//import MobileMenu from '../../images/MobileMenu.png'
 
 const HeaderMainDiv = styled.div`
   display:grid;

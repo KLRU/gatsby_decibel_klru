@@ -1,4 +1,7 @@
+//import paginate from 'gatsby-awesome-pagination';
+const {paginate}= require('gatsby-awesome-pagination');
 const path = require('path');
+
 
 exports.createPages = async ({ actions, graphql }) =>{
   const { createPage } = actions;
@@ -37,6 +40,14 @@ exports.createPages = async ({ actions, graphql }) =>{
             },
           })
         })
+
+        // paginate({
+        //   createPage,
+        //   items: posts,
+        //   itemsPerPage: 9,
+        //   pathPrefix: '/archive',
+        //   component: path.resolve('./src/templates/archive.js')
+        // })
       })
       resolve()
     })
@@ -103,6 +114,41 @@ exports.createPages = async ({ actions, graphql }) =>{
       resolve()
     })
   })
+
+  // const archiveAllPost = new Promise((resolve, reject)=>{
+  //   graphql(
+  //     `
+  //     {
+  //       allContentfulPost (
+  //         sort: { fields: [publishDate] }
+  //         limit: 1000
+  //       ){
+  //         edges {
+  //           node {
+  //             slug
+  //             publishDate
+  //             tags {
+  //               title
+  //               slug
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  //   ).then(result =>{
+  //     const archivePosts = result.data.allContentfulPost.edges;
+  //     paginate({
+  //       createPage,
+  //       items: archivePosts,
+  //       itemsPerPage: 9,
+  //       pathPrefix: '/archive',
+  //       component: path.resolve('./src/templates/archive.js')
+  //     })
+
+  //   })
+    
+  // })
   await Promise.all([loadPost, loadTags, loadBlog])
 };
 

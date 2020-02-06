@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
 const ArchiveTemplate =({data}) =>{
+  archivePosts = data.allContentfulPost.edges;
   return(
     <div></div>
   )
