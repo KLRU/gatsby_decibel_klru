@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import PlayButton from '../../images/PlayButtonWhite.png'
+import BlackPlayButton from '../../images/BlackPlayButton.png'
 
 
 const LatestNewsDiv = styled.div`
@@ -36,6 +38,12 @@ border-bottom: 1px solid rgba(0, 57, 70, .25);
     padding-left:10px;
     h1{
       margin:0;
+      span{
+        padding-right: 5px;
+        img{
+          width: 20px;
+        }
+      }
     }
     p{
       margin:0;
@@ -48,6 +56,13 @@ border-bottom: 1px solid rgba(0, 57, 70, .25);
    
 `
 const LatestNewsItem = props => {
+  function AddPlayButton(){
+    if(props.featuredVideo){
+      return <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{props.title}</Link></h1>
+    }else{
+      return <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1>
+    }
+  }
   //console.log(props);
   return(
     <LatestNewsDiv>
@@ -56,7 +71,8 @@ const LatestNewsItem = props => {
       <img src={props.heroImage.fluid.src} alt={props.title} />
       </div>
       <div className='story'>
-      <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1>
+      {/* <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1> */}
+      <AddPlayButton />
             <p className='date'>{props.publishDate}</p>   
             <p className='excerpt' dangerouslySetInnerHTML={{__html:props.body.childMarkdownRemark.excerpt}}></p>
       </div>

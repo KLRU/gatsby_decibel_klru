@@ -31,26 +31,11 @@ const IndexPage = ({ data }) => {
   const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
   const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
+  const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
 
  
-
-  function DisplayStories(){
-    if(twoStoryBlocks){
-      return <TwoStorySection>
-      {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
-      {twoStoryBlocks.map(({node:twoStoryBlock})=>(
-        <div>
-        <h2 className='blockTitle'>{twoStoryBlock.title}</h2>
-        <TwoStories {...twoStoryBlock} />
-        </div>
-      ))}
-      </TwoStorySection>
-    }else{
-      return <div></div>;
-    }   
-  }
   return (
     <Container>
       <Header>
@@ -71,7 +56,18 @@ const IndexPage = ({ data }) => {
         <section>
         <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
       
-        <DisplayStories />
+        <TwoStorySection>    
+      {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
+      {twoStoryBlocks.map(({node:twoStoryBlock})=>(
+        <div>
+        <h2 className='blockTitle'>{twoStoryBlock.title}</h2>
+       
+          <TwoStories {...twoStoryBlock} />
+
+        
+        </div>
+      ))}
+      </TwoStorySection>
 
 
        <LatestNews>
@@ -234,6 +230,7 @@ export const query = graphql`
     },
     contentfulTwoStoryBlock{
       title
+      displayBlock
       secondaryFeaturedPost{
         id
         title
@@ -262,10 +259,17 @@ export const query = graphql`
         }
       }
     },
-    allContentfulTwoStoryBlock{
+    allContentfulTwoStoryBlock(
+      filter:{
+        displayBlock:{
+          ne: false
+        }
+      }
+    ){
       edges{
         node{
           title
+          displayBlock
           secondaryFeaturedPost{
             title
             slug

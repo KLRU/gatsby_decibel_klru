@@ -47,38 +47,48 @@ const PostDiv = styled.div`
   }
 `
 
-const TwoStoryBlock = props =>{
-  const twoStory = props;
-  const twoStoryPosts = twoStory.secondaryFeaturedPost
+class TwoStoryBlock extends React.Component{
 
-  function AddPlayButton(){
-    if(twoStoryPosts.featuredVideo){
-      return <h2 className='postTitle'><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{twoStoryPosts.title}</h2>
-    }else{
-      return <h2 className='postTitle'>{twoStoryPosts.title}</h2>
-    }
-  }
-  return(
-    <div>
+    render(){
+      const twoStory = this.props;
+      const twoStoryPosts = twoStory.secondaryFeaturedPost
+      const playButton = twoStoryPosts.featuredVideo;
+
+      return(
         <TwoStoryBlockDiv>
-        {twoStoryPosts.map((twoStoryPost)=>( 
+       {twoStoryPosts.map((twoStoryPost)=>( 
          <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
          <PostDiv>
            <div className='imageDiv'>
            <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
            </div>
            <div className='infoDiv'>
-           {/* <h2 className='postTitle'>{twoStoryPost.title}</h2> */}
-           {/* <AddPlayButton /> */}
-
+           <h2 className='postTitle'>{twoStoryPost.title}</h2> 
            <p dangerouslySetInnerHTML={{__html:twoStoryPost.body.childMarkdownRemark.excerpt}}></p>
            </div> 
          </PostDiv>
          </Link>
-         ))}
+          ))} 
          </TwoStoryBlockDiv> 
-    </div>
-  )
+      )
+    }
+
+
 }
+  
+
+  // function AddPlayButton(){
+  //   if(playButton){
+  //     return <h2 className='postTitle'><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{twoStoryPosts.title}</h2>
+  //   }else{
+  //     return <h2 className='postTitle'>{twoStoryPosts.title}</h2>
+  //   }
+  // }
+  // return(
+  //   <div>
+        
+  //   </div>
+  // )
+
 
 export default TwoStoryBlock;
