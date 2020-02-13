@@ -35,4 +35,4 @@ export const query = graphql`
     }
   }
 `
-export default BioTemplate
+//export default BioTemplate
