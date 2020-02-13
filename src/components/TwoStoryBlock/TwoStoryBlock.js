@@ -52,7 +52,15 @@ class TwoStoryBlock extends React.Component{
     render(){
       const twoStory = this.props;
       const twoStoryPosts = twoStory.secondaryFeaturedPost
-      const playButton = twoStoryPosts.featuredVideo;
+      //const playButton = twoStoryPosts.featuredVideo;
+
+      function AddPlayButton(){
+        if(twoStory.featuredVideo){
+          return <span><img src={BlackPlayButton}/></span>
+        }else{
+          return <span></span>
+        }
+      }
 
       return(
         <TwoStoryBlockDiv>
@@ -63,7 +71,7 @@ class TwoStoryBlock extends React.Component{
            <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
            </div>
            <div className='infoDiv'>
-           <h2 className='postTitle'>{twoStoryPost.title}</h2> 
+           <h2 className='postTitle'><AddPlayButton/>{twoStoryPost.title}</h2> 
            <p dangerouslySetInnerHTML={{__html:twoStoryPost.body.childMarkdownRemark.excerpt}}></p>
            </div> 
          </PostDiv>

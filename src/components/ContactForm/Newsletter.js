@@ -25,6 +25,9 @@ a{
     font-size: 18px;
     border-radius: 5px;
   }
+  button: hover{
+    background-color:#003946;
+  }
 }
 `
 const Newsletter = () =>{

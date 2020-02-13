@@ -77,6 +77,7 @@ const IndexPage = ({ data }) => {
               <LatestNewsItem key={posts.id} {...post}/>
             ))}
           </LatestNewsList> 
+          <Link to={'/archive'} className='seeMoreButton'><button>See More</button></Link>
         </LatestNews>
         </section>
         <aside>

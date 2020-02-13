@@ -7,10 +7,10 @@ import TagItem from '../components/TopicList/TagItem';
 import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 import SmallContainer from '../components/Container/SmallContainer';
-import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 //import PostDiv from '../components/Posts/PostDiv';
 
 const PostDiv = styled.div`

@@ -27,21 +27,29 @@ exports.createPages = async ({ actions, graphql }) =>{
       }
     `).then(result => {
       const posts = result.data.allContentfulPost.edges;
-      const postsPerPage = 6
-      const numPages = Math.ceil(posts.length/postsPerPage)
+      //const postsPerPage = 6
+      //const numPages = Math.ceil(posts.length/postsPerPage)
 
-      Array.from({length: numPages}).forEach((_, i) =>{
-        createPage({
-          path: i=== 0 ? `/archive` : `/archive/${i + 1}`,
-          component: path.resolve(`./src/templates/archive.js`),
-          context: {
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages,
-            currentPage: i + 1,
-          }
-        })
-      })
+      // Array.from({length: numPages}).forEach((_, i) =>{
+      //   createPage({
+      //     path: i=== 0 ? `/archive` : `/archive/${i + 1}`,
+      //     component: path.resolve(`./src/templates/archive.js`),
+      //     context: {
+      //       limit: postsPerPage,
+      //       skip: i * postsPerPage,
+      //       numPages,
+      //       currentPage: i + 1,
+      //     }
+      //   })
+      // })
+
+      paginate({
+        createPage,
+        items: posts,
+        itemsPerPage: 8,
+        pathPrefix: '/archive',
+        component: path.resolve(`./src/templates/archive.js`),
+      });
 
       posts.forEach((edge) => {
         edge.node.tags.forEach((tag) => {
