@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
-import TagCards from '../components/TagCards/tagCards';
+//import TagCards from '../components/TagCards/tagCards';
 import Container from '../components/Container/Container';
 import SmallContainer from '../components/Container/SmallContainer';
 import Header from '../components/Header/Header';
