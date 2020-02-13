@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import styled from 'styled-components'
-import TagCards from '../components/TagCards/tagCards';
+import TagCards from '../components/TagCards/TagCards';
 //import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
 import SmallContainer from '../components/Container/SmallContainer';
