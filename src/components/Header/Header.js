@@ -100,9 +100,11 @@ const MobileNavDiv = styled.div`
       background-color: #fff;
       z-index: 500;
       position:relative;
+      
     h2{
        padding-right: 10px;
        color:#000;
+        transition-duration: 5000ms;
     }
     .dropdownNavigation{
       position:absolute;
@@ -136,7 +138,7 @@ const MobileNavDiv = styled.div`
         }
       }
     }
-    }
+  }
 `
 
 
@@ -156,6 +158,7 @@ class Header extends React.Component {
     this.setState(state =>{
       return{
         open: !state.open,
+        
       }
     })
   }
@@ -195,7 +198,7 @@ class Header extends React.Component {
             <h2 onClick={this.handleDropdown}>Menu</h2>
             {this.state.open && (
             <div className='dropdownNavigation'>
-              <p onClick={this.closeMenu}>X Close</p>
+              <p onClick={this.closeMenu} >X Close</p>
             <ul> 
               <Link to={`/blog`}>Judy's Journal</Link> 
               <Link to={'/about'}>About Us</Link> 
