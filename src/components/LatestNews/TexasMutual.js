@@ -16,6 +16,7 @@ const TexasMutualDiv = styled.div`
 
     }
     .sponsorDiv{
+      box-sizing: border-box;
       display: grid;
       background-color: #fff;
       border: 1px solid rgba(0, 57, 70, .25);
@@ -44,9 +45,9 @@ const TexasMutual = (props) =>{
       <div>
        <h2>Decibel is Sponsored By:</h2>
        {sponsorships.map((sponsorship)=>(
-         <div className='sponsorDiv'>
-         <a href={`${sponsorship.sponsorLink}`}><img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' /></a>
-         <h4>{sponsorship.sponsorTitle}</h4></div>
+           <a href={`${sponsorship.sponsorLink}`}><div className='sponsorDiv'>
+       <img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
+         <h4>{sponsorship.sponsorTitle}</h4></div></a>
        ))}
 
       </div>
