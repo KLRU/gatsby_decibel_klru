@@ -225,9 +225,11 @@ export const query = graphql`
     },
     contentfulFacebookLiveEvent{
       title
-      embedCode
       isLive
-      iFrameSrc
+      videoLink{
+        embedCode
+        source
+      }
     },
     contentfulTwoStoryBlock{
       title

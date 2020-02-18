@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components'
 import PlayButton from '../../images/PlayButtonWhite.png'
 import BlackPlayButton from '../../images/BlackPlayButton.png'
+import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 const FeaturedStoryDiv =styled.div`
       margin-top: 10px;
@@ -30,7 +31,7 @@ const FeaturedStoryDiv =styled.div`
         border:none;
       }
       .storyTitleDiv{
-        position:absolute;
+        //position:absolute;
         width:100%;
         padding: 10px;
         background-color: #fff;
@@ -73,7 +74,11 @@ const FeaturedStoryDiv =styled.div`
 const FeaturedStoryBlock = props =>{
   const featuredStory = props;
   function HeroMediaDiv(){
-    return <img src={`http:${featuredStory.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    if(featuredStory.associatedPost.featuredVideo){
+      return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
+    }else{
+       return <img src={`http:${featuredStory.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    }
   }
   return(
     <FeaturedStoryDiv>

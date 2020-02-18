@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components'
+import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 const FacebookLiveDiv =styled.div`
 width:70%;
@@ -26,7 +27,7 @@ const FacebookLive = props =>{
   const facebookLive = props
   function FacebookIsLive(){
     if (facebookLive.isLive === true){
-      return  <FacebookLiveDiv><div className='iframeDiv'><iframe src={facebookLive.iFrameSrc}></iframe></div></FacebookLiveDiv>
+      return  <FacebookLiveDiv><div className='iframeDiv'><ContentfulVideoElement {...facebookLive.videoLink}/></div></FacebookLiveDiv>
     }else{
       return null;
     }

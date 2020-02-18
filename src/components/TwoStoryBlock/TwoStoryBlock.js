@@ -8,10 +8,9 @@ const TwoStoryBlockDiv = styled.div`
   width:100%;
   margin: 50px 0;
   display:grid;
- 
   grid-gap: 5px 10px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  //grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: auto;
   @media screen and (max-width: 750px){
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
@@ -20,6 +19,7 @@ const TwoStoryBlockDiv = styled.div`
 const PostDiv = styled.div`
   width:100%; 
   display: block;
+  height:100%;
   border: 1px solid rgba(0, 57, 70, .25);
   //align-items: end;
   //justify-content: end;
