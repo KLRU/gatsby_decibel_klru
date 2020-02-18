@@ -13,12 +13,27 @@ const TexasMutualDiv = styled.div`
   div{
     h2{
       text-align:center;
+
     }
-    a{
-      img{
-        margin-bottom: 20px;
+    .sponsorDiv{
+      display: grid;
+      background-color: #fff;
+      border: 1px solid rgba(0, 57, 70, .25);
+      align-items: center;
+      grid-template-columns: 30% 70%;
+      margin-top: 10px;
+      h4{
+        text-align: center;
+      }
+      a{
+        width:100%
+        img{
+          margin:0px;
+          width:100%;
+        }
       }
     }
+   
   }
 `
 const TexasMutual = (props) =>{
@@ -27,9 +42,11 @@ const TexasMutual = (props) =>{
   return(
     <TexasMutualDiv>
       <div>
-       {/* <h2>Decibel is Sponsored By:</h2> */}
+       <h2>Decibel is Sponsored By:</h2>
        {sponsorships.map((sponsorship)=>(
-         <a href={`${sponsorship.sponsorLink}`}><img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' /></a> 
+         <div className='sponsorDiv'>
+         <a href={`${sponsorship.sponsorLink}`}><img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' /></a>
+         <h4>{sponsorship.sponsorTitle}</h4></div>
        ))}
 
       </div>
