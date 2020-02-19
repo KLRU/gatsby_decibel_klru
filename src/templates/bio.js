@@ -16,23 +16,23 @@ const BioTemplate  = ({data}) =>{
   )
 }
 
-export const query = graphql`
-  query ($slug: String!){
-    contentfulBiographyElement(slug: { eq: $slug }){
-      id
-      bioName
-      slug
-      bioImage{
-        fluid{
-          src
-        }
-      }
-      bioText{
-        childMarkdownRemark{
-             html
-           }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ($slug: String!){
+//     contentfulBiographyElement(slug: { eq: $slug }){
+//       id
+//       bioName
+//       slug
+//       bioImage{
+//         fluid{
+//           src
+//         }
+//       }
+//       bioText{
+//         childMarkdownRemark{
+//              html
+//            }
+//       }
+//     }
+//   }
+// `
 //export default BioTemplate

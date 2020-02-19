@@ -9,7 +9,7 @@ import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits, Highlight, Index} from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Hits} from 'react-instantsearch-dom';
 import SearchResults from "../components/Search/SearchResults";
 
 const SearchDiv = styled.div`

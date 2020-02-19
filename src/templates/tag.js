@@ -48,7 +48,7 @@ const TagTemplate = ({ data, pageContext }) => {
   const posts = data.contentfulTag.post;
   const tags = data.allContentfulTag.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
-  const { title, slug, topicDescription } = data.contentfulTag;
+  const { title, slug} = data.contentfulTag;
   const h1Style = {
     textAlign:'center',
     color:'#242323'

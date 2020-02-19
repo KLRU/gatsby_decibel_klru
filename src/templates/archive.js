@@ -53,7 +53,7 @@ const ArchiveTemplate =({data, pageContext}) =>{
 
   function AddPlayButton(){
     if(archivePosts.featuredVideo){
-      return <span><img src={BlackPlayButton} /></span>
+      return <span><img src={BlackPlayButton} alt={'Play Button'}/></span>
     }else{
       return <span></span>
     }
