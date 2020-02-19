@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
-import ContactForm from '../components/ContactForm/ContactForm';
+//import ContactForm from '../components/ContactForm/ContactForm';
 import Newsletter from '../components/ContactForm/Newsletter';
 import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid';
@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
   const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
   const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
-  const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
+  //const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
 
@@ -240,6 +240,8 @@ export const query = graphql`
         slug
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage{
+          title
+          description
           fluid{
             src
           }
@@ -278,6 +280,8 @@ export const query = graphql`
             slug
             publishDate(formatString: "MMMM DD, YYYY")
             heroImage{
+              title
+              description
               fluid{
               src
               }

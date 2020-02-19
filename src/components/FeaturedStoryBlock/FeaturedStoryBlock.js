@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components'
-import PlayButton from '../../images/PlayButtonWhite.png'
+//import PlayButton from '../../images/PlayButtonWhite.png'
 import BlackPlayButton from '../../images/BlackPlayButton.png'
 import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 

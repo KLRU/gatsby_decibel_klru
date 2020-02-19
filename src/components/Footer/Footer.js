@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+//import {Link} from 'gatsby'
 import styled from 'styled-components'
 import Facebook from '../../images/facebook.svg'
 import Instagram from '../../images/instagram.svg'
@@ -46,7 +46,7 @@ const Footer = props => {
           <a href='https://www.facebook.com/decibelatx/'><img src={Facebook} alt='Facebook' className='facebookLogo' /></a>
           <a href="https://www.instagram.com/decibelatx"><img src={Instagram} alt='Instagram' className='instagramLogo' /></a>
           <a href='https://twitter.com/decibelatx'><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a>
-          <a><img src={YouTube} alt='YouTube' /></a>
+          <a href='https://www.youtube.com/channel/UCwBje-YSCdcn6c2LaLy3hLQ'><img src={YouTube} alt='YouTube' className='YouTubeLogo'/></a>
         </ul>
       </div>
       <div>

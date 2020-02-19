@@ -1,6 +1,6 @@
 import React from 'react';
-import TexasMutualLogo from '../../images/TexasMutual.jpg'
-import {Link} from 'gatsby'
+//import TexasMutualLogo from '../../images/TexasMutual.jpg'
+//import {Link} from 'gatsby'
 import styled from 'styled-components'
 
 const TexasMutualDiv = styled.div`

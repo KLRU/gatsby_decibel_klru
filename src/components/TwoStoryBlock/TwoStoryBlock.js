@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import PlayButton from '../../images/PlayButtonWhite.png'
+//import PlayButton from '../../images/PlayButtonWhite.png'
 import BlackPlayButton from '../../images/BlackPlayButton.png'
 
 const TwoStoryBlockDiv = styled.div`
@@ -68,7 +68,7 @@ class TwoStoryBlock extends React.Component{
          <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
          <PostDiv>
            <div className='imageDiv'>
-           <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.title} />
+           <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.description} />
            </div>
            <div className='infoDiv'>
            <h2 className='postTitle'><AddPlayButton/>{twoStoryPost.title}</h2> 
