@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
-import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+//import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
+//import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
@@ -98,7 +98,7 @@ const AboutPage = ({ data, pageContext }) => {
       <SmallContainer>
       <VideoDiv> 
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
-      <iframe src={`https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoIntro.embedCode}/`}/>
+      <iframe src={`https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoIntro.embedCode}/`} title={videoIntro.title}/>
       </VideoDiv>
       <h1 style={{textAlign: 'center'}}>{title}</h1>
     

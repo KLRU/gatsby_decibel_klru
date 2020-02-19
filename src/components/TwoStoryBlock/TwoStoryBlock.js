@@ -56,7 +56,7 @@ class TwoStoryBlock extends React.Component{
 
       function AddPlayButton(){
         if(twoStory.featuredVideo){
-          return <span><img src={BlackPlayButton}/></span>
+          return <span><img src={BlackPlayButton} alt={'play button'}/></span>
         }else{
           return <span></span>
         }

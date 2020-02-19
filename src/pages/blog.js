@@ -66,7 +66,7 @@ const BlogPage = ({data}) => {
         <AllBlogsDiv>
         <h2 key={blogPost.id}>{blogPost.title}</h2>
         <p>{blogPost.date}</p>
-        <img src={blogPost.images[0].fluid.src} />
+        <img src={blogPost.image.fluid.src}  alt={blogPost.image.title}/>
         <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPost.blogPostBody.childMarkdownRemark.excerpt}}></p>
         <Link to={`/${blogPost.slug}`}><button>Read More</button></Link>
         </AllBlogsDiv>
@@ -95,15 +95,17 @@ query{
               pruneLength: 600)
           }
         }
-        images{
-          fluid{
-            src
-          }
-        }
         tags{
           id
           title
           slug
+        }
+        image{
+          title
+          description
+          fluid{
+            src
+          }
         }
       }
     }

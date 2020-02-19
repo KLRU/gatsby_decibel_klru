@@ -31,7 +31,7 @@ p{
 `
 
 const BlogTemplate = ({data, pageContext}) =>{
-  const {title, author, date, blogPostBody, images, tags}=data.contentfulBlogPost;
+  const {title, author, date, blogPostBody, image, tags}=data.contentfulBlogPost;
   const tags2 = data.allContentfulTag.edges;
  // const [ ...relatedPosts ] = data.allContentfulPost.edges;
   //const { tag, tagTitle } = pageContext;
@@ -52,7 +52,7 @@ const BlogTemplate = ({data, pageContext}) =>{
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{author}</p>
-      <img src={`http:${images[0].fluid.src}`}/>
+      <img src={`http:${image.fluid.src}`} alt={image.description}/>
       <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
     
     <div>
@@ -84,7 +84,9 @@ export const query = graphql`
           html
         }
       }
-      images{
+      image{
+        title
+        description
         fluid{
           src
         }
