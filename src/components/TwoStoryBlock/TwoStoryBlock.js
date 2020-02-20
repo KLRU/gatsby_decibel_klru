@@ -44,6 +44,12 @@ const PostDiv = styled.div`
     margin-bottom:5px;
     color:#000;
     //text-shadow: 1px 1px #003946;
+    span{
+      padding-right:5px;
+      img{
+        width:22px;
+      }
+    }
   }
 `
 
@@ -55,7 +61,7 @@ class TwoStoryBlock extends React.Component{
       //const playButton = twoStoryPosts.featuredVideo;
 
       function AddPlayButton(){
-        if(twoStory.featuredVideo){
+        if(twoStory.secondaryFeaturedPost.featuredVideo){
           return <span><img src={BlackPlayButton} alt={'play button'}/></span>
         }else{
           return <span></span>
@@ -71,8 +77,8 @@ class TwoStoryBlock extends React.Component{
            <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.description} />
            </div>
            <div className='infoDiv'>
-           <h2 className='postTitle'><AddPlayButton/>{twoStoryPost.title}</h2> 
-           <p dangerouslySetInnerHTML={{__html:twoStoryPost.body.childMarkdownRemark.excerpt}}></p>
+           <h2 className='postTitle'><span><img src={BlackPlayButton} alt={'play button'}/></span>{twoStoryPost.title}</h2> 
+           <p dangerouslySetInnerHTML={{__html:`<p>${twoStoryPost.body.childMarkdownRemark.excerpt}</p>`}}></p>
            </div> 
          </PostDiv>
          </Link>
