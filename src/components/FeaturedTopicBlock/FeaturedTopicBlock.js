@@ -57,7 +57,7 @@ const FeaturedTopicBlock = props =>{
         <div className="storyTitle">
         <Link to={`/${featuredTopic.featuredTopicTag.slug}`}>
         <h2>{featuredTopic.title}</h2>
-        <p dangerouslySetInnerHTML={{__html:featuredTopic.shortTopicDescription.childMarkdownRemark.html}}></p>  </Link></div>      
+        <div dangerouslySetInnerHTML={{__html:featuredTopic.shortTopicDescription.childMarkdownRemark.html}}></div>  </Link></div>      
       </div>
     </FeaturedTopicDiv>
   )

@@ -74,7 +74,7 @@ const LatestNewsItem = props => {
       {/* <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1> */}
       <AddPlayButton />
             <p className='date'>{props.publishDate}</p>   
-            <p className='excerpt' dangerouslySetInnerHTML={{__html:props.body.childMarkdownRemark.excerpt}}></p>
+            <div className='excerpt' dangerouslySetInnerHTML={{__html:props.body.childMarkdownRemark.excerpt}}></div>
       </div>
     </div>
     
