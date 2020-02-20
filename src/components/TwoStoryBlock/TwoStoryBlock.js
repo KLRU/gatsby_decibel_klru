@@ -78,7 +78,7 @@ class TwoStoryBlock extends React.Component{
            </div>
            <div className='infoDiv'>
            <h2 className='postTitle'><span><img src={BlackPlayButton} alt={'play button'}/></span>{twoStoryPost.title}</h2> 
-           <p dangerouslySetInnerHTML={{__html:`<p>${twoStoryPost.body.childMarkdownRemark.excerpt}</p>`}}></p>
+           <p dangerouslySetInnerHTML={{__html:`<div>${twoStoryPost.body.childMarkdownRemark.excerpt}</div>`}}></p>
            </div> 
          </PostDiv>
          </Link>
