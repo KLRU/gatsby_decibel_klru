@@ -3,6 +3,8 @@
 
 *{
   box-sizing: border-box;
+  margin-left:0;
+  margin-right:0;
 }
 a{
   text-decoration: none;
@@ -45,4 +47,8 @@ Link{
 
 .seeMoreButton button:hover{
   background-color:#003946;
+}
+
+img:hover{
+  filter: contrast(125%);
 }

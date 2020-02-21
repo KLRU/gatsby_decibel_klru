@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import BlackPlayButton from '../../images/BlackPlayButton.png'
 import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
+
 const FeaturedStoryDiv =styled.div`
       margin-top: 10px;
       width:100%;
@@ -21,7 +22,7 @@ const FeaturedStoryDiv =styled.div`
       .mediaDiv{
         width:100%; 
         height:0;
-        padding-bottom:56.25%;
+        padding-bottom:46.25%;
         position:relative;
       }
       .mediaDiv img{

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const NewsletterDiv = styled.div`
 display: block;
 box-sizing:border-box;
-padding: 25px 0;
+padding: 100px 0;
 margin-bottom: 100px;
 h2{
   text-align:center;

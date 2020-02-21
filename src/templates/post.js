@@ -45,7 +45,7 @@ const ImageDiv = styled.div`
 width:100%; 
 height:0;
 margin-top:10px;
-padding-bottom:56.25%;
+padding-bottom:46.25%;
 position:relative;
 img{
   position:absolute;

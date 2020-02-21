@@ -20,8 +20,10 @@ const TexasMutualDiv = styled.div`
       display: grid;
       background-color: #fff;
       border: 1px solid rgba(0, 57, 70, .25);
+      box-shadow: 0px 2px 3px rgba(0, 57, 70, .1);
       align-items: center;
       grid-template-columns: 30% 70%;
+      padding:10px;
       margin-top: 10px;
       h4{
         text-align: center;

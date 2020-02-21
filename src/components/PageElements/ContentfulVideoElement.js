@@ -20,7 +20,7 @@ const ContentfulVideoElement = props => {
       className="video"
       style={{
         position: "relative",
-        paddingBottom: "56.25%" /* 16:9 */,
+        paddingBottom: "46.25%" /* 16:9 */,
         //paddingTop: 25,
         height: 0
       }}

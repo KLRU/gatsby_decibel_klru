@@ -21,6 +21,7 @@ const PostDiv = styled.div`
   display: block;
   height:100%;
   border: 1px solid rgba(0, 57, 70, .25);
+  box-shadow: 0px 2px 3px rgba(0, 57, 70, .1);
   //align-items: end;
   //justify-content: end;
   .imageDiv{

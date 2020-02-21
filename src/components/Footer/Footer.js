@@ -6,6 +6,7 @@ import Instagram from '../../images/instagram.svg'
 import Twitter from '../../images/twitter.svg'
 import YouTube from '../../images/YouTube.png'
 import AustinPBS from '../../images/AustinPBSWhiteandBlack.png'
+import DecibelWhiteLOGO from '../../images/Decibel-Logo-AustinPBS-White.png'
 
 const FooterDiv = styled.div`
   display:grid;
@@ -21,9 +22,7 @@ const FooterDiv = styled.div`
   a{
     color:#fff;
   }
-  img{
-    width:60%;
-  }
+ 
   ul{
     margin-block-start:0;
     padding-left:0;
@@ -32,6 +31,13 @@ const FooterDiv = styled.div`
         width: 50px;
         padding: 10px;
       }
+    }
+  }
+  .farRight{
+    width:100%;
+    display: grid;
+    img{
+      width:30%;
     }
   }
 `
@@ -56,8 +62,9 @@ const Footer = props => {
         <a href ='/topics'><h3>Topics</h3></a>
         <a href ='/search'><h3>Search</h3></a>
       </div>
-      <div>
-        <a href='https://www.austinpbs.org'><h3>AustinPBS, KLRU-TV</h3></a>
+      <div className='farRight'>
+        <a href ="/"><img src={DecibelWhiteLOGO} alt='Decibel Logo White'/></a>
+        {/* <a href='https://www.austinpbs.org'><h3>AustinPBS, KLRU-TV</h3></a> */}
         <a href='https://www.austinpbs.org'><img src={AustinPBS} alt='AustinPBS Homepage Link' className='AustinPBSLogo' /></a>
       </div>
     </FooterDiv>
