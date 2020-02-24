@@ -181,12 +181,6 @@ export const query = graphql`
           html
         }
       }
-      associatedTopicPost{
-        id
-        slug
-        title
-        publishDate(formatString: "MMMM DD, YYYY")
-      }
     },
     contentfulFeaturedStoryBlock{
       id

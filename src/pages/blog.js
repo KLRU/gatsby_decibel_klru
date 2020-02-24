@@ -61,7 +61,7 @@ const BlogPage = ({data}) => {
             <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
-      <PageTitle>Decibel Blog</PageTitle>
+      <PageTitle>Judy's Journal'</PageTitle>
       {blogPosts.map(({node:blogPost}) =>(
         <AllBlogsDiv>
         <h2 key={blogPost.id}>{blogPost.title}</h2>
