@@ -9,7 +9,7 @@ const TwoStoryBlockDiv = styled.div`
   margin: 50px 0;
   display:grid;
   grid-gap: 5px 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   grid-auto-rows: auto;
   @media screen and (max-width: 750px){
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -22,8 +22,7 @@ const PostDiv = styled.div`
   height:100%;
   border: 1px solid rgba(0, 57, 70, .25);
   box-shadow: 0px 2px 3px rgba(0, 57, 70, .1);
-  //align-items: end;
-  //justify-content: end;
+  position:relative;
   .imageDiv{
     width:100%; 
     height:0;
@@ -37,20 +36,21 @@ const PostDiv = styled.div`
     border:none;
   }
   .infoDiv{
-    padding:10px;
-  }
-  .postTitle{
-    //position:absolute;
-    //padding-left:10px;
-    margin-bottom:5px;
-    color:#000;
-    //text-shadow: 1px 1px #003946;
-    span{
-      padding-right:5px;
-      img{
-        width:22px;
+    padding-left:10px;
+    posiiton:absolute;
+    .postTitle{
+      //position:absolute;
+      //padding-left:10px;
+      margin-bottom:5px;
+      color:#000;
+      //text-shadow: 1px 1px #003946;
+      span{
+        padding-right:5px;
+        img{
+          width:22px;
+        }
       }
-    }
+  }
   }
 `
 
@@ -80,7 +80,7 @@ class TwoStoryBlock extends React.Component{
            <div className='infoDiv'>
            <h2 className='postTitle'><span><img src={BlackPlayButton} alt={'play button'}/></span>{twoStoryPost.title}</h2> 
            <div dangerouslySetInnerHTML={{__html:twoStoryPost.body.childMarkdownRemark.excerpt}}></div>
-           </div> 
+           </div>
          </PostDiv>
          </Link>
           ))} 
