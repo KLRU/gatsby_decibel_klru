@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components'
-import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
+//import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 const FacebookLiveDiv =styled.div`
 width:100%;
@@ -12,18 +12,18 @@ h2{
   text-align:center;
 }
 //position:relative
-.iframeDiv{
-  width:100%; 
-  height:0;
-  padding-bottom:56.25%;
-  position:relative;
-}
-iframe{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border:none;
-}
+// .iframeDiv{
+//   width:100%; 
+//   height:0;
+//   padding-bottom:56.25%;
+//   position:relative;
+// }
+// iframe{
+//   position:absolute;
+//   width:100%;
+//   height:100%;
+//   border:none;
+// }
 `
 
 const FacebookLive = props =>{
