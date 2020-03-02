@@ -19,7 +19,7 @@ const TwoStoryDiv = styled.div`
 
 `
 const TwoStorySection = props => {
-  const twoStory = props;
+  //const twoStory = props;
   //const twoStoryPosts = twoStory.secondaryFeaturedPost
 
   // function AddPlayButton(){

@@ -61,13 +61,13 @@ class TwoStoryBlock extends React.Component{
       const twoStoryPosts = twoStory.secondaryFeaturedPost
       //const playButton = twoStoryPosts.featuredVideo;
 
-      function AddPlayButton(){
-        if(twoStory.secondaryFeaturedPost.featuredVideo){
-          return <span><img src={BlackPlayButton} alt={'play button'}/></span>
-        }else{
-          return <span></span>
-        }
-      }
+      // function AddPlayButton(){
+      //   if(twoStory.secondaryFeaturedPost.featuredVideo){
+      //     return <span><img src={BlackPlayButton} alt={'play button'}/></span>
+      //   }else{
+      //     return <span></span>
+      //   }
+      // }
 
       return(
         <TwoStoryBlockDiv>

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import TagCards from '../components/TagCards/TagCards';
 //import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
-import SmallContainer from '../components/Container/SmallContainer';
+//import SmallContainer from '../components/Container/SmallContainer';
 import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer'
