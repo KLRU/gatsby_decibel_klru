@@ -240,9 +240,14 @@ export const query = graphql`
     contentfulFacebookLiveEvent{
       title
       isLive
-      videoLink{
-        embedCode
-        source
+      post{
+        title
+        slug
+        id
+        tags{
+          title
+          slug
+        }
       }
     },
     contentfulTwoStoryBlock{
