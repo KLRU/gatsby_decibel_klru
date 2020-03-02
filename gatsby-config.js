@@ -26,6 +26,15 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options:{
+        name: `Decibel ATX`,
+        short_name: `Decibel`,
+        start_url: `/`,
+        icon: `src/images/logo.png`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
