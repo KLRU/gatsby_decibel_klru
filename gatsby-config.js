@@ -11,13 +11,10 @@ if(process.env.NODE_ENV  !== 'production'){
 
 module.exports = {
   siteMetadata: {
-    title: "Severus Snape",
-    titleTemplate: "%s · The Real Hero",
+    title: "Decibel ATX",
     description:
-      "Hogwarts Potions master, Head of Slytherin house and former Death Eater.",
-    url: "https://www.doe.com", // No trailing slash allowed!
-    image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@occlumency",
+      "Austin's Locally Produced Resource for News and Events Presented by AustinPBS, KLRU-TV.",
+    author: `Decibel ATX`,
   },
   plugins: [
     `gatsby-plugin-sass`,
