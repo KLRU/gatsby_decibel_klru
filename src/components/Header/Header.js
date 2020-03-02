@@ -16,6 +16,9 @@ const HeaderMainDiv = styled.div`
     grid-template-rows: 115px;
   }
   .logoDiv{
+    background-color: #003946;
+  }
+  .logoDiv:hover{
     background-color: #009AA6;
   }
   .logoImage{
@@ -29,6 +32,7 @@ const HeaderMainDiv = styled.div`
   }
   .topicsDiv{
     display:grid;
+    background-color: #003946;
     text-align: end;
     align-content:end;
     position:relative;
@@ -50,6 +54,7 @@ const HeaderMainDiv = styled.div`
         padding: 10px 20px;
         font-family: 'Lato', sans-serif;
         font-weight: 400;
+        color:#fff;
       }
       .topicLink:hover {
         background-color: #009AA6;
@@ -73,10 +78,11 @@ const HeaderMainDiv = styled.div`
        a{
       width: 100%;
       //max-width: 300px;
+      margin-top:0;
       color: #000
       text-decoration:none;
       display:block;
-      padding: 10px;
+      padding: 2px;
       background-color: #fff;
       z-index: 100;
       text-align:center;
@@ -97,13 +103,13 @@ const MobileNavDiv = styled.div`
       text-align: end;
       align-content:end;
       width:100%;
-      background-color: #fff;
+      background-color: #003946;
       z-index: 500;
       position:relative;
       
     h2{
        padding-right: 10px;
-       color:#000;
+       color:#FFF;
         transition-duration: 5000ms;
     }
     .dropdownNavigation{
@@ -114,7 +120,12 @@ const MobileNavDiv = styled.div`
           text-align:left;
           padding: 0 20px;
           z-index:2000;
+          //color: #FFF;
         }
+      .closeMenu{
+        color: #fff;
+        font-size: 18px;
+      }
       ul{
         margin-bottom:0;
         width:100%;
@@ -122,7 +133,8 @@ const MobileNavDiv = styled.div`
         box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
           a{
             width:100%;
-            color: #000
+            color: #000;
+            margin-top:0;
             text-decoration:none;
             display:block;
             padding: 20px 20px;
@@ -198,7 +210,7 @@ class Header extends React.Component {
             <h2 onClick={this.handleDropdown}>Menu</h2>
             {this.state.open && (
             <div className='dropdownNavigation'>
-              <p onClick={this.closeMenu} >X Close</p>
+              <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
               <Link to={`/blog`}>Judy's Journal</Link> 
               <Link to={'/about'}>About Us</Link> 

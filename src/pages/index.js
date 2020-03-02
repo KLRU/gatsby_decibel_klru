@@ -181,6 +181,26 @@ export const query = graphql`
           html
         }
       }
+      associatedTopicPost{
+        id
+        slug
+        title
+        publishDate
+        heroImage{
+          fluid{
+            src
+          }
+        }
+        featuredVideo{
+          title
+          embedCode
+          source
+        }
+        tags{
+          slug
+          title
+        }
+      }
     },
     contentfulFeaturedStoryBlock{
       id
