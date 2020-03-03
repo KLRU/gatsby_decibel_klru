@@ -155,7 +155,6 @@ export const query = graphql`
       }
     }
     allContentfulPost(
-      limit: 3,
       filter: {
         tags: {
           elemMatch: {
