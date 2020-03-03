@@ -14,7 +14,9 @@ module.exports = {
     title: "Decibel ATX",
     description:
       "Austin's Locally Produced Resource for News and Events Presented by AustinPBS, KLRU-TV.",
-    author: `Decibel ATX`,
+    author: "Decibel",
+    siteURL: "https://nervous-hodgkin-195293.netlify.com/",
+    image: "/images/decibelshare.png"
   },
   plugins: [
     `gatsby-plugin-sass`,
