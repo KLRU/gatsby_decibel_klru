@@ -54,15 +54,15 @@ const TagTemplate = ({ data, pageContext }) => {
     color:'#242323',
     marginBottom: '50px'
   }
-  // function ShowPost(){
-  //   if(posts){
-  //     {posts.map(post =>(
-  //       <TagCards key={post.id} tag={slug} { ...post } />
-  //     ))}
-  //   }else{
-  //     <div></div>
-  //   }
-  // }
+  function ShowPost(){
+    if(posts){
+       return <MoreStoriesDiv>{posts.map(post =>(
+        <TagCards key={post.id} tag={slug} { ...post } />
+      ))}</MoreStoriesDiv>
+    }else{
+      return <div><h2>There are no post for this Topic.</h2></div>
+    }
+  }
   return (
     <Container>
        <Header>
@@ -78,10 +78,10 @@ const TagTemplate = ({ data, pageContext }) => {
         <section>
       <MoreStoriesDiv>
       {/* <h2>Stories on this topic:</h2> */}
-      {posts.map(post =>(
+      {/* {posts.map(post =>(
         <TagCards key={post.id} tag={slug} { ...post } />
-      ))}
-      {/* <ShowPost /> */}
+      ))} */}
+    <ShowPost /> 
     </MoreStoriesDiv>
     </section>
     <aside>
