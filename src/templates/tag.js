@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import { startCase, orderBy } from 'lodash';
+import moment from 'moment';
 import styled from 'styled-components'
 import TagCards from '../components/TagCards/TagCards';
 //import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
@@ -45,7 +47,13 @@ const MoreStoriesDiv =styled.div`
 
 const TagTemplate = ({ data, pageContext }) => {
   //const topicTag = data.contentfulTag
-  const posts = data.contentfulTag.post;
+  //const posts = data.contentfulTag.post;
+  const posts = orderBy(
+    data.contentfulTag.post,
+    // eslint-disable-next-line
+    [object => new moment(object.publishDateISO)],
+    ['desc']
+  )
   const tags = data.allContentfulTag.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const { title, slug} = data.contentfulTag;
@@ -98,7 +106,8 @@ const TagTemplate = ({ data, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!){
-    contentfulTag(slug: {eq: $slug}){
+    contentfulTag(slug: {eq: $slug}
+      ){
       title
       id
       slug
@@ -116,6 +125,7 @@ export const query = graphql`
           embedCode
         }
         publishDate(formatString:"MMMM D, YYYY")
+        publishDateISO: publishDate(formatString: "YYYY-MM-DD")
         heroImage{
           title
           fluid{
