@@ -21,7 +21,7 @@ margin: 10px auto;
   display:grid;
   grid-template-columns:70% 30%;
  .postTextDiv{
-  padding: 10px;
+  padding: 5px;
   h1{
     margin:0;
   }
@@ -61,6 +61,7 @@ grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
 grid-row-gap:5px;
 width:100%;
 margin:20px auto;
+padding:1px;
 align-content:center;
 justify-items: center;
 
@@ -155,6 +156,7 @@ export const query = graphql`
       }
     }
     allContentfulPost(
+      limit: 4
       filter: {
         tags: {
           elemMatch: {

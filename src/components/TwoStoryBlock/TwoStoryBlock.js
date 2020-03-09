@@ -36,7 +36,7 @@ const PostDiv = styled.div`
     border:none;
   }
   .infoDiv{
-    padding-left:10px;
+    padding: 0 5px;
     posiiton:absolute;
     .postTitle{
       //position:absolute;

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import BlackPlayButton from '../../images/BlackPlayButton.png'
 
 const TagCardDiv= styled.div`
-  width: 300px;
+  width: 275px;
   max-height: 300px;
   margin: 10px auto;
   padding:10px;

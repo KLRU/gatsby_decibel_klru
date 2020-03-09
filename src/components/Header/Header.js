@@ -190,8 +190,8 @@ class Header extends React.Component {
         <div className='topicsDiv'>
          <div>
             <ul>
-              {/* <Link className='topicLink' to={'/episodes'}>Episodes</Link>   */}
-              {/* <Link className='topicLink' to={`/decibel-dialogue`}>Decibel Dialogue</Link> */} 
+              <Link className='topicLink' to={'/episodes'}>Episodes</Link>
+              <Link className='topicLink' to={`/decibel-dialogue`}>Live</Link>
               <li className='allTopicsDrop topicLink' onMouseOver={this.handleDropdown} onClick={this.closeMenu}>Topics<span>+</span></li>
               <Link className='topicLink'to={`/blog`}>Judy's Journal</Link> 
               <Link className='topicLink' to={'/about'}>About Us</Link> 

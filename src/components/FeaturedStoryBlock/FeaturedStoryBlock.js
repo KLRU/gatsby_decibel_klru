@@ -7,8 +7,9 @@ import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 
 const FeaturedStoryDiv =styled.div`
-      margin-top: 0px;
-      width:100%;
+      //margin-top: 20px;
+      margin: 20px auto;
+      width:80%;
       border-bottom: 1px solid #E7E9E9;
       box-shadow: 0px 2px 4px #eee;
       margin-bottom:10px;
@@ -91,7 +92,7 @@ const FeaturedStoryBlock = props =>{
       <div className = 'storyTitleDiv'>
       <Link to={`/${featuredStory.associatedPost.tags[0].slug}/${featuredStory.associatedPost.slug}/`}>
       <h1><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{featuredStory.title}</h1>
-      <p>{featuredStory.storyPostDate}</p>
+      {/* <p>{featuredStory.storyPostDate}</p> */}
       <div className='shortDescription' dangerouslySetInnerHTML={{__html:featuredStory.shortDescription.childMarkdownRemark.html}}></div>
       </Link>
       </div>

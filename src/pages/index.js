@@ -54,7 +54,7 @@ const IndexPage = ({ data }) => {
       </HeroGrid>
       <MainGrid>
         <section>
-        <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/>
+        {/* <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/> */}
       
         <TwoStorySection>    
       {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
