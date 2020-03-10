@@ -11,6 +11,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import SEO from '../components/SEO';
+
 //import PostDiv from '../components/Posts/PostDiv';
 
 const PostDiv = styled.div`
@@ -83,6 +85,8 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return(
     <Container>
+       <SEO 
+      title={title}/>
       <Header>
       <TagList>
          {tags2.map(({node:tag})=>(

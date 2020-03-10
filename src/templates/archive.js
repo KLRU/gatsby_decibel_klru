@@ -11,6 +11,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Pagination from '../components/Paginate/Paginate'
 import BlackPlayButton from '../images/BlackPlayButton.png'
+import SEO from '../components/SEO';
+
 
 const AllPostDiv = styled.div`
   display: grid;
@@ -60,6 +62,8 @@ const ArchiveTemplate =({data, pageContext}) =>{
   }
   return(
     <Container>
+       <SEO 
+      title="Archive"/>
        <Header>
       <TagList>
          {tags2.map(({node:tag})=>(

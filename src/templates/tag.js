@@ -14,6 +14,7 @@ import Footer from '../components/Footer/Footer'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import TexasMutual from '../components/LatestNews/TexasMutual';
+import SEO from '../components/SEO';
 
 
 const TopicIntroDiv =styled.div`
@@ -73,6 +74,8 @@ const TagTemplate = ({ data, pageContext }) => {
   }
   return (
     <Container>
+      <SEO 
+      title={title}/>
        <Header>
       <TagList>
          {tags.map(({node:tag})=>(

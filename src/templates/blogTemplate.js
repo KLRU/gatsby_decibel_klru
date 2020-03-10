@@ -6,6 +6,8 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer'
 import styled from 'styled-components';
+import SEO from '../components/SEO';
+
 //import TagCards from '../components/TagCards/tagCards';
 
 const BlogPost =styled.div`

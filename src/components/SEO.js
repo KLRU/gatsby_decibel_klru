@@ -2,10 +2,32 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = () =>{
+const SEO = ({title, description, image}) =>{
+  const {site} = useStaticQuery(
+    graphql`
+      query{
+        site{
+          siteMetadata{
+            title
+            description
+            image
+            
+          }
+        }
+      }
+    `
+  )
+
+  
   return(
-    <div></div>
+    <Helmet
+    title={title}
+    defaultTitle={site.siteMetadata.title}
+    titleTemplate={`%s | ${site.siteMetadata.title}`}>
+      <meta name="description" content={site.siteMetadata.description} />
+      <meta name="image" content={site.siteMetadata.image} />
+    </Helmet>
   )
 }
 
-//export default SEO;
+export default SEO;

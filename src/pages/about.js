@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-
 //import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
 //import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
@@ -11,6 +10,8 @@ import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 import SmallContainer from "../components/Container/SmallContainer";
+import SEO from '../components/SEO';
+
 
 //function DisplayPageElement(pageElement) {
   //switch (pageElement.__typename) {
@@ -87,6 +88,8 @@ const AboutPage = ({ data, pageContext }) => {
  
   return (
     <Container>
+      <SEO 
+      title="About Us"/>
        <Header>
       <TagList>
          {tags.map(({node:tag})=>(

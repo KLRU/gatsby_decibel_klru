@@ -7,6 +7,8 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer'
 import styled from 'styled-components';
+import SEO from '../components/SEO';
+
 
 const PageTitle = styled.h1`
   text-align:center;
@@ -53,6 +55,8 @@ const BlogPage = ({data}) => {
 
   return(
     <Container>
+       <SEO 
+      title="Judy's Journal"/>
       <Header>
       <TagList>
          {tags.map(({node:tag})=>(

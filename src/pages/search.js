@@ -11,6 +11,8 @@ import TagItem from '../components/TopicList/TagItem';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits} from 'react-instantsearch-dom';
 import SearchResults from "../components/Search/SearchResults";
+import SEO from '../components/SEO';
+
 
 const SearchDiv = styled.div`
 width:100%;
@@ -40,6 +42,8 @@ const SearchPage = ({data}) =>{
    
   return(
    <Container>
+      <SEO 
+      title="Search"/>
      <Header>
      <TagList>
          {tags.map(({node:tag})=>(

@@ -23,6 +23,7 @@ import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
 import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
+import SEO from '../components/SEO';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
@@ -38,6 +39,7 @@ const IndexPage = ({ data }) => {
  
   return (
     <Container>
+      <SEO />
       <Header>
       <TagList>
          {tags.map(({node:tag})=>(

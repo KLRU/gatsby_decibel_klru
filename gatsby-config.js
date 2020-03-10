@@ -11,7 +11,7 @@ if(process.env.NODE_ENV  !== 'production'){
 
 module.exports = {
   siteMetadata: {
-    title: "Decibel ATX",
+    title: "Decibel",
     description:
       "Austin's Locally Produced Resource for News and Events Presented by AustinPBS, KLRU-TV.",
     author: "Decibel",

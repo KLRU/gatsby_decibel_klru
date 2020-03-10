@@ -9,6 +9,8 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import Footer from '../components/Footer/Footer'
 import styled from 'styled-components'
+import SEO from '../components/SEO';
+
 
 const AllTopicsWrapper = styled.div`
  display: grid;
@@ -40,6 +42,8 @@ const TopicsPage = ({ data }) => {
   const [ ...tags ] = data.allContentfulTag.edges;
   return (
     <Container>
+       <SEO 
+      title="All Topics"/>
       <Header>
       <TagList>
          {tags.map(({node:tag})=>(
