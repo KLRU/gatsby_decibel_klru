@@ -212,6 +212,8 @@ class Header extends React.Component {
             <div className='dropdownNavigation'>
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
+              <Link to={`/episodes`}>Episodes</Link>
+              <Link to={`/decibel-dialogue`}>Live</Link>
               <Link to={`/blog`}>Judy's Journal</Link> 
               <Link to={'/about'}>About Us</Link> 
               <Link to={'/search'}>Search</Link>

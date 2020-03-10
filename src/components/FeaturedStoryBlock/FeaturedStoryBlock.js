@@ -9,7 +9,7 @@ import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 const FeaturedStoryDiv =styled.div`
       //margin-top: 20px;
       margin: 20px auto;
-      width:80%;
+      width:1200px;
       border-bottom: 1px solid #E7E9E9;
       box-shadow: 0px 2px 4px #eee;
       margin-bottom:10px;
@@ -17,6 +17,7 @@ const FeaturedStoryDiv =styled.div`
       display:grid;
       @media screen and (max-width: 675px){
         grid-template-columns: 1fr;
+        width: 100%;
       }
       position: relative;
       align-items:end;
@@ -76,11 +77,12 @@ const FeaturedStoryDiv =styled.div`
 const FeaturedStoryBlock = props =>{
   const featuredStory = props;
   function HeroMediaDiv(){
-    if(featuredStory.associatedPost.featuredVideo){
-      return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
-    }else{
-       return <img src={`http:${featuredStory.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
-    }
+    // if(featuredStory.associatedPost.featuredVideo){
+    //   return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
+    // }else{
+    //    return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    // }
+    return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
   }
   return(
     <FeaturedStoryDiv>
