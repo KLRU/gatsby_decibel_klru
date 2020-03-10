@@ -46,6 +46,7 @@ const HeaderMainDiv = styled.div`
     }
     ul{
       display:block;
+      box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
       list-style-type: disc;
       //margin: 0;
       padding:0;
@@ -82,10 +83,10 @@ const HeaderMainDiv = styled.div`
       color: #000
       text-decoration:none;
       display:block;
-      padding: 2px;
+      padding: 2px 30px;
       background-color: #fff;
       z-index: 100;
-      text-align:center;
+      text-align:left;
    }
    a:hover {
     background-color: #009AA6;
@@ -130,20 +131,21 @@ const MobileNavDiv = styled.div`
         margin-bottom:0;
         width:100%;
         padding-inline-start:0;
-        box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
+        //box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
           a{
             width:100%;
             color: #000;
             margin-top:0;
             text-decoration:none;
             display:block;
-            padding: 20px 20px;
+            padding: 5px 20px;
             font-family: 'Lato', sans-serif;
             font-weight: 400;
             background-color: #fff;
             z-index: 100;
             text-align:left;
-            border-bottom:1px solid rgba(0, 57, 70, .25);
+            //border-bottom:1px solid rgba(0, 57, 70, .25);
+            border-left:1px solid rgba(0, 57, 70, .25)
          }
          a:hover {
           background-color: #009AA6;
@@ -162,6 +164,14 @@ class Header extends React.Component {
     this.setState(state =>{
       return{
         open: !state.open,
+      }
+    })
+  }
+
+  handleDropdownMobile = () =>{
+    this.setState(state =>{
+      return{
+        open: state.open,
       }
     })
   }
@@ -217,11 +227,15 @@ class Header extends React.Component {
               <Link to={`/blog`}>Judy's Journal</Link> 
               <Link to={'/about'}>About Us</Link> 
               <Link to={'/search'}>Search</Link>
-              <Link >Topics<span>:</span></Link> 
-              {this.props.children} 
+              <Link onClick={this.handleDropdownMobile}>Topics<span>:</span></Link> 
+              {this.state.open && (
+                <div>{this.props.children}</div>
+              )}
               </ul>
               </div>
               )}
+
+             
         </MobileNavDiv>
     </HeaderMainDiv>
     )

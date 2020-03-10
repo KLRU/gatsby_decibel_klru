@@ -6,10 +6,10 @@ const List= styled.ul`
   margin-top:115px;
   display: block;
   position:absolute;
-  width: 40%;
+  width: 35%;
   z-index:500;
   right:0px;
-  box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
+  //box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
   padding-inline-start: 0;
   @media screen and (max-width: 750px){
     margin-top: 0px;
