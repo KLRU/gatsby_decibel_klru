@@ -2,6 +2,9 @@ import React from 'react';
 //import TexasMutualLogo from '../../images/TexasMutual.jpg'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-gtag'
+
+
 
 const TexasMutualDiv = styled.div`
   display:grid;
@@ -47,9 +50,9 @@ const TexasMutual = (props) =>{
       <div>
        <h2>Decibel is Sponsored By:</h2>
        {sponsorships.map((sponsorship)=>(
-           <a href={`${sponsorship.sponsorLink}`}><div className='sponsorDiv'>
+           <OutboundLink href={`${sponsorship.sponsorLink}`}><div className='sponsorDiv'>
        <img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
-         <h4>{sponsorship.sponsorTitle}</h4></div></a>
+         <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))}
 
       </div>
