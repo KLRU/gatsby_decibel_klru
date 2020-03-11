@@ -50,7 +50,7 @@ const TexasMutual = (props) =>{
       <div>
        <h2>Decibel is Sponsored By:</h2>
        {sponsorships.map((sponsorship)=>(
-           <OutboundLink href={`${sponsorship.sponsorLink}`}><div className='sponsorDiv'>
+           <OutboundLink href={`${sponsorship.sponsorLink}`}><div className='sponsorDiv' key={sponsorship.id}>
        <img src={`http:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))}
