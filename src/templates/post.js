@@ -104,8 +104,8 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className="postBodyDiv">
           <div className='postTextDiv'>
         <h1>{title}</h1>
-        <p className='publishDate'>{publishDate}</p>
-        <p className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></p>
+        <div className='publishDate'>{publishDate}</div>
+        <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></div>
         </div>
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
         </div>
