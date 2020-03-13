@@ -11,7 +11,7 @@ const FeaturedStoryDiv =styled.div`
       margin: 20px auto;
       width:1200px;
       border-bottom: 1px solid #E7E9E9;
-      box-shadow: 0px 2px 4px #eee;
+      //box-shadow: 0px 2px 4px #eee;
       margin-bottom:10px;
       box-sizing:border-box;
       display:grid;
@@ -37,12 +37,12 @@ const FeaturedStoryDiv =styled.div`
         //position:absolute;
         width:100%;
         padding: 10px;
-        background-color: #fff;
+        //background-color: #fff;
         h1{
           color: #000;
           margin:0;
           padding: 0;
-          text-shadow: 1px 1px #003946;
+          //text-shadow: 1px 1px #003946;
           span{
             padding: 0 5px;
             img{
@@ -77,12 +77,12 @@ const FeaturedStoryDiv =styled.div`
 const FeaturedStoryBlock = props =>{
   const featuredStory = props;
   function HeroMediaDiv(){
-    // if(featuredStory.associatedPost.featuredVideo){
-    //   return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
-    // }else{
-    //    return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
-    // }
-    return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    if(featuredStory.associatedPost.featuredVideo){
+      return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
+    }else{
+       return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    }
+    // return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
   }
   return(
     <FeaturedStoryDiv>
