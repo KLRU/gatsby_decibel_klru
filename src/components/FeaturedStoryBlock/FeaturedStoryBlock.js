@@ -9,7 +9,7 @@ import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 const FeaturedStoryDiv =styled.div`
       //margin-top: 20px;
       margin: 10px auto;
-      width:1200px;
+      width:1100px;
       border-bottom: 1px solid #E7E9E9;
       //box-shadow: 0px 2px 4px #eee;
       margin-bottom:10px;
@@ -24,7 +24,7 @@ const FeaturedStoryDiv =styled.div`
       .mediaDiv{
         width:100%; 
         height:0;
-        padding-bottom:46.25%;
+        padding-bottom:56.25%;
         position:relative;
       }
       .mediaDiv img{
@@ -34,10 +34,10 @@ const FeaturedStoryDiv =styled.div`
         border:none;
       }
       .storyTitleDiv{
-        //position:absolute;
+        position:absolute;
         width:100%;
         padding: 10px;
-        //background-color: #fff;
+        background-color: #fff;
         h1{
           color: #000;
           margin:0;
@@ -77,12 +77,12 @@ const FeaturedStoryDiv =styled.div`
 const FeaturedStoryBlock = props =>{
   const featuredStory = props;
   function HeroMediaDiv(){
-    if(featuredStory.associatedPost.featuredVideo){
-      return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
-    }else{
-       return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
-    }
-    // return <img src={`http:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    // if(featuredStory.associatedPost.featuredVideo){
+    //   return <ContentfulVideoElement {...featuredStory.associatedPost.featuredVideo}/>
+    // }else{
+    //    return <img src={`https:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    // }
+    return <img src={`https:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
   }
   return(
     <FeaturedStoryDiv>

@@ -75,7 +75,7 @@ class TwoStoryBlock extends React.Component{
          <Link to={`${twoStoryPost.tags[0].slug}/${twoStoryPost.slug}/`}>
          <PostDiv>
            <div className='imageDiv'>
-           <img src={`http:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.description} />
+           <img src={`https:${twoStoryPost.heroImage.fluid.src}`} alt={twoStoryPost.heroImage.description} />
            </div>
            <div className='infoDiv'>
            <h2 className='postTitle'><span><img src={BlackPlayButton} alt={'play button'}/></span>{twoStoryPost.title}</h2> 

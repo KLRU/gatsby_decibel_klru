@@ -60,7 +60,7 @@ const ImageDiv = styled.div`
 width:100%; 
 height:0;
 margin-top:10px;
-padding-bottom:46.25%;
+padding-bottom:56.25%;
 position:relative;
 img{
   position:absolute;
@@ -94,7 +94,7 @@ const PostTemplate = ({ data, pageContext }) => {
     if(featuredVideo){
       return <ContentfulVideoElement {...featuredVideo}/>
     }
-    return <ImageDiv><img width='100%' src={`http:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
+    return <ImageDiv><img width='100%' src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
   }
 
   return(
