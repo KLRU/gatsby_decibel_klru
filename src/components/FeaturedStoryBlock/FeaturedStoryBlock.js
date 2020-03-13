@@ -8,7 +8,7 @@ import ContentfulVideoElement from '../PageElements/ContentfulVideoElement';
 
 const FeaturedStoryDiv =styled.div`
       //margin-top: 20px;
-      margin: 20px auto;
+      margin: 10px auto;
       width:1200px;
       border-bottom: 1px solid #E7E9E9;
       //box-shadow: 0px 2px 4px #eee;
