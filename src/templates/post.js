@@ -33,6 +33,19 @@ margin: 10px auto;
   .paragraphText{
     padding: 0;
     font-size: 1em;
+    a{
+      text-decoration:underline;
+      color: 
+    }
+    ul{
+      a{
+        text-decoration:underline;
+        color: 
+      }
+      li{
+        list-style-type: disc;
+      }
+    }
   }
  }
 }
