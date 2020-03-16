@@ -54,7 +54,7 @@ const BlogTemplate = ({data, pageContext}) =>{
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{author}</p>
-      <img src={`http:${image.fluid.src}`} alt={image.description}/>
+      <img src={`https:${image.fluid.src}`} alt={image.description}/>
       <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
     
     <div>
