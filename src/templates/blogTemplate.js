@@ -43,6 +43,8 @@ const BlogTemplate = ({data, pageContext}) =>{
   
     <div>
        <Header>
+         <SEO 
+         title={title}/>
       <TagList>
          {tags2.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>

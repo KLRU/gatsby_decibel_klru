@@ -84,7 +84,7 @@ justify-items: center;
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, heroImage, featuredVideo, body, updatedAt} = data.contentfulPost;
+  const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
@@ -149,7 +149,7 @@ export const query = graphql`
       id
       title
       slug
-      publishDate(formatString: "MMMM D, YYYY")
+      publishDate(formatString: "dddd, MMMM Do YYYY")
       updatedAt(
         formatString: "dddd, MMMM Do YYYY, h:mm a"
         locale: "en-EN")

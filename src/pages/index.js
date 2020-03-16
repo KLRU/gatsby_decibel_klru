@@ -13,7 +13,7 @@ import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import FacebookLive from '../components/FacebookLive/FacebookLive';
 import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
-import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
+//import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 //import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import LatestNews from '../components/LatestNews/LatestNews';
@@ -28,7 +28,7 @@ import SEO from '../components/SEO';
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
   const featuredStory = data.contentfulFeaturedStoryBlock;
-  const featuredTopic = data.contentfulFeaturedTopicBlock;
+  //const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
   const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
@@ -48,7 +48,6 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
-  
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
   
       <HeroGrid>

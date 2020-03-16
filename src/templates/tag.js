@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
-import { startCase, orderBy } from 'lodash';
+import { orderBy } from 'lodash';
 import moment from 'moment';
 import styled from 'styled-components'
 import TagCards from '../components/TagCards/TagCards';
