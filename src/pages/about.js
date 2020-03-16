@@ -112,7 +112,7 @@ const AboutPage = ({ data, pageContext }) => {
         <img src={`https:${bio.bioImage.file.url}`} alt={bio.bioName}/>
         </div>
         <h2>{bio.bioName}</h2>
-        <p dangerouslySetInnerHTML={{__html:bio.bioText.childMarkdownRemark.html}}></p>
+        <div dangerouslySetInnerHTML={{__html:bio.bioText.childMarkdownRemark.html}}></div>
         </BioItem>
       ))}   
       </BioDiv>
