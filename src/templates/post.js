@@ -84,7 +84,7 @@ justify-items: center;
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
+  const { title, publishDate, heroImage, featuredVideo, body, updatedAt} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
@@ -120,6 +120,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <h1>{title}</h1>
         <div className='publishDate'>{publishDate}</div>
         <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></div>
+        <div className='paragraphText'>Last Update: {updatedAt}</div>
         </div>
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
         </div>
@@ -149,6 +150,9 @@ export const query = graphql`
       title
       slug
       publishDate(formatString: "MMMM D, YYYY")
+      updatedAt(
+        formatString: "dddd, MMMM Do YYYY, h:mm a"
+        locale: "en-EN")
       heroImage {
         file {
           url
