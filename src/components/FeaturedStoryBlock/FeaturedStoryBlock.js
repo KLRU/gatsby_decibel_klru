@@ -93,7 +93,7 @@ const FeaturedStoryBlock = props =>{
     // }else{
     //    return <img src={`https:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
     // }
-    return <img src={`https:${featuredStory.associatedPost.heroImage.fluid.src}`} alt={featuredStory.heroImage.title} />
+    return <img src={`https:${featuredStory.associatedPost.heroImage.file.url}`} alt={featuredStory.heroImage.title} />
   }
   return(
     <FeaturedStoryDiv>

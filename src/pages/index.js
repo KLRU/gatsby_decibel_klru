@@ -228,6 +228,9 @@ export const query = graphql`
         slug
         publishDate(formatString: "MMMM DD, YYYY")
         heroImage{
+          file{
+            url
+          }
           fluid{
             src
           }

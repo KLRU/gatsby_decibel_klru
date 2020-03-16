@@ -95,7 +95,7 @@ const PostTemplate = ({ data, pageContext }) => {
     if(featuredVideo){
       return <ContentfulVideoElement {...featuredVideo}/>
     }
-    return <ImageDiv><img width='100%' src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
+    return <ImageDiv><img src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
   }
 
   return(
