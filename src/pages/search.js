@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import '../styles/global.css'
 import { Link } from 'gatsby'
 import styled from 'styled-components';
 import '../styles/global.css'

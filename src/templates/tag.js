@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { orderBy } from 'lodash';
 import moment from 'moment';
 import styled from 'styled-components'
+import '../styles/global.css'
 import TagCards from '../components/TagCards/TagCards';
 //import FeaturedTagDiv from '../components/TagCards/FeaturedTagDiv';
 import Container from '../components/Container/Container';
