@@ -120,7 +120,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <h1>{title}</h1>
         <div className='publishDate'>{publishDate}</div>
         <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></div>
-        <div className='paragraphText'>Last Update: {updatedAt}</div>
+        {/* <div className='paragraphText'>Last Update: {updatedAt}</div> */}
         </div>
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
         </div>
