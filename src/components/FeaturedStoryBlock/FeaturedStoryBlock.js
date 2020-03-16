@@ -50,6 +50,17 @@ const FeaturedStoryDiv =styled.div`
             }
           }
         }
+        @media screen and (max-width: 675px){
+          h1{
+            font-size:18px;
+            span{
+              padding: 0 5px;
+              img{
+                width:18px;
+              }
+            }
+          }
+        }
         p{
           color:#000;
           padding-left: 10px;
