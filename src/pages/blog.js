@@ -17,27 +17,39 @@ const PageTitle = styled.h1`
 
 const AllBlogsDiv = styled.div`
   display:grid;
-  width: 100%;
+  width:100%;
+  max-width: 1100px;
   justify-items:center;
   margin: 10px auto;
   padding-bottom: 10px;
   border: 1px solid rgba(0, 57, 70, .25);
   box-shadow: 0px 2px 4px rgba(0, 57, 70, .25);
-  
+  @media screen and (max-width: 675px){
+    width:100%;
+  }
   h2{
     margin:10px 0 0 0;
     font-size:30px;
   }
   p{
     margin-top:0;
+    margin-left: 10px;
+  }
+  .imageDiv{
+    p{
+      margin-top:0;
+    }
   }
   img{
-    width:70%;
+    width:100%;
+    padding:10px 10px 0 10px;
   }
   .blogBody{
-    width:70%;
-    margin-top:20px;
-    font-size:22px;
+    width:100%;
+    margin-top:10px;
+    font-size:18px;
+    padding:10px;
+    //text-align:center;
   }
   a{
     button{
@@ -71,8 +83,11 @@ const BlogPage = ({data}) => {
         <AllBlogsDiv>
         <h2 key={blogPost.id}>{blogPost.title}</h2>
         <p>{blogPost.date}</p>
-        <img src={blogPost.image.fluid.src}  alt={blogPost.image.title}/>
-        <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPost.blogPostBody.childMarkdownRemark.excerpt}}></p>
+        <div className='imageDiv'>
+        <img src={blogPost.image.file.url}  alt={blogPost.image.title}/>
+        <p>{blogPost.image.description}</p>
+        </div>
+        <div className='blogBody' dangerouslySetInnerHTML={{__html:blogPost.blogPostBody.childMarkdownRemark.excerpt}}></div>
         <Link to={`/${blogPost.slug}`}><button>Read More</button></Link>
         </AllBlogsDiv>
       ))}
@@ -108,6 +123,9 @@ query{
         image{
           title
           description
+          file{
+            url
+          }
           fluid{
             src
           }

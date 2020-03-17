@@ -13,12 +13,13 @@ import SEO from '../components/SEO';
 
 const BlogPost =styled.div`
 display:grid;
+width:100%;
+max-width: 1100px;
 justify-items:center;
 margin: 10px auto;
 padding: 10px;
 border: 1px solid #E7E9E9;
 box-shadow: 0px 2px 4px #eee;
-width: 1100px;
 h2{
   margin:10px 0 0 0;
   font-size:30px;
@@ -26,10 +27,18 @@ h2{
 p{
   margin-top:0;
 }
+img{
+  width:100%;
+}
 .blogBody{
-  width:800px;
+  width:100%;
   margin-top:20px;
-  font-size:22px;
+  font-size:18px;
+  a{
+    color: #003946;
+    font-weight:400;
+    text-decoration:underline;
+  }
 }
 `
 
@@ -54,12 +63,16 @@ const BlogTemplate = ({data, pageContext}) =>{
       </TagList>
       </Header>
       <BlogPost>
+     
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{author}</p>
-      <img src={`https:${image.fluid.src}`} alt={image.description}/>
+      <div className='imageDiv'>
+      <img src={`https:${image.file.url}`} alt={image.description}/>
+      <p>{image.description}</p>
+      </div>
       <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
-    
+      
     <div>
     <p>Related Decibel Topics:
     {tags.map((tag) => {
@@ -92,6 +105,9 @@ export const query = graphql`
       image{
         title
         description
+        file{
+          url
+        }
         fluid{
           src
         }
