@@ -82,7 +82,7 @@ const BioItem = styled.div`
 `
 
 const AboutPage = ({ data, pageContext }) => {
-  const { title } = data.contentfulPage;
+  //const { title } = data.contentfulPage;
   const [ ...tags ] = data.allContentfulTag.edges;
   const [...bios] = data.allContentfulBiographyElement.edges;
   const videoIntro = data.contentfulVideoElement;
@@ -100,11 +100,11 @@ const AboutPage = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <SmallContainer>
+      <h1 style={{textAlign: 'center'}}>About Decibel</h1>
       <VideoDiv> 
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
-      <iframe src={`https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/decibelatx/videos/${videoIntro.embedCode}/`} title={videoIntro.title}/>
+      <iframe src={`https://www.youtube.com/embed/${videoIntro.embedCode}/`} title={videoIntro.title}/>
       </VideoDiv>
-      <h1 style={{textAlign: 'center'}}>{title}</h1>
     
       <BioDiv>
       {bios.map(({node:bio})=>(
@@ -125,41 +125,6 @@ const AboutPage = ({ data, pageContext }) => {
 
 export const query = graphql`
   query {
-    contentfulPage(slug: { eq: "about" }) {
-      title
-      pageElements {
-        ... on ContentfulTextElement {
-          childContentfulTextElementBodyTextNode {
-            childMarkdownRemark {
-              html
-            }
-          }
-          id
-        }
-        ... on ContentfulBiographyElement {
-          id
-          bioImage {
-            title
-            file {
-              url
-            }
-          }
-          bioName
-          bioText {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-        ... on ContentfulVideoElement {
-          id
-          source
-          embedCode
-          title
-        }
-        
-      }
-    },
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC  }
