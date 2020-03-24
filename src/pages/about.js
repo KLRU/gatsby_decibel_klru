@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import '../styles/global.css'
 import { Link } from 'gatsby';
 //import ContentfulBiographyElement from '../components/PageElements/ContentfulBiographyElement';
-//import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
@@ -52,7 +52,7 @@ const VideoDiv = styled.div`
 const BioDiv =styled.div`
   display:grid;
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 30px;
@@ -103,7 +103,8 @@ const AboutPage = ({ data, pageContext }) => {
       <h1 style={{textAlign: 'center'}}>About Decibel</h1>
       <VideoDiv> 
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
-      <iframe src={`https://www.youtube.com/embed/${videoIntro.embedCode}/`} title={videoIntro.title}/>
+      {/* <iframe src={`https://www.youtube.com/embed/${videoIntro.embedCode}/`} title={videoIntro.title}/> */}
+      <ContentfulVideoElement {...videoIntro}/>
       </VideoDiv>
     
       <BioDiv>
