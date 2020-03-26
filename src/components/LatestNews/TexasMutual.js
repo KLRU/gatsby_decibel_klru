@@ -39,6 +39,20 @@ const TexasMutualDiv = styled.div`
         }
       }
     }
+    button{
+      width:100%;
+      background-color:#009AA6;
+      color:#fff;
+      font-size: 18px;
+      border-radius: 5px;
+      a{
+        color:#fff;
+        font-size: 24px;
+      }
+    }
+    button: hover{
+      background-color:#003946;
+    }
    
   }
 `
@@ -54,7 +68,8 @@ const TexasMutual = (props) =>{
        <img src={`https:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))}
-
+      <h2>Support Decibel</h2>
+      <button><a href="https://austinpbs.org/donate">Donate</a></button>
       </div>
     </TexasMutualDiv>
   )
