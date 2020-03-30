@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import '../styles/global.css'
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-gtag'
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import TagCards from '../components/TagCards/TagCards';
@@ -23,6 +24,9 @@ margin: 10px auto;
   width:100%;
   display:grid;
   grid-template-columns:70% 30%;
+  @media screen and (max-width: 750px){
+    grid-template-columns: 1fr;
+  }
  .postTextDiv{
   padding: 5px;
   h1{
@@ -50,7 +54,26 @@ margin: 10px auto;
   }
  }
 }
-
+.donateDiv{
+  margin: 10px auto;
+  border: 1px solid #003946;
+  padding: 20px;
+  button{
+    width:100%;
+    max-width: 200px;
+    background-color:#009AA6;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 5px;
+    a{
+      color:#fff;
+      font-size: 24px;
+    }
+  }
+  button: hover{
+    background-color:#003946;
+  }
+}
 h2{
   font-size:1em;
 }
@@ -122,13 +145,14 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className='publishDate'>{publishDate}</div>
         <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></div>
         {/* <div className='paragraphText'>Last Update: {updatedAt}</div> */}
+        <div className='donateDiv'>
+          <h2>Our reporting doesn’t happen without you.</h2>
+          <p>Did you value this reporting? Then please consider making a donation to Austin PBS. Your gift makes the quality journalism done by the Decibel team possible. Thank you for your contribution.</p>
+          <button><OutboundLink href="https://austinpbs.org/donate">Donate</OutboundLink></button>
+        </div>
         </div>
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
         </div>
-      {/* <h2>Tags:</h2>
-      {tags.map((tag) => {
-        return <TagItem {...tag} key={tag.id} />
-      })} */}
 
       <h2>More in {tagTitle}:</h2>
       <RelatedPostDiv>
@@ -179,7 +203,7 @@ export const query = graphql`
       }
     }
     allContentfulPost(
-      limit: 4
+      limit: 3
       filter: {
         tags: {
           elemMatch: {
