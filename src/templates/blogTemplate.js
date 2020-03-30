@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import '../styles/global.css'
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-gtag'
 import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
@@ -40,6 +41,26 @@ img{
     text-decoration:underline;
   }
 }
+.donateDiv{
+  margin: 10px auto;
+  border: 1px solid #003946;
+  padding: 20px;
+  button{
+    width:100%;
+    max-width: 200px;
+    background-color:#009AA6;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 5px;
+    a{
+      color:#fff;
+      font-size: 24px;
+    }
+  }
+  button: hover{
+    background-color:#003946;
+  }
+}
 `
 
 const BlogTemplate = ({data, pageContext}) =>{
@@ -72,7 +93,11 @@ const BlogTemplate = ({data, pageContext}) =>{
       <p>{image.description}</p>
       </div>
       <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
-      
+      <div className='donateDiv'>
+          <h2>Our reporting doesn’t happen without you.</h2>
+          <p>Decibel’s mission is to amplify voices in our community through quality, in-depth reporting. If you support that mission please consider making a donation to Austin PBS. As a nonprofit newsroom, we rely on support from our community to keep our content free and not hidden behind a paywall. We view our work as an important service to Central Texas. Your gift makes this possible.</p>
+          <button><OutboundLink href="https://austinpbs.org/donate">Donate</OutboundLink></button>
+        </div>
     <div>
     <p>Related Decibel Topics:
     {tags.map((tag) => {
