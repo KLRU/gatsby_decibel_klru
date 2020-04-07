@@ -9,6 +9,7 @@ import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid';
 import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
+//import ModalPopUp from '../components/Modal/ModalPopUp';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import FacebookLive from '../components/FacebookLive/FacebookLive';
@@ -49,7 +50,7 @@ const IndexPage = ({ data }) => {
       </TagList>
       </Header>
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
-  
+      {/* <ModalPopUp /> */}
       <HeroGrid>
         <FeaturedStoryBlock {...featuredStory} key={featuredStory.id}/>
       </HeroGrid>
@@ -153,8 +154,8 @@ export const query = graphql`
       limit: 10
       sort: { fields: title, order: ASC  }
       filter:{
-        title:{
-          nin: ["Episodes", "Decibel Dialogue"] 
+        slug:{
+          nin: ["episodes", "live"] 
         }
       }
     ){
