@@ -16,7 +16,6 @@ const ModalContent = styled.div`
     color:#000;
     font-size: 14px;
     border-radius: 5px;
-    margin-top: 100px;
   }
   .donateButton{
     width:100%;

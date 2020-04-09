@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const SmallContainerDiv = styled.div`
 width:100%;
 max-width: 1200px;
-//height: 100vh;
 margin: 0 auto;
 display:grid;
 `

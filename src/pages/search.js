@@ -13,6 +13,9 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits} from 'react-instantsearch-dom';
 import SearchResults from "../components/Search/SearchResults";
 import SEO from '../components/SEO';
+import AlgoliaLogo from '../images/search-by-algolia-light-background.png';
+import Footer from '../components/Footer/Footer';
+
 
 
 const SearchDiv = styled.div`
@@ -56,15 +59,19 @@ const SearchPage = ({data}) =>{
      <SmallContainer>
     <SearchDiv>
      <InstantSearch searchClient={searchClient} indexName="Decibel">
-      <SearchBox/>
+      <SearchBox>
+      </SearchBox>
       <Hits hitComponent={SearchResults}>
       {posts.map(({node:post})=>(
         <SearchResults key={posts.id} {...post}/>
         ))}
       </Hits>
     </InstantSearch>
+    <img src={AlgoliaLogo}/>
     </SearchDiv>
       </SmallContainer>
+      <Footer />
+
    </Container>
   )
 }
