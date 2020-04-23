@@ -9,7 +9,8 @@ import BlackPlayButton from '../../images/BlackPlayButton.png'
 const FeaturedStoryDiv =styled.div`
       //margin-top: 20px;
       margin: 10px auto;
-      width:1100px;
+      width:100%;
+      max-width:1100px;
       border-bottom: 1px solid #E7E9E9;
       //box-shadow: 0px 2px 4px #eee;
       margin-bottom:10px;

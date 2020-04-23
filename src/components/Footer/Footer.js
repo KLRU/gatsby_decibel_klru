@@ -10,7 +10,7 @@ import DecibelWhiteLOGO from '../../images/Decibel-Logo-AustinPBS-White.png'
 
 const FooterDiv = styled.div`
   display:grid;
-  margin:200px 0 0 0;
+  margin:50px 0 0 0;
   width:100%;
   min-height: 200px;
   padding-top: 20px;

@@ -8,6 +8,7 @@ const TwoStoryDiv = styled.div`
   margin: 0;
   display:grid;
   grid-template-columns: 100%;
+
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }

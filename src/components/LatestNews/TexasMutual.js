@@ -8,6 +8,7 @@ import { OutboundLink } from 'gatsby-plugin-gtag'
 
 const TexasMutualDiv = styled.div`
   display:grid;
+  width:100%;
   justify-items:center;
   padding-top:10px;
   .logoImage{

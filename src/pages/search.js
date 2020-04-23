@@ -24,7 +24,7 @@ display:grid;
 .ais-SearchBox{
   width:100%;
   display:grid;
-  grid-template-columns: 70% 30%;
+  //grid-template-columns: 70% 30%;
   padding:25px;
 }
 .ais-SearchBox-form{
@@ -33,8 +33,16 @@ display:grid;
 }
 .ais-SearchBox-input{
   width: 100%;
-  font-size: 24px;
-  
+  height:30px;
+  font-size: 30px;
+  padding: 20px;
+}
+.ais-SearchBox-submit{
+  padding:10px 20px;
+  background-color: #fff;
+  .ais-SearchBox-submitIcon{
+    
+  }
 }
 
 `
@@ -67,7 +75,7 @@ const SearchPage = ({data}) =>{
         ))}
       </Hits>
     </InstantSearch>
-    <img src={AlgoliaLogo}/>
+    <img src={AlgoliaLogo} alt="Text that reads 'Search by Algolia' with blue and white square"/>
     </SearchDiv>
       </SmallContainer>
       <Footer />

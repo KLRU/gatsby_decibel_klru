@@ -8,13 +8,14 @@ import BlackPlayButton from '../../images/BlackPlayButton.png'
 
 const LatestNewsDiv = styled.div`
 box-sizing: border-box;
-display: 'grid';
-width:'100%'; 
+display: grid;
+width:100%; 
 border-bottom: 1px solid rgba(0, 57, 70, .25);
 .news_item {
   display:grid;
+  width:100%;
   grid-template-columns: minmax(min-content, 275px) 1fr;
-  grid-template-rows: minmax(min-content, 175px) 1fr;
+  //grid-template-rows: minmax(min-content, 175px) 1fr;
   @media screen and (max-width: 500px){
     grid-template-columns: 1fr;
   }

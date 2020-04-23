@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const LatestNewsListDiv = styled.div`
 margin: 20px 0;
-max-width: 100%;
+width: 100%;
 display:grid;
 //grid-template-columns: 1fr 1fr 1fr 1fr;
 //grid-template-rows: auto;

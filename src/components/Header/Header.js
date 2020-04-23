@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'gatsby'
 import styled from 'styled-components'
 import Logo from '../../images/DecibelLogo200X100.png'
+import SmallLogo from '../../images/DecibelLogo150x75.png'
 //import MobileMenu from '../../images/MobileMenu.png'
 
 const HeaderMainDiv = styled.div`
@@ -10,13 +11,16 @@ const HeaderMainDiv = styled.div`
   //z-index: 100;
   border-bottom: 1px solid rgba(0, 57, 70, .25);
   grid-template-columns: minmax(min-content, 200px) 1fr;
-  grid-template-rows: 115px;
+  //grid-template-rows: 115px;
   @media screen and (max-width: 675px){
     grid-template-columns: minmax(min-content, 150px) 1fr;
-    grid-template-rows: 115px;
+    grid-template-rows: 70px;
   }
   .logoDiv{
     background-color: #003946;
+    @media screen and (max-width: 850px){
+      display:none;
+    }
   }
   .logoDiv:hover{
     background-color: #009AA6;
@@ -26,9 +30,26 @@ const HeaderMainDiv = styled.div`
     height:auto;
     padding-left:0px;
     @media screen and (max-width: 675px){
-      width:150px;
+       width:150px;
       height: 100px;
     }
+  }
+  .smallLogoDiv{
+    display: none;
+    @media screen and (max-width: 850px){
+      display:block;
+      background-color: #003946;
+      .smallLogoImage{
+        width: 100%;
+        height:70px;
+        padding-left:0px;
+        // @media screen and (max-width: 675px){
+        //   width:150px;
+        //   height: 100px;
+        // }
+      }
+    }
+
   }
   .topicsDiv{
     display:grid;
@@ -36,7 +57,7 @@ const HeaderMainDiv = styled.div`
     text-align: end;
     align-content:end;
     position:relative;
-    @media screen and (max-width: 750px){
+    @media screen and (max-width: 850px){
       display:none;
       margin-top: 0px;
     }
@@ -50,6 +71,7 @@ const HeaderMainDiv = styled.div`
       list-style-type: disc;
       //margin: 0;
       padding:0;
+      padding-inline-start: 0;
       .topicLink{
         display:inline-block;
         padding: 10px 20px;
@@ -65,6 +87,7 @@ const HeaderMainDiv = styled.div`
       }
     }
     .allTopicsDrop{
+      posiiton: relative;
       text-align:center;
       //margin-right:25px;
       margin-left:0;
@@ -72,9 +95,10 @@ const HeaderMainDiv = styled.div`
       padding:0;
     }
     .dropdownMenu{
+      position:absolute;
       margin-right:30px;
-      @media screen and (max-width: 675px){
-        //margin-top: 300px;
+      @media screen and (max-width: 750px){
+        margin-top: 300px;
       }
        a{
       width: 100%;
@@ -99,7 +123,7 @@ const HeaderMainDiv = styled.div`
 
 const MobileNavDiv = styled.div`
     display:none;
-    @media screen and (max-width: 750px){
+    @media screen and (max-width: 850px){
       display:grid;
       text-align: end;
       align-content:end;
@@ -107,7 +131,7 @@ const MobileNavDiv = styled.div`
       background-color: #003946;
       z-index: 500;
       position:relative;
-      
+   
     h2{
        padding-right: 10px;
        color:#FFF;
@@ -117,6 +141,8 @@ const MobileNavDiv = styled.div`
       position:absolute;
       z-index: 1000;
       width:100%;
+      max-width:400px;
+      right:0%;
       p{
           text-align:left;
           padding: 0 20px;
@@ -131,11 +157,11 @@ const MobileNavDiv = styled.div`
         margin-bottom:0;
         width:100%;
         padding-inline-start:0;
-        //box-shadow: 0px 1px 3px 2px rgba(0, 57, 70, .25);
-          a{
+          .mobileNavLink{
             width:100%;
+            max-width:400px;
             color: #000;
-            margin-top:0;
+            margin-top:0px;
             text-decoration:none;
             display:block;
             padding: 5px 20px;
@@ -149,6 +175,26 @@ const MobileNavDiv = styled.div`
          }
          a:hover {
           background-color: #009AA6;
+        }
+        .dropdownNavMobile{
+          a{
+            width: 100%;
+            //max-width: 300px;
+            margin-top:0;
+            color: #000
+            text-decoration:none;
+            display:block;
+            padding: 2px 5px;
+            background-color: #fff;
+            z-index: 100;
+            text-align:left;
+            p{
+              margin:10px;
+            }
+         }
+         a:hover {
+          background-color: #009AA6;
+        }
         }
       }
     }
@@ -196,23 +242,33 @@ class Header extends React.Component {
         <div className="logoDiv">
         <Link to={'/'}><img src={Logo} alt='Logo' className='logoImage' /></Link>
         </div>
+
+        <div className="smallLogoDiv">
+        <Link to={'/'}><img src={SmallLogo} alt='Logo' className='smallLogoImage' /></Link>
+        </div> 
         
         <div className='topicsDiv'>
          <div>
             <ul>
               <Link className='topicLink' to={'/episodes'}>Episodes</Link>
               <Link className='topicLink' to={`/live`}>Live</Link>
-              <li className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span></li>
+              <div className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span>
+              {this.state.open && (
+              <div className='dropdownMenu'>
+              {this.props.children}
+              </div>
+            )} 
+              </div>
               <Link className='topicLink'to={`/blog`}>Judy's Journal</Link> 
               <Link className='topicLink' to={'/about'}>About Us</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
         
-           {this.state.open && (
+           {/* {this.state.open && (
             <div className='dropdownMenu'>
             {this.props.children}
             </div>
-           )}  
+           )}   */}
            </div>
         </div>
 
@@ -222,20 +278,22 @@ class Header extends React.Component {
             <div className='dropdownNavigation'>
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
-              <Link to={`/episodes`}>Episodes</Link>
-              <Link to={`/decibel-dialogue`}>Live</Link>
-              <Link to={`/blog`}>Judy's Journal</Link> 
-              <Link to={'/about'}>About Us</Link> 
-              <Link to={'/search'}>Search</Link>
-              <Link onClick={this.handleDropdownMobile}>Topics<span>:</span></Link> 
+              <Link className='mobileNavLink' to={`/episodes`}>Episodes</Link>
+              <Link className='mobileNavLink' to={`/decibel-dialogue`}>Live</Link>
+              <Link className='mobileNavLink' to={`/blog`}>Judy's Journal</Link> 
+              <Link className='mobileNavLink' to={'/about'}>About Us</Link> 
+              <Link className='mobileNavLink' to={'/search'}>Search</Link>
+              <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
               {this.state.open && (
-                <div>{this.props.children}</div>
+                <div className='dropdownNavMobile'>{this.props.children}</div>
               )}
+              </div> 
+              {/* {this.state.open && (
+                <div>{this.props.children}</div>
+              )} */}
               </ul>
               </div>
               )}
-
-             
         </MobileNavDiv>
     </HeaderMainDiv>
     )

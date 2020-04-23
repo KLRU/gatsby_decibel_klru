@@ -86,14 +86,13 @@ const IndexPage = ({ data }) => {
            <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> 
            <Newsletter />
            <div>
-            <div>
+          <div>
               <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="DecibelAtx"
                 options={{height: 600}}
-                //onComplete={action}
                 />
-            </div>
+            </div> 
           </div> 
         </aside>
       </MainGrid>

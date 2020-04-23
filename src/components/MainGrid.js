@@ -18,9 +18,9 @@ const MainGridDiv = styled.div`
     display:grid;
     grid-row-gap:30px;
     grid-auto-rows: minmax(300px, auto);
-    @media screen and (max-width: 750px){
+    @media screen and (max-width: 1150px){
       grid-template-columns: 1fr;
-      padding:0;
+      padding:10px;
     }
   }
   aside{

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const NewsletterDiv = styled.div`
 display: block;
+width:100%;
 box-sizing:border-box;
 padding: 100px 0;
 margin-bottom: 100px;
@@ -20,6 +21,7 @@ a{
   margin: 0 auto;
   button{
     width:100%;
+    //max-width:300px;
     background-color:#009AA6;
     color:#fff;
     font-size: 18px;
