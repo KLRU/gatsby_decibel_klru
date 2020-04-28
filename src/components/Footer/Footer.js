@@ -45,7 +45,7 @@ const FooterDiv = styled.div`
 const Footer = props => {
   return (
     <FooterDiv>
-      <div>
+      <div  id="social">
         <h3>Contact Us</h3>
         <p>Email us at <a href="mailto:news@klru.org">news@klru.org</a> </p>
         <ul>
