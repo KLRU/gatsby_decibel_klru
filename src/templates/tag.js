@@ -36,10 +36,13 @@ const TitleIntro = styled.div`
 display: block;
 p{
   width:100%;
-  max-width:1200px;
+  max-width:1000px;
   margin: 0 auto;
+  margin-bottom: 10px;
   text-align:center;
-
+  a{
+    font-weight: bold;
+  }
 }
 `
 const MoreStoriesDiv =styled.div`
