@@ -34,7 +34,7 @@ p{
 `
 const TitleIntro = styled.div`
 display: block;
-p{
+div{
   width:100%;
   max-width:1000px;
   margin: 0 auto;
@@ -88,7 +88,7 @@ const TagTemplate = ({ data, pageContext }) => {
 
   function ShowDescription(){
     if(topicDescription){
-      return <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p> 
+      return <div dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></div> 
     }else{
      return <div></div>
     }
