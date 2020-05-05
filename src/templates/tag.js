@@ -32,7 +32,16 @@ p{
   line-height: 1.6;
 }
 `
+const TitleIntro = styled.div`
+display: block;
+p{
+  width:100%;
+  max-width:1200px;
+  margin: 0 auto;
+  text-align:center;
 
+}
+`
 const MoreStoriesDiv =styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -58,7 +67,7 @@ const TagTemplate = ({ data, pageContext }) => {
   )
   const tags = data.allContentfulTag.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
-  const { title, slug} = data.contentfulTag;
+  const { title, slug, topicDescription} = data.contentfulTag;
   const h1Style = {
     textAlign:'center',
     color:'#242323',
@@ -73,6 +82,14 @@ const TagTemplate = ({ data, pageContext }) => {
       return <div><h2>There are no post for this Topic.</h2></div>
     }
   }
+
+  function ShowDescription(){
+    if(topicDescription){
+      return <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p> 
+    }else{
+     return <div></div>
+    }
+  }
   return (
     <Container>
       <SEO 
@@ -85,9 +102,12 @@ const TagTemplate = ({ data, pageContext }) => {
           <Link to={'/topics'}><p>+ More Topics</p></Link>
       </TagList>
       </Header>
+      <TitleIntro>
       <h1 style={h1Style}>{title}</h1> 
+      <ShowDescription />
+      </TitleIntro>
       <MainGrid>
-        <section>
+      <section>
       <MoreStoriesDiv>
       {/* <h2>Stories on this topic:</h2> */}
       {/* {posts.map(post =>(
@@ -98,7 +118,6 @@ const TagTemplate = ({ data, pageContext }) => {
     </section>
     <aside>
       <TopicIntroDiv>
-        {/* <p dangerouslySetInnerHTML={{__html:topicDescription.childMarkdownRemark.html}}></p> */}
         <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
       </TopicIntroDiv>
       </aside>
