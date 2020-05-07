@@ -70,8 +70,8 @@ const TexasMutual = (props) =>{
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))}
       <h2>Support Decibel</h2>
-      {/* <button><OutboundLink href="https://austinpbs.org/donate">Donate</OutboundLink></button> */}
-      <button><OutboundLink href="http://bycell.co/wjtf">Donate</OutboundLink></button>
+      <button><OutboundLink href="https://austinpbs.org/donate">Donate</OutboundLink></button>
+      {/* <button><OutboundLink href="http://bycell.co/wjtf">Donate</OutboundLink></button> */}
       </div>
     </TexasMutualDiv>
   )
