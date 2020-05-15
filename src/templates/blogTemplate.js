@@ -92,7 +92,7 @@ const BlogTemplate = ({data, pageContext}) =>{
       <img src={`https:${image.file.url}`} alt={image.description}/>
       <p>{image.description}</p>
       </div>
-      <p className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></p>
+      <div className='blogBody' dangerouslySetInnerHTML={{__html:blogPostBody.childMarkdownRemark.html}}></div>
       <div className='donateDiv'>
           <h2>Our reporting doesn’t happen without you.</h2>
           <p>Decibel’s mission is to amplify voices in our community through quality, in-depth reporting. If you support that mission please consider making a donation to Austin PBS. As a nonprofit newsroom, we rely on support from our community to keep our content free and not hidden behind a paywall. We view our work as an important service to Central Texas. Your gift makes this possible.</p>
