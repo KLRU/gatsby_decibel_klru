@@ -16,9 +16,14 @@ const FeaturedStoryDiv =styled.div`
       margin-bottom:10px;
       box-sizing:border-box;
       display:grid;
+      @media screen and (max-width: 1000px){
+        grid-template-columns: 1fr;
+        width: 95%;
+        max-width:900px;
+      }
       @media screen and (max-width: 675px){
         grid-template-columns: 1fr;
-        width: 100%;
+        width: 90%;
       }
       position: relative;
       align-items:end;
