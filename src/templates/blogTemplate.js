@@ -114,7 +114,7 @@ const BlogTemplate = ({data, pageContext}) =>{
   )
 }
 
-//export default BlogTemplate;
+export default BlogTemplate;
 
 export const query = graphql`
   query($slug: String!){
