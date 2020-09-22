@@ -43,16 +43,21 @@ const TexasMutualDiv = styled.div`
     button{
       width:100%;
       background-color:#009AA6;
-      color:#fff;
+      color:#000;
       font-size: 18px;
       border-radius: 5px;
       a{
-        color:#fff;
+        color:#000;
         font-size: 24px;
+        width:100%;
+      }
+      a: hover{
+        color: #fff;
       }
     }
     button: hover{
       background-color:#003946;
+      color:#fff;
     }
    
   }

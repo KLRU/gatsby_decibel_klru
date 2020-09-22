@@ -99,40 +99,40 @@ exports.createPages = async ({ actions, graphql }) =>{
     })
   })
 
-  const loadBlog = new Promise((resolve, reject) =>{
-    graphql(`
-      {
-        allContentfulBlogPost{
-          edges{
-            node{
-              slug
-              date
-              tags{
-                title
-                slug
-              }
-            }
-          }
-        }
-      }
-    `).then(result =>{
-      const blogPosts = result.data.allContentfulBlogPost.edges
+  // const loadBlog = new Promise((resolve, reject) =>{
+  //   graphql(`
+  //     {
+  //       allContentfulBlogPost{
+  //         edges{
+  //           node{
+  //             slug
+  //             date
+  //             tags{
+  //               title
+  //               slug
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `).then(result =>{
+  //     const blogPosts = result.data.allContentfulBlogPost.edges
 
-      blogPosts.forEach((edge) =>{
-        createPage({
-          path:`/${edge.node.slug}/`,
-          component: path.resolve('./src/templates/blogTemplate.js'),
-          context:{
-            slug:edge.node.slug,
-          },
-        })
-      })
-      resolve()
-    })
-  })
+  //     blogPosts.forEach((edge) =>{
+  //       createPage({
+  //         path:`/${edge.node.slug}/`,
+  //         component: path.resolve('./src/templates/blogTemplate.js'),
+  //         context:{
+  //           slug:edge.node.slug,
+  //         },
+  //       })
+  //     })
+  //     resolve()
+  //   })
+  // })
 
 
-  await Promise.all([loadPost, loadTags, loadBlog])
+  await Promise.all([loadPost, loadTags])
 };
 
 

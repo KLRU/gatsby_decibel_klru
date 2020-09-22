@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Facebook from '../../images/facebook.svg'
 import Instagram from '../../images/instagram.svg'
 import Twitter from '../../images/twitter.svg'
-import YouTube from '../../images/YouTube.png'
+import YouTube from '../../images/YouTubeWhite.svg'
 import AustinPBS from '../../images/AustinPBSWhiteandBlack.png'
 import DecibelWhiteLOGO from '../../images/Decibel-Logo-AustinPBS-White.png'
 

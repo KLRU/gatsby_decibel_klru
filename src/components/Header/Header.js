@@ -259,7 +259,6 @@ class Header extends React.Component {
               </div>
             )} 
               </div>
-              <Link className='topicLink'to={`/blog`}>Judy's Journal</Link> 
               <Link className='topicLink' to={'/about'}>About Us</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
@@ -280,7 +279,6 @@ class Header extends React.Component {
             <ul> 
               <Link className='mobileNavLink' to={`/episodes`}>Episodes</Link>
               <Link className='mobileNavLink' to={`/decibel-dialogue`}>Live</Link>
-              <Link className='mobileNavLink' to={`/blog`}>Judy's Journal</Link> 
               <Link className='mobileNavLink' to={'/about'}>About Us</Link> 
               <Link className='mobileNavLink' to={'/search'}>Search</Link>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
