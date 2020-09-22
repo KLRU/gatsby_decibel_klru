@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { graphql } from 'gatsby';
 import '../styles/global.css'
 import { Link } from 'gatsby';
@@ -97,7 +97,7 @@ const BlogPage = ({data}) => {
   )
 }
 
-export const query = graphql`
+/*export const query = graphql`
 query{
   allContentfulBlogPost{
     edges{
@@ -145,5 +145,5 @@ query{
     }
   }
 }
-`
-export default BlogPage;
+` */
+//export default BlogPage;
