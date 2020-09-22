@@ -99,7 +99,7 @@ exports.createPages = async ({ actions, graphql }) =>{
     })
   })
 
-  const loadBlog = new Promise((resolve, reject) =>{
+ /* const loadBlog = new Promise((resolve, reject) =>{
     graphql(`
       {
         allContentfulBlogPost{
@@ -130,9 +130,9 @@ exports.createPages = async ({ actions, graphql }) =>{
       resolve()
     })
   })
+*/
 
-
-  await Promise.all([loadPost, loadTags, loadBlog])
+  await Promise.all([loadPost, loadTags])
 };
 
 

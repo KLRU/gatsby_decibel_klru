@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { graphql } from 'gatsby';
 import '../styles/global.css'
 import { Link } from 'gatsby';
@@ -156,3 +156,4 @@ export const query = graphql`
     }
   }
 `
+*/
