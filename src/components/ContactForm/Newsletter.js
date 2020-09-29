@@ -6,8 +6,8 @@ const NewsletterDiv = styled.div`
 display: block;
 width:100%;
 box-sizing:border-box;
-padding: 100px 0;
-margin-bottom: 100px;
+padding: 50px 0;
+margin-bottom: 50px;
 h2{
   text-align:center;
 }

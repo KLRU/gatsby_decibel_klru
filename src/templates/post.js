@@ -51,6 +51,11 @@ margin: 10px auto;
         list-style-type: disc;
       }
     }
+    ol{
+      li{
+        list-style-type: decimal;
+      }
+    }
   }
  }
 }

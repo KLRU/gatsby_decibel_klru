@@ -3,9 +3,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const LatestNewsListDiv = styled.div`
-margin: 20px 0;
+margin:0;
 width: 100%;
-display:grid;
+//display:grid;
 //grid-template-columns: 1fr 1fr 1fr 1fr;
 //grid-template-rows: auto;
 `
