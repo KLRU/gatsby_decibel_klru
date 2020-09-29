@@ -7,6 +7,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import Newsletter from '../components/ContactForm/Newsletter';
 import Container from '../components/Container/Container';
 import HeroGrid from '../components/HeroGrid';
+import HomepageHero from '../components/Homepage/HomepageHero';
 import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
 //import ModalPopUp from '../components/Modal/ModalPopUp';
@@ -29,6 +30,7 @@ import SEO from '../components/SEO';
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
   const featuredStory = data.contentfulFeaturedStoryBlock;
+  const pageContent = data.contentfulHomepage;
   //const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
@@ -51,9 +53,10 @@ const IndexPage = ({ data }) => {
       </Header>
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
       {/* <ModalPopUp /> */}
-      <HeroGrid>
+      {/* <HeroGrid>
         <FeaturedStoryBlock {...featuredStory} key={featuredStory.id}/>
-      </HeroGrid>
+      </HeroGrid> */}
+      <HomepageHero {...pageContent} key={pageContent.id}/>
       <MainGrid>
         <section>
         {/* <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/> */}
@@ -167,6 +170,51 @@ export const query = graphql`
               html
             }
           }
+        }
+      }
+    },
+    contentfulHomepage{
+      title
+      mainStory{
+        title
+        slug
+        heroImage{
+          file{
+            url
+          }
+        }
+        excerpt
+        body {
+          childMarkdownRemark {
+                excerpt(
+                  format: HTML
+                  pruneLength: 140)
+              }
+            }
+        tags{
+          slug
+          title
+        }
+      }
+      sideStories{
+        title
+         slug
+        heroImage{
+          file{
+            url
+          }
+        }
+        excerpt 
+        body {
+          childMarkdownRemark {
+                excerpt(
+                  format: HTML
+                  pruneLength: 50)
+              }
+        }
+        tags{
+          slug
+          title
         }
       }
     },
