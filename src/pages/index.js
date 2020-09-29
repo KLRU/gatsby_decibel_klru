@@ -61,8 +61,7 @@ const IndexPage = ({ data }) => {
         <section>
         {/* <FeaturedTopicBlock {...featuredTopic} key={featuredTopic.id}/> */}
       
-        <TwoStorySection>    
-      {/* <TwoStoryBlock {...twoStoryBlock} key={twoStoryBlock.id}/> */}
+       {/* <TwoStorySection>    
       {twoStoryBlocks.map(({node:twoStoryBlock})=>(
         <div>
         <h2 className='blockTitle'>{twoStoryBlock.title}</h2>
@@ -72,7 +71,7 @@ const IndexPage = ({ data }) => {
         
         </div>
       ))}
-      </TwoStorySection>
+      </TwoStorySection> */}
 
 
        <LatestNews>
