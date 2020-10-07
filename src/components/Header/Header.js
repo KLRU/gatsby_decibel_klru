@@ -250,8 +250,6 @@ class Header extends React.Component {
         <div className='topicsDiv'>
          <div>
             <ul>
-              <Link className='topicLink' to={'/episodes'}>Episodes</Link>
-              <Link className='topicLink' to={`/live`}>Live</Link>
               <div className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span>
               {this.state.open && (
               <div className='dropdownMenu'>
@@ -259,7 +257,8 @@ class Header extends React.Component {
               </div>
             )} 
               </div>
-              <Link className='topicLink' to={'/about'}>About Us</Link> 
+              <a className='topicLink' href={'https://decibelatx.org/culture/our-mission/'}>Our Mission</a> 
+              <Link className='topicLink' to={'/about'}>Staff</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
         
@@ -277,9 +276,8 @@ class Header extends React.Component {
             <div className='dropdownNavigation'>
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
-              <Link className='mobileNavLink' to={`/episodes`}>Episodes</Link>
-              <Link className='mobileNavLink' to={`/decibel-dialogue`}>Live</Link>
-              <Link className='mobileNavLink' to={'/about'}>About Us</Link> 
+              <a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'}>Our Mission</a>
+              <Link className='mobileNavLink' to={'/about'}>Staff</Link> 
               <Link className='mobileNavLink' to={'/search'}>Search</Link>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
               {this.state.open && (
