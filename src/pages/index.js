@@ -1,4 +1,5 @@
 import React from 'react';
+//import {Helmet} from "react-helmet";
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
@@ -42,6 +43,9 @@ const IndexPage = ({ data }) => {
  
   return (
     <Container>
+      {/* <Helmet>
+      <script src="https://elections.ap.org/widgets/js/resizer.client.min.js" type="text/javascript"></script>
+      </Helmet> */}
       <SEO />
       <Header>
       <TagList>
@@ -51,6 +55,12 @@ const IndexPage = ({ data }) => {
            <Link to={'/topics'}><p>+ All Topics</p></Link>
       </TagList>
       </Header>
+        
+      {/* <div style={{height: 600,}}>
+      <iframe id="iframe_f18fe77f724d031d6f16af26e986f047" style={{overflow: "hidden", minWidth: "100%", height:"100%", border: "none"}} src="https://elections.ap.org/widgets/content/f18fe77f724d031d6f16af26e986f047" width="100%" height="100%" frameborder="1" allowfullscreen="allowfullscreen" onload="iFrameResize({}, '#iframe_f18fe77f724d031d6f16af26e986f047')"></iframe>
+      </div>   */}
+      
+
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
       {/* <ModalPopUp /> */}
       {/* <HeroGrid>

@@ -13,6 +13,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import SEO from '../components/SEO';
 
 //import PostDiv from '../components/Posts/PostDiv';
@@ -126,10 +128,14 @@ const PostTemplate = ({ data, pageContext }) => {
     return <ImageDiv><img src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
   }
 
+
+
   return(
     <Container>
        <SEO 
-      title={title}/>
+      title={title}
+      description={body.childMarkdownRemark.excerpt}
+      />
       <Header>
       <TagList>
          {tags2.map(({node:tag})=>(
@@ -148,7 +154,9 @@ const PostTemplate = ({ data, pageContext }) => {
           <div className='postTextDiv'>
         <h1>{title}</h1>
         <div className='publishDate'>{publishDate}</div>
-        <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}></div>
+        <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}>
+        </div>
+        
         {/* <div className='paragraphText'>Last Update: {updatedAt}</div> */}
         <div className='donateDiv'>
           <h2>Our reporting doesn’t happen without you.</h2>
@@ -197,6 +205,9 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
+          excerpt(
+            format: HTML
+            pruneLength: 140)
         }
       }
       tags {
@@ -239,6 +250,11 @@ export const query = graphql`
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC}
+      filter:{
+        slug:{
+          nin: ["episodes", "live"] 
+        }
+      }
     ){
       edges {
         node {

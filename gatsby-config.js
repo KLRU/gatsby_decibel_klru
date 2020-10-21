@@ -13,9 +13,9 @@ module.exports = {
   siteMetadata: {
     title: "Decibel",
     description:
-      "Austin's Locally Produced Resource for News and Events Presented by AustinPBS, KLRU-TV.",
+      "Austin's Locally Produced Resource for News and Events Presented by Austin PBS, KLRU-TV.",
     author: "Decibel",
-    siteURL: "https://nervous-hodgkin-195293.netlify.com/",
+    siteURL: "https://decibelatx.org/",
     image: "/images/decibelshare.png"
   },
   plugins: [
