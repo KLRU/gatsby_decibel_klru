@@ -134,8 +134,8 @@ const PostTemplate = ({ data, pageContext }) => {
     <Container>
        <SEO 
       title={title}
-      description={body.childMarkdownRemark.excerpt}
-      image={heroImage.file.url}
+      description={{__html:body.childMarkdownRemark.excerpt}}
+      //image={heroImage.file.url}
       />
       <Header>
       <TagList>
