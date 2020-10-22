@@ -16,7 +16,7 @@ module.exports = {
       "Austin's Locally Produced Resource for News and Events Presented by Austin PBS, KLRU-TV.",
     author: "Decibel",
     siteURL: "https://decibelatx.org/",
-    image: "/images/decibelshare.png"
+    image: "/src/images/decibelshare.png"
   },
   plugins: [
     `gatsby-plugin-sass`,

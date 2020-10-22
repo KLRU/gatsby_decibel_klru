@@ -46,7 +46,8 @@ const IndexPage = ({ data }) => {
       {/* <Helmet>
       <script src="https://elections.ap.org/widgets/js/resizer.client.min.js" type="text/javascript"></script>
       </Helmet> */}
-      <SEO />
+      <SEO 
+      />
       <Header>
       <TagList>
          {tags.map(({node:tag})=>(
