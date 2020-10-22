@@ -136,7 +136,7 @@ const PostTemplate = ({ data, pageContext }) => {
        <SEO 
       title={title}
       description={descriptionSEO}
-      image={heroImage}
+      image={`https:${heroImage.file.url}`}
       />
       <Header>
       <TagList>
