@@ -31,6 +31,8 @@ const SEO = ({title, description, image}) =>{
       <meta charSet="utf-8" />
       <meta name="description" content={metaDescription} />
       <meta name="image" content={metaImage} />
+      <meta property='og:image' content={metaImage}/>
+      <meta property='og:description' content={metaDescription}/>
     </Helmet>
   )
 }
