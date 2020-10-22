@@ -135,6 +135,7 @@ const PostTemplate = ({ data, pageContext }) => {
        <SEO 
       title={title}
       description={body.childMarkdownRemark.excerpt}
+      image={heroImage.file.url}
       />
       <Header>
       <TagList>
