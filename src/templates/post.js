@@ -120,6 +120,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
+  const descriptionSEO = body.childMarkdownRemark.excerpt;
 
   function VideoOrImage(){
     if(featuredVideo){
@@ -134,7 +135,7 @@ const PostTemplate = ({ data, pageContext }) => {
     <Container>
        <SEO 
       title={title}
-      description={body.childMarkdownRemark.excerpt}
+      description={descriptionSEO}
       image={heroImage}
       />
       <Header>
