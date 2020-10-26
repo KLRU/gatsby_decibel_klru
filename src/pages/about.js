@@ -129,6 +129,11 @@ export const query = graphql`
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC  }
+      filter:{
+        slug:{
+          nin: ["episodes", "live", "decibel-dialogue"] 
+        }
+      }
     ){
       edges {
         node {

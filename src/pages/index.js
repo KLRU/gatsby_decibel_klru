@@ -1,5 +1,5 @@
 import React from 'react';
-//import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet";
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
@@ -43,9 +43,12 @@ const IndexPage = ({ data }) => {
  
   return (
     <Container>
-      {/* <Helmet>
-      <script src="https://elections.ap.org/widgets/js/resizer.client.min.js" type="text/javascript"></script>
-      </Helmet> */}
+      <Helmet>
+      {/* <script src="https://elections.ap.org/widgets/js/resizer.client.min.js" type="text/javascript"></script> */}
+      {/* <script type="text/javascript" src="https://www.pbs.org/newshour/elections/2020/electoral-calculator/main.min.f312a0b490c8d5070200.js"></script> */}
+
+      </Helmet> 
+
       <SEO 
       />
       <Header>
@@ -60,6 +63,10 @@ const IndexPage = ({ data }) => {
       {/* <div style={{height: 600,}}>
       <iframe id="iframe_f18fe77f724d031d6f16af26e986f047" style={{overflow: "hidden", minWidth: "100%", height:"100%", border: "none"}} src="https://elections.ap.org/widgets/content/f18fe77f724d031d6f16af26e986f047" width="100%" height="100%" frameborder="1" allowfullscreen="allowfullscreen" onload="iFrameResize({}, '#iframe_f18fe77f724d031d6f16af26e986f047')"></iframe>
       </div>   */}
+
+      {/* <div class="nhi-main">
+  <div nhi-wrapper style={{minHeight: "calc(100vh + 100px)", margin: "30px 0"}}></div>
+      </div> */}
       
 
       <FacebookLive {...facebookLive} key={facebookLive.id}/>
@@ -167,7 +174,7 @@ export const query = graphql`
       sort: { fields: title, order: ASC  }
       filter:{
         slug:{
-          nin: ["episodes", "live"] 
+          nin: ["episodes", "live", "decibel-dialogue"] 
         }
       }
     ){

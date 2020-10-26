@@ -253,7 +253,7 @@ export const query = graphql`
       sort: { fields: title, order: ASC}
       filter:{
         slug:{
-          nin: ["episodes", "live"] 
+          nin: ["episodes", "live", "decibel-dialogue"] 
         }
       }
     ){
