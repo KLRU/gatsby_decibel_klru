@@ -15,7 +15,7 @@ import Header from '../components/Header/Header';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
 import FacebookLive from '../components/FacebookLive/FacebookLive';
-import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
+//import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
 //import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 //import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
@@ -24,18 +24,18 @@ import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
-import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
-import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
+//import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
+//import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
 import SEO from '../components/SEO';
 
 const IndexPage = ({ data }) => {
   const posts = data.allContentfulPost.edges;
-  const featuredStory = data.contentfulFeaturedStoryBlock;
+  //const featuredStory = data.contentfulFeaturedStoryBlock;
   const pageContent = data.contentfulHomepage;
   //const featuredTopic = data.contentfulFeaturedTopicBlock;
   const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
-  const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
+  //const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
   //const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
@@ -235,82 +235,6 @@ export const query = graphql`
         }
       }
     },
-    contentfulFeaturedTopicBlock{
-      title
-      id
-      featuredTopicImage{
-        fluid{
-          src
-        }
-      }
-      featuredTopicTag{
-        title
-        slug
-      }
-      shortTopicDescription{
-        childMarkdownRemark{
-          html
-        }
-      }
-      associatedTopicPost{
-        id
-        slug
-        title
-        publishDate
-        heroImage{
-          fluid{
-            src
-          }
-        }
-        featuredVideo{
-          title
-          embedCode
-          source
-        }
-        tags{
-          slug
-          title
-        }
-      }
-    },
-    contentfulFeaturedStoryBlock{
-      id
-      title
-      storyPostDate(formatString: "MMMM DD, YYYY")
-      shortDescription{
-        childMarkdownRemark{
-          html
-        }
-      }
-      heroImage{
-        fluid{
-          src
-        }
-      }
-      associatedPost{
-        id
-        title
-        slug
-        publishDate(formatString: "MMMM DD, YYYY")
-        heroImage{
-          file{
-            url
-          }
-          fluid{
-            src
-          }
-        }
-        featuredVideo{
-          title
-          embedCode
-          source
-        }
-        tags{
-          slug
-          title
-        }
-      }
-    },
     contentfulFacebookLiveEvent{
       title
       isLive
@@ -321,81 +245,6 @@ export const query = graphql`
         tags{
           title
           slug
-        }
-      }
-    },
-    contentfulTwoStoryBlock{
-      title
-      displayBlock
-      secondaryFeaturedPost{
-        id
-        title
-        slug
-        publishDate(formatString: "MMMM DD, YYYY")
-        heroImage{
-          title
-          description
-          fluid{
-            src
-          }
-        }
-        featuredVideo{
-          embedCode
-          title
-          source
-        }
-        body{
-          childMarkdownRemark{
-            excerpt(
-              format: HTML
-              pruneLength: 140)
-          }
-        }
-        tags{
-          slug
-          title
-        }
-      }
-    },
-    allContentfulTwoStoryBlock(
-      filter:{
-        displayBlock:{
-          ne: false
-        }
-      }
-    ){
-      edges{
-        node{
-          title
-          displayBlock
-          secondaryFeaturedPost{
-            title
-            slug
-            publishDate(formatString: "MMMM DD, YYYY")
-            heroImage{
-              title
-              description
-              fluid{
-              src
-              }
-            }
-            featuredVideo{
-              embedCode
-              title
-              source
-            }
-            body{
-              childMarkdownRemark{
-                excerpt(
-                  format: HTML
-                  pruneLength: 140)
-              }
-            }
-          tags{
-            slug
-            title
-          }
-          }
         }
       }
     },
