@@ -58,7 +58,6 @@ const Footer = props => {
       <div>
         <a href ='/'><h3>DECIBEL ATX</h3></a>
         <a href ='/about'><h3>About Us</h3></a>
-        <a href ='/episodes'><h3>Episodes</h3></a>
         <a href ='/topics'><h3>Topics</h3></a>
         <a href ='/search'><h3>Search</h3></a>
       </div>
