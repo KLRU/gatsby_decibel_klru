@@ -1,5 +1,5 @@
 import React from 'react';
-import TexasMutualLogo from '../../images/texasmutualLarge.jpg'
+import TexasMutualLogo from '../../images/tmBoat.gif'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
 import { OutboundLink } from 'gatsby-plugin-gtag'
@@ -46,6 +46,8 @@ const TexasMutualDiv = styled.div`
       color:#000;
       font-size: 18px;
       border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 2px #ccc;
       a{
         color:#fff;
         font-size: 24px;

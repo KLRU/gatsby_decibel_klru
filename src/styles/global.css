@@ -51,10 +51,13 @@ Link{
 
 .seeMoreButton button{
   width:100%;
+  margin-top: 5px;
   background-color:#009AA6;
   color:#fff;
   font-size: 20px;
   border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px #ccc;
 }
 
 .seeMoreButton button:hover{

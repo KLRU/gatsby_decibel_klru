@@ -26,6 +26,8 @@ a{
     color:#fff;
     font-size: 18px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 2px #ccc;
   }
   button: hover{
     background-color:#003946;
