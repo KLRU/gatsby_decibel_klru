@@ -13,8 +13,8 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
-import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
-import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
+//import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
+//import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import SEO from '../components/SEO';
 
 //import PostDiv from '../components/Posts/PostDiv';
@@ -163,8 +163,9 @@ const PostTemplate = ({ data, pageContext }) => {
         
         {/* <div className='paragraphText'>Last Update: {updatedAt}</div> */}
         <div className='donateDiv'>
-          <h2>Our reporting doesn’t happen without you.</h2>
-          <p>Did you value this reporting? Then please consider making a donation to Austin PBS. Your gift makes the quality journalism done by the Decibel team possible. Thank you for your contribution.</p>
+          <h2><strong>Community journalism doesn’t happen without community support.</strong></h2>
+          <p>Got story ideas, advice on how we can improve our reporting or just want to know more about what we do? Reach out to us at <a href = "mailto: mailto:news@klru.org"><strong>news@klru.org</strong></a>.</p>
+          <p>And if you value this type of reporting, then please consider making a donation to Austin PBS. Your gift makes the quality journalism done by the Decibel team possible. Thank you for your contribution.</p>
           <button><OutboundLink href="https://austinpbs.org/donate/?utm_campaign=decibel&utm_source=website&utm_medium=whatcanido">Donate</OutboundLink></button>
           {/* <button><OutboundLink href="http://bycell.co/wjtf">Donate</OutboundLink></button> */}
         </div>

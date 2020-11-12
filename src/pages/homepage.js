@@ -68,7 +68,7 @@ const HeroBox = styled.div`
 const Homepage = ({data, pageContext}) => {
   const pageContent = data.contentfulHomepage;
   //const story = data.allContentfulHomepage.edges;
-  const posts = pageContent.storyBlocks;
+  //const posts = pageContent.storyBlocks;
   
   
   return(

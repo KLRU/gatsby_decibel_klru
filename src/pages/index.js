@@ -7,7 +7,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 //import ContactForm from '../components/ContactForm/ContactForm';
 import Newsletter from '../components/ContactForm/Newsletter';
 import Container from '../components/Container/Container';
-import HeroGrid from '../components/HeroGrid';
+//import HeroGrid from '../components/HeroGrid';
 import HomepageHero from '../components/Homepage/HomepageHero';
 import MainGrid from '../components/MainGrid';
 import Header from '../components/Header/Header';
