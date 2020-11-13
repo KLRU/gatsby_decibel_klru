@@ -14,7 +14,7 @@ import Header from '../components/Header/Header';
 //import ModalPopUp from '../components/Modal/ModalPopUp';
 import TagList from '../components/TopicList/TagList';
 import TagItem from '../components/TopicList/TagItem';
-import FacebookLive from '../components/FacebookLive/FacebookLive';
+//import FacebookLive from '../components/FacebookLive/FacebookLive';
 //import FeaturedStoryBlock from '../components/FeaturedStoryBlock/FeaturedStoryBlock';
 //import FeaturedTopicBlock from '../components/FeaturedTopicBlock/FeaturedTopicBlock'
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
   //const featuredStory = data.contentfulFeaturedStoryBlock;
   const pageContent = data.contentfulHomepage;
   //const featuredTopic = data.contentfulFeaturedTopicBlock;
-  const facebookLive = data.contentfulFacebookLiveEvent;
+  //const facebookLive = data.contentfulFacebookLiveEvent;
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
   //const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
   //const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
@@ -69,7 +69,7 @@ const IndexPage = ({ data }) => {
       </div> */}
       
 
-      <FacebookLive {...facebookLive} key={facebookLive.id}/>
+    {/* <FacebookLive {...facebookLive} key={facebookLive.id}/> */}
       {/* <ModalPopUp /> */}
       {/* <HeroGrid>
         <FeaturedStoryBlock {...featuredStory} key={featuredStory.id}/>
@@ -232,19 +232,6 @@ export const query = graphql`
         tags{
           slug
           title
-        }
-      }
-    },
-    contentfulFacebookLiveEvent{
-      title
-      isLive
-      post{
-        title
-        slug
-        id
-        tags{
-          title
-          slug
         }
       }
     },
