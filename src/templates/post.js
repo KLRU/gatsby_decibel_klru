@@ -117,7 +117,7 @@ justify-items: center;
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, heroImage, featuredVideo, body} = data.contentfulPost;
+  const { title, publishDate, author, heroImage, featuredVideo, body} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
@@ -129,6 +129,13 @@ const PostTemplate = ({ data, pageContext }) => {
       return <ContentfulVideoElement {...featuredVideo}/>
     }
     return <ImageDiv><img src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
+  }
+
+  function AddAuthor(){
+    if(author){
+      return <div><span>By {author} | {publishDate} </span></div>
+    }
+    return <div className='publishDate'>{publishDate}</div>
   }
 
 
@@ -157,7 +164,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className="postBodyDiv">
           <div className='postTextDiv'>
         <h1>{title}</h1>
-        <div className='publishDate'>{publishDate}</div>
+        <AddAuthor />
         <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}>
         </div>
         
@@ -197,6 +204,7 @@ export const query = graphql`
       updatedAt(
         formatString: "dddd, MMMM Do YYYY, h:mm a"
         locale: "en-EN")
+      author
       heroImage {
         file {
           url
@@ -243,6 +251,7 @@ export const query = graphql`
           id
           title
           slug
+          author
           heroImage {
             fluid {
               src

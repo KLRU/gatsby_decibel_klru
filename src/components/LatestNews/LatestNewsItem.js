@@ -64,6 +64,13 @@ const LatestNewsItem = props => {
       return <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1>
     }
   }
+
+  function AddAuthor(){
+    if(props.author){
+      return <div><span>By {props.author} | {props.publishDate} </span></div>
+    }
+    return <div className='date'>{props.publishDate}</div>
+  }
   //console.log(props);
   return(
     <LatestNewsDiv>
@@ -74,7 +81,7 @@ const LatestNewsItem = props => {
       <div className='story'>
       {/* <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1> */}
       <AddPlayButton />
-            <p className='date'>{props.publishDate}</p>   
+            <AddAuthor /> 
             <div className='excerpt' dangerouslySetInnerHTML={{__html:props.body.childMarkdownRemark.excerpt}}></div>
       </div>
     </div>

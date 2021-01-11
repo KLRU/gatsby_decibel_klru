@@ -138,6 +138,7 @@ export const query = graphql`
           title
           slug
           id
+          author
           heroImage {
             fluid {
               src
