@@ -25,7 +25,7 @@ margin: 10px auto;
 .postBodyDiv{
   width:100%;
   display:grid;
-  grid-template-columns:70% 30%;
+  grid-template-columns:75% 25%;
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }

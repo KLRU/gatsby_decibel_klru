@@ -109,7 +109,7 @@ const IndexPage = ({ data }) => {
           <div>
               <TwitterTimelineEmbed
                 sourceType="profile"
-                screenName="DecibelAtx"
+                screenName="austinpbs"
                 options={{height: 600}}
                 />
             </div> 

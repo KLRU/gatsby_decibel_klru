@@ -1,5 +1,6 @@
 import React from 'react';
 import TexasMutualLogo from '../../images/tmBoat.gif'
+import RoxanneElder from '../../images/RoxanneElderScottBorders-grey-stacked.png'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
 import { OutboundLink } from 'gatsby-plugin-gtag'
@@ -76,7 +77,8 @@ const TexasMutual = (props) =>{
        <img src={`https:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))} */}
-       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='TMLogo' className='logoImage' /></div></OutboundLink>
+       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance directs to https://www.texasmutual.com' className='logoImage' /></div></OutboundLink>
+       <div className='sponsorDiv'><img src={RoxanneElder} alt='Roxanne Elders and Scott Borders' className='logoImage' /></div>
 
       <h2>Support Decibel</h2>
       <button><OutboundLink href="https://austinpbs.org/donate/?utm_campaign=decibel&utm_source=website&utm_medium=whatcanido">Donate</OutboundLink></button>
