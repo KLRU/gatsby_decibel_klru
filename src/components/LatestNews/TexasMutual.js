@@ -77,7 +77,7 @@ const TexasMutual = (props) =>{
        <img src={`https:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))} */}
-       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance directs to https://www.texasmutual.com' className='logoImage' /></div></OutboundLink>
+       <OutboundLink href="https://donate.adrn.org/campaign/winter-storm-2021-p2p/c327447"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance directs to https://www.texasmutual.com' className='logoImage' /></div></OutboundLink>
        <div className='sponsorDiv'><img src={RoxanneElder} alt='Roxanne Elders and Scott Borders' className='logoImage' /></div>
 
       <h2>Support Decibel</h2>
