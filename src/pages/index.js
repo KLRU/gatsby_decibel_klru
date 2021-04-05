@@ -49,6 +49,9 @@ const IndexPage = ({ data }) => {
 
       <SEO 
       />
+      <div className ='skipLink'>
+      <a href='#mainContent'>Skip to Main Content</a>
+      </div>
       <Header>
       <TagList>
          {tags.map(({node:tag})=>(

@@ -89,9 +89,9 @@ class HomepageHero extends React.Component{
     return(
       <div>
       <HeroBox>
-      <div className="mainStory">
+      <div className="mainStory" id='mainContent'>
       <Link to={`${pageContent.mainStory.tags[0].slug}/${pageContent.mainStory.slug}/`}>
-        <img src={`https:${pageContent.mainStory.heroImage.file.url}`} alt={pageContent.mainStory.heroImage.title} />
+        <img src={`https:${pageContent.mainStory.heroImage.file.url}`} alt={pageContent.mainStory.title} />
         <div className='storyText'>
         <h2>{pageContent.mainStory.title}</h2>
         {/* <div className='excerpt' dangerouslySetInnerHTML={{__html:pageContent.mainStory.body.childMarkdownRemark.excerpt}}></div>  */}
@@ -103,7 +103,7 @@ class HomepageHero extends React.Component{
       <div className='sideColumn'>
       <div className='sideStory'>
       <Link to={`${pageContent.sideStories[0].tags[0].slug}/${pageContent.sideStories[0].slug}/`}>
-        <img src={`https:${pageContent.sideStories[0].heroImage.file.url}`} alt={pageContent.sideStories[0].heroImage.title} /> 
+        <img src={`https:${pageContent.sideStories[0].heroImage.file.url}`} alt={pageContent.sideStories[0].title} /> 
         <div className='storyText'>
         <h2>{pageContent.sideStories[0].title}</h2>
         {/* <div className='excerpt' dangerouslySetInnerHTML={{__html:pageContent.sideStories[0].body.childMarkdownRemark.excerpt}}></div>  */}
@@ -113,7 +113,7 @@ class HomepageHero extends React.Component{
       </div>
       <div className='sideStory'>
       <Link to={`${pageContent.sideStories[1].tags[0].slug}/${pageContent.sideStories[1].slug}/`}>
-        <img src={`https:${pageContent.sideStories[1].heroImage.file.url}`} alt={pageContent.sideStories[1].heroImage.title} /> 
+        <img src={`https:${pageContent.sideStories[1].heroImage.file.url}`} alt={pageContent.sideStories[1].title} /> 
         <div className='storyText'>
         <h2>{pageContent.sideStories[1].title}</h2>
         {/* <div className='excerpt' dangerouslySetInnerHTML={{__html:pageContent.sideStories[1].body.childMarkdownRemark.excerpt}}></div> */}

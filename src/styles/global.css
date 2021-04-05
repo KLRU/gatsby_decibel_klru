@@ -16,6 +16,11 @@ a{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
+
+a:focus{
+  outline:3px solid #000;
+}
+
 li{
   list-style: none;
   color:#000;
@@ -63,6 +68,20 @@ Link{
 .seeMoreButton button:hover{
   background-color:#003946;
 }
+
+.skipLink a{
+  padding:10px;
+  position:absolute;
+  background-color: #fff;
+  top: -5000px;
+}
+
+.skipLink a:focus{
+  top:0;
+}
+
+
+
 
 /* img:hover{
   filter: contrast(125%);
