@@ -5,7 +5,7 @@ import Logo from '../../images/DecibelLogo200X100.png'
 import SmallLogo from '../../images/DecibelLogo150x75.png'
 //import MobileMenu from '../../images/MobileMenu.png'
 
-const HeaderMainDiv = styled.div`
+const HeaderMainDiv = styled.nav`
   display:grid;
   width:100%;
   //z-index: 100;
@@ -94,6 +94,12 @@ const HeaderMainDiv = styled.div`
       //margin-top:30px;
       padding:0;
     }
+
+    .topicsDiv:focus{
+      outline:3px solid #000;
+    }
+
+
     .dropdownMenu{
       position:absolute;
       margin-right:30px;
@@ -121,7 +127,7 @@ const HeaderMainDiv = styled.div`
   
 `
 
-const MobileNavDiv = styled.div`
+const MobileNavDiv = styled.nav`
     display:none;
     @media screen and (max-width: 850px){
       display:grid;
@@ -239,25 +245,25 @@ class Header extends React.Component {
     // }
     return(
     <HeaderMainDiv className="headerMainDiv">
-        <div className="logoDiv">
-        <Link to={'/'}><img src={Logo} alt='Logo' className='logoImage' /></Link>
+        <div className="logoDiv" aria-label="Decibel Logo">
+        <Link to={'/'} aria-label="Decibel Homepage Link"><img src={Logo} alt='Logo' className='logoImage' /></Link>
         </div>
 
-        <div className="smallLogoDiv">
-        <Link to={'/'}><img src={SmallLogo} alt='Logo' className='smallLogoImage' /></Link>
+        <div className="smallLogoDiv" aria-label="Decibel Logo">
+        <Link to={'/'} aria-label="Decibel Homepage Link" ><img src={SmallLogo} alt='Logo' className='smallLogoImage' /></Link>
         </div> 
         
-        <div className='topicsDiv'>
+        <div className='topicsDiv' aria-label='Navigation Menu'>
          <div>
             <ul>
-              <div className='allTopicsDrop topicLink' onClick={this.handleDropdown}>Topics<span>+</span>
+              <div className='allTopicsDrop topicLink' onClick={this.handleDropdown}  aria-expanded="false" tabindex="0">Topics<span>+</span>
               {this.state.open && (
               <div className='dropdownMenu'>
               {this.props.children}
               </div>
             )} 
               </div>
-              <a className='topicLink' href={'https://decibelatx.org/culture/our-mission/'}>Our Mission</a> 
+              <a className='topicLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a> 
               <Link className='topicLink' to={'/about'}>Staff</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
@@ -271,17 +277,17 @@ class Header extends React.Component {
         </div>
 
         <MobileNavDiv>
-            <h2 onClick={this.handleDropdown}>Menu</h2>
+            <h2 onClick={this.handleDropdown} aria-label='Navigation Menu'>Menu</h2>
             {this.state.open && (
             <div className='dropdownNavigation'>
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
-              <a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'}>Our Mission</a>
-              <Link className='mobileNavLink' to={'/about'}>Staff</Link> 
-              <Link className='mobileNavLink' to={'/search'}>Search</Link>
+              <a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a>
+              <Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link> 
+              <Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
               {this.state.open && (
-                <div className='dropdownNavMobile'>{this.props.children}</div>
+                <div className='dropdownNavMobile' role="menuitem">{this.props.children}</div>
               )}
               </div> 
               {/* {this.state.open && (

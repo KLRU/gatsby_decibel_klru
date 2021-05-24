@@ -132,6 +132,7 @@ export const query = graphql`
           id
           author
           heroImage {
+            description
             fluid {
               src
             }
@@ -189,6 +190,7 @@ export const query = graphql`
         title
         slug
         heroImage{
+          description
           file{
             url
           }
@@ -210,6 +212,7 @@ export const query = graphql`
         title
          slug
         heroImage{
+          description
           file{
             url
           }
@@ -235,6 +238,7 @@ export const query = graphql`
         sponsorTitle
         sponsorLink
         image{
+          description
           fluid{
             src
           }

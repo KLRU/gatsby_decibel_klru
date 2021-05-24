@@ -75,7 +75,7 @@ const SearchPage = ({data}) =>{
         ))}
       </Hits>
     </InstantSearch>
-    <img src={AlgoliaLogo} alt="Text that reads 'Search by Algolia' with blue and white square"/>
+    <img src={AlgoliaLogo} alt="Search by Algolia"/>
     </SearchDiv>
       </SmallContainer>
       <Footer />

@@ -11,7 +11,7 @@ h2{
 a{
   font-family:  'Rubik', sans-serif;
 }
-p{
+div{
   margin: 0;
 }
 em{
@@ -24,14 +24,14 @@ const SearchResults = ({hit}) =>{
 
   return(
     <SearchResultDiv>
-      <h2>
+     <h2>
       <Link to={`/${hit.tags[0].slug}/${hit.slug}`}>
         <Highlight hit={hit} attribute='title' />
       </Link>
-      </h2>
-      <p>
+      </h2> 
+      <div>
       <Highlight hit={hit} attribute='body.childMarkdownRemark.excerpt' />
-      </p>
+      </div>
     </SearchResultDiv>
   )
 }
