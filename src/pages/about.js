@@ -101,11 +101,11 @@ const AboutPage = ({ data, pageContext }) => {
       </Header>
       <SmallContainer>
       <h1 style={{textAlign: 'center'}}>About Decibel</h1>
-      <VideoDiv> 
+      {/* <VideoDiv> </VideoDiv> */}
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
       {/* <iframe src={`https://www.youtube.com/embed/${videoIntro.embedCode}/`} title={videoIntro.title}/> */}
-      <ContentfulVideoElement {...videoIntro}/>
-      </VideoDiv>
+      {/* <ContentfulVideoElement {...videoIntro}/> */}
+      
     
       <BioDiv>
       {bios.map(({node:bio})=>(
