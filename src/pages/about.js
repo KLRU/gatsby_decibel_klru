@@ -86,6 +86,13 @@ const AboutPage = ({ data, pageContext }) => {
   const [ ...tags ] = data.allContentfulTag.edges;
   const [...bios] = data.allContentfulBiographyElement.edges;
   const videoIntro = data.contentfulVideoElement;
+
+  function VideoIntroAvailable(){
+    if(videoIntro){
+      return <div>
+      <ContentfulVideoElement {...videoIntro}/></div>
+    }return <div></div>
+  }
  
   return (
     <Container>
@@ -103,9 +110,9 @@ const AboutPage = ({ data, pageContext }) => {
       <h1 style={{textAlign: 'center'}}>About Decibel</h1>
       {/* <VideoDiv> </VideoDiv> */}
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
-      {/* <iframe src={`https://www.youtube.com/embed/${videoIntro.embedCode}/`} title={videoIntro.title}/> */}
+      {/*  */}
       {/* <ContentfulVideoElement {...videoIntro}/> */}
-      
+      <VideoIntroAvailable/>
     
       <BioDiv>
       {bios.map(({node:bio})=>(
