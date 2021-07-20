@@ -77,5 +77,13 @@ module.exports = {
         },
       },
       `gatsby-plugin-styled-components`,
+      
+      {
+        resolve: "gatsby-plugin-google-tagmanager",
+          options: {
+            id: "GTM-KSSZDX6",
+            enableWebVitalsTracking: true,
+          },
+      }, 
   ],
 }
