@@ -231,6 +231,23 @@ export const query = graphql`
         }
       }
     },
+    allContentfulSlideshow{
+      edges{
+        node{
+          title
+          images{
+            title
+            photo{
+              title
+              description
+              file{
+                url
+              }
+            }
+          }
+        }
+      }
+    },
     contentfulSponsorsBlock{
       id
       title

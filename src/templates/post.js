@@ -260,6 +260,23 @@ export const query = graphql`
         }
       }
     },
+    allContentfulSlideshow{
+      edges{
+        node{
+          title
+          images{
+            title
+            photo{
+              title
+              description
+              file{
+                url
+              }
+            }
+          }
+        }
+      }
+    },
     allContentfulTag(
       limit: 10
       sort: { fields: title, order: ASC}
