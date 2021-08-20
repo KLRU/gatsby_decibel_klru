@@ -7,7 +7,7 @@
 <h1 align="center">
   Gatsby's default starter
 </h1>
-Using Node.js 12.13.0
+Using Node.js 14.17.5
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._

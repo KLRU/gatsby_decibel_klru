@@ -13,6 +13,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
+//import Slideshow from '../components/Slideshow/Slideshow';
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 //import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import SEO from '../components/SEO';
@@ -123,6 +124,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
   const descriptionSEO = body.childMarkdownRemark.excerpt;
+  //const [...slideshowHeroImages] = data.allContentfulSlideshow.edges.node.images;
 
   function VideoOrImage(){
     if(featuredVideo){
@@ -159,6 +161,9 @@ const PostTemplate = ({ data, pageContext }) => {
         {/* <VideoDiv> */}
        {/* <ContentfulVideoElement {...featuredVideo}/> */}
        <VideoOrImage />
+
+     
+
        {/* </VideoDiv> */}
        <PostDiv>
         <div className="postBodyDiv">
