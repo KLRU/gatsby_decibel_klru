@@ -86,6 +86,7 @@ const AboutPage = ({ data, pageContext }) => {
   const [ ...tags ] = data.allContentfulTag.edges;
   const [...bios] = data.allContentfulBiographyElement.edges;
   const videoIntro = data.contentfulVideoElement;
+  const title = data.allContentfulPage.edges;
 
   function VideoIntroAvailable(){
     if(videoIntro){
@@ -107,7 +108,7 @@ const AboutPage = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <SmallContainer>
-      <h1 style={{textAlign: 'center'}}>Meet the Staff</h1>
+      <h1 style={{textAlign: 'center'}}>{title[0].node.title}</h1>
       {/* <VideoDiv> </VideoDiv> */}
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
       {/*  */}
@@ -166,6 +167,13 @@ export const query = graphql`
         }
       }
     },
+      allContentfulPage{
+        edges{
+          node{
+            title
+          }
+        }
+      },
     contentfulVideoElement(title:{eq:"About Decibel"}){
       title
       embedCode
