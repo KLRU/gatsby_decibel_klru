@@ -124,7 +124,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
   const descriptionSEO = body.childMarkdownRemark.excerpt;
-  //const [...slideshowHeroImages] = data.allContentfulSlideshow.edges.node.images;
+  //const imageContent = data.contentfulSlideshow;
 
   function VideoOrImage(){
     if(featuredVideo){

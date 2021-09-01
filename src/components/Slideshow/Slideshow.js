@@ -2,26 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 //import ImageGallery from 'react-image-gallery';
 
-// class Slideshow extends React.Component {
-  
-//   render() {
-//     const imageGroup = this.props;
+class Slideshow extends React.Component{
+render(){
+  const slideshowImages=this.props;
+  const allImages=slideshowImages.allContentfulSlideshow.edges.node.images;
 
-//     return <ImageGallery items={images} />;
-//   }
-// }
-
-const Slideshow = props => {
   return(
-    <div>{props.children}</div>
-  )
-};
+    <div>
+  {allImages.map((allImage)=>(
+    <h1>{allImage.title}</h1>
+  ))}
+  </div>
+  );
+
+}
+
+}
 
 //export default Slideshow;
-
-
-{/* <Slideshow>
-{slideshowHeroImages.map((slideshowHeroImage)=>(
-  <li>{slideshowHeroImage.title}</li>
-))}
-</Slideshow> */}

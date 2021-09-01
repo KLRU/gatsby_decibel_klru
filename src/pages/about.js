@@ -107,7 +107,7 @@ const AboutPage = ({ data, pageContext }) => {
       </TagList>
       </Header>
       <SmallContainer>
-      <h1 style={{textAlign: 'center'}}>About Decibel</h1>
+      <h1 style={{textAlign: 'center'}}>Meet the Staff</h1>
       {/* <VideoDiv> </VideoDiv> */}
       {/* <h1 style={{textAlign: 'center'}}>{videoIntro.title}</h1> */}
       {/*  */}
