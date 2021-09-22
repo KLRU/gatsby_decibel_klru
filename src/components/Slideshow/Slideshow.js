@@ -1,22 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-//import ImageGallery from 'react-image-gallery';
+import React from 'react'
 
-class Slideshow extends React.Component{
-render(){
-  const slideshowImages=this.props;
-  const allImages=slideshowImages.allContentfulSlideshow.edges.node.images;
-
-  return(
+const Slideshow = (props) => {
+  return (
     <div>
-  {allImages.map((allImage)=>(
-    <h1>{allImage.title}</h1>
-  ))}
-  </div>
-  );
-
-}
-
+      {props.children}
+    </div>
+  )
 }
 
 //export default Slideshow;

@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const queries = require("./src/utils/algolia");
 
-if(process.env.NODE_ENV  !== 'production'){
+if(process.env.NODE_ENV  == 'production'){
   dotenv.config();
 }
 
@@ -40,9 +40,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
-              maxWidth: 650,
+              maxWidth: 800,
               backgroundColor: '#fff',
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
             },
           },
         ],

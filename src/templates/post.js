@@ -124,7 +124,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
   const descriptionSEO = body.childMarkdownRemark.excerpt;
-  //const imageContent = data.contentfulSlideshow;
+  //const slides = data.allContentfulSlideshow.edges.images.photo;
 
   function VideoOrImage(){
     if(featuredVideo){
@@ -194,6 +194,11 @@ const PostTemplate = ({ data, pageContext }) => {
       <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> 
       </PostDiv>
       </SmallContainer>
+      {/* <div>
+        {slides.map((slide)=>(
+          <h3>{slide.title}</h3>
+        ))}
+      </div> */}
       <Footer />
     </Container>
   )
