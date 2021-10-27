@@ -14,6 +14,7 @@ import Footer from '../components/Footer/Footer';
 import TexasMutual from '../components/LatestNews/TexasMutual';
 import ContentfulVideoElement from '../components/PageElements/ContentfulVideoElement';
 //import Slideshow from '../components/Slideshow/Slideshow';
+//import Slides from '../components/Slideshow/Slides';
 //import ContentfulPhotoElement from '../components/PageElements/ContentfulPhotoElement';
 //import ContentfulTextElement from '../components/PageElements/ContentfulTextElement';
 import SEO from '../components/SEO';
@@ -124,7 +125,9 @@ const PostTemplate = ({ data, pageContext }) => {
   const sponsorsBlock = data.contentfulSponsorsBlock;
   const tags2 = data.allContentfulTag.edges;
   const descriptionSEO = body.childMarkdownRemark.excerpt;
-  //const slides = data.allContentfulSlideshow.edges.images.photo;
+  //const slides = data.allContentfulSlideshow.edges;
+  //const slideshow = data.contentfulSLideshow;
+  
 
   function VideoOrImage(){
     if(featuredVideo){
@@ -194,11 +197,17 @@ const PostTemplate = ({ data, pageContext }) => {
       <a href={`/${tag}`}><p>See all {tagTitle} posts</p></a> 
       </PostDiv>
       </SmallContainer>
-      {/* <div>
-        {slides.map((slide)=>(
-          <h3>{slide.title}</h3>
-        ))}
-      </div> */}
+      {/* <Slideshow>
+      {slides.map((slide) => {
+          return <Slides key = {slide.id} { ...slide.node }/>
+        })}
+      </Slideshow>  */}
+      {/* <Slideshow>
+         {slides.map(({node:slide})=>(
+           <Slides key={slide.id} {...slide}/>
+           ))}
+      </Slideshow> */}
+      {/* <Slideshow {...slideshow} /> */}
       <Footer />
     </Container>
   )
@@ -270,9 +279,23 @@ export const query = graphql`
         }
       }
     },
+      contentfulSlideshow{
+        title
+        images{
+          title
+          photo{
+            title
+            description
+            file{
+              url
+            }
+          }
+        }
+      },
     allContentfulSlideshow{
       edges{
         node{
+          id
           title
           images{
             title
