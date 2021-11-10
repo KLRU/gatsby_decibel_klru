@@ -1,5 +1,5 @@
 import React from 'react';
-import TexasMutualLogo from '../../images/TXMutualGrowGreen.jpg'
+import TexasMutualLogo from '../../images/Dividend2021_250x250.gif'
 import RoxanneElder from '../../images/RoxanneElderScottBorders-grey-stacked.png'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
@@ -77,7 +77,7 @@ const TexasMutual = (props) =>{
        <img src={`https:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))} */}
-       <OutboundLink href="https://growing-good.org/?utm_source=KLRU&utm_medium=banner&utm_campaign=growinggood"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance directs to Growing Good survey' className='logoImage' /></div></OutboundLink>
+       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance' className='logoImage' /></div></OutboundLink>
        <div className='sponsorDiv'><img src={RoxanneElder} alt='Roxanne Elders and Scott Borders' className='logoImage' /></div>
 
       <h2>Support Decibel</h2>
