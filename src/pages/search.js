@@ -93,8 +93,8 @@ query{
     limit: 10
     sort: { fields: title, order: ASC  }
     filter:{
-      title:{
-        ne:"Episodes"
+      slug:{
+        nin: ["episodes", "live", "decibel-dialogue", "resources"] 
       }
     }
   ){
