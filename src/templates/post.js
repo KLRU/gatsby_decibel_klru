@@ -36,6 +36,9 @@ margin: 10px auto;
   h1{
     margin:0;
   }
+  h2{
+    font-size:1.5em;
+  }
   .publishDate{
     margin:0;
   }
@@ -44,12 +47,12 @@ margin: 10px auto;
     font-size: 1em;
     a{
       text-decoration:underline;
-      color: 
+      color: #2638c4;
     }
     ul{
       a{
         text-decoration:underline;
-        color: 
+        color: #2638c4;
       }
       li{
         list-style-type: disc;
