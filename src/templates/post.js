@@ -135,8 +135,11 @@ const PostTemplate = ({ data, pageContext }) => {
   function VideoOrImage(){
     if(featuredVideo){
       return <ContentfulVideoElement {...featuredVideo}/>
+    }else if (heroImage){
+     return <ImageDiv><img src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
+    }else{
+      return <div></div>
     }
-    return <ImageDiv><img src={`https:${heroImage.file.url}`} alt={heroImage.title}/></ImageDiv>
   }
 
   function AddAuthor(){
