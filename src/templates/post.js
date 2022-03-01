@@ -31,6 +31,7 @@ margin: 10px auto;
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }
+  
  .postTextDiv{
   padding: 5px;
   h1{
@@ -43,7 +44,7 @@ margin: 10px auto;
     margin:0;
   }
   .paragraphText{
-    padding: 0;
+    padding: 0 5px;
     font-size: 1em;
     a{
       text-decoration:underline;
@@ -179,6 +180,7 @@ const PostTemplate = ({ data, pageContext }) => {
           <div className='postTextDiv'>
         <h1>{title}</h1>
         <AddAuthor />
+        
         <div className='paragraphText' dangerouslySetInnerHTML={{__html:body.childMarkdownRemark.html}}>
         </div>
         
