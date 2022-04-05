@@ -193,7 +193,7 @@ const PostTemplate = ({ data, pageContext }) => {
           {/* <button><OutboundLink href="http://bycell.co/wjtf">Donate</OutboundLink></button> */}
         </div>
         </div>
-        <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>
+        {/* <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> */}
         </div>
 
       <h2>More in {tagTitle}:</h2>
@@ -323,7 +323,7 @@ export const query = graphql`
       sort: { fields: title, order: ASC}
       filter:{
         slug:{
-          nin: ["episodes", "live", "decibel-dialogue", "resources"] 
+          nin: ["episodes", "live", "decibel-dialogue"] 
         }
       }
     ){

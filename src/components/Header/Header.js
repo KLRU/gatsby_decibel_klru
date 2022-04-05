@@ -264,6 +264,7 @@ class Header extends React.Component {
             )} 
               </div>
               <a className='topicLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a> 
+              <Link className='topicLink' to={'/resources'} role="menuitem">Resources</Link>
               <Link className='topicLink' to={'/about'}>Staff</Link> 
               <Link className='topicLink' to={'/search'}>Search</Link>
            </ul>
@@ -283,6 +284,7 @@ class Header extends React.Component {
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
               <a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a>
+              <Link className='mobileNavLink' to={'/resources'} role="menuitem">Resources</Link>
               <Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link> 
               <Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>

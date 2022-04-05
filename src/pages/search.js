@@ -94,7 +94,7 @@ query{
     sort: { fields: title, order: ASC  }
     filter:{
       slug:{
-        nin: ["episodes", "live", "decibel-dialogue", "resources"] 
+        nin: ["episodes", "live", "decibel-dialogue"] 
       }
     }
   ){
