@@ -4,8 +4,14 @@ import styled from 'styled-components'
 
 const PaginateDiv = styled.div`
 width:100%;
-display:grid;
-justify-items: end;
+position:relative;
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+.nextBtn{
+  right: 0;
+  position:absolute;
+}
 span{
   padding: 10px;
   a{
@@ -21,6 +27,8 @@ span{
   }
 }
 
+
+
 `
 
 
@@ -32,7 +40,7 @@ const Pagination = ({pageContext}) =>{
         <span><Link to={previousPagePath}>Previous</Link></span>
       )}
       {nextPagePath && (
-        <span><Link to={nextPagePath}>Next</Link></span>
+        <span className='nextBtn'><Link to={nextPagePath}>Next</Link></span>
       )}
     </PaginateDiv>
   )

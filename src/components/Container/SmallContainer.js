@@ -7,6 +7,7 @@ width:100%;
 max-width: 1200px;
 min-height: 100vh;
 margin: 0 auto;
+padding:5px;
 display:grid;
 `
 
