@@ -1,5 +1,5 @@
 import React from 'react';
-import TexasMutualLogo from '../../images/BIB_Safety_250x250.gif'
+import TexasMutualLogo from '../../images/Dividends-250x250.gif'
 import RoxanneElder from '../../images/RoxanneElderScottBorders-grey-stacked.png'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
