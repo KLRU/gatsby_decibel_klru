@@ -1,5 +1,5 @@
 import React from 'react';
-import TexasMutualLogo from '../../images/Dividends-250x250.gif'
+//import TexasMutualLogo from 'https://klru-images.s3.amazonaws.com/decibel/texas-mutual-banner.jpg'
 import RoxanneElder from '../../images/RoxanneElderScottBorders-grey-stacked.png'
 //import {Link} from 'gatsby'
 import styled from 'styled-components'
@@ -77,7 +77,7 @@ const TexasMutual = (props) =>{
        <img src={`https:${sponsorship.image.fluid.src}`} alt='TMLogo' className='logoImage' />
          <h4>{sponsorship.sponsorTitle}</h4></div></OutboundLink>
        ))} */}
-       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src={TexasMutualLogo} alt='Texas Mutual Insurance' className='logoImage' /></div></OutboundLink>
+       <OutboundLink href="https://www.texasmutual.com/"><div className='sponsorDiv'><img src="https://klru-images.s3.amazonaws.com/decibel/texas-mutual-banner.jpg" alt='Texas Mutual Insurance' className='logoImage' /></div></OutboundLink>
        <div className='sponsorDiv'><img src={RoxanneElder} alt='Roxanne Elders and Scott Borders' className='logoImage' /></div>
 
       <h2>Support Decibel</h2>
