@@ -23,7 +23,7 @@ import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 import Footer from '../components/Footer/Footer';
-import TexasMutual from '../components/LatestNews/TexasMutual';
+//import TexasMutual from '../components/LatestNews/TexasMutual';
 //import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
 //import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
 import SEO from '../components/SEO';
@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
   //const twoStoryBlock = data.contentfulTwoStoryBlock;
   //const twoStoryBlocks = data.allContentfulTwoStoryBlock.edges;
   //const twoStoryPosts = data.allContentfulTwoStoryBlock.secondaryFeaturedPost;
-  const sponsorsBlock = data.contentfulSponsorsBlock;
+  //const sponsorsBlock = data.contentfulSponsorsBlock;
   const [ ...tags ] = data.allContentfulTag.edges;
 
  
@@ -47,8 +47,7 @@ const IndexPage = ({ data }) => {
 
       </Helmet> 
 
-      <SEO 
-      />
+      <SEO/>
       <div className ='skipLink'>
       <a href='#mainContent'>Skip to Main Content</a>
       </div>
@@ -95,7 +94,7 @@ const IndexPage = ({ data }) => {
         </LatestNews>
         </section>
         <aside>
-           <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/> 
+           {/* <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>  */}
            <Newsletter />
            <div>
           <div>
