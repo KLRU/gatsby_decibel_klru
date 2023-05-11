@@ -23,7 +23,7 @@ import LatestNews from '../components/LatestNews/LatestNews';
 import LatestNewsItem from "../components/LatestNews/LatestNewsItem"
 import LatestNewsList from "../components/LatestNews/LatestNewsList"
 import Footer from '../components/Footer/Footer';
-//import TexasMutual from '../components/LatestNews/TexasMutual';
+// import TexasMutual from '../components/LatestNews/TexasMutual';
 //import TwoStorySection from '../components/TwoStoryBlock/TwoStorySection';
 //import TwoStories from '../components/TwoStoryBlock/TwoStoryBlock';
 import SEO from '../components/SEO';
