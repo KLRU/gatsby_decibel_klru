@@ -26,6 +26,8 @@ const FooterDiv = styled.div`
   ul{
     margin-block-start:0;
     padding-left:0;
+    display: flex;
+    justify-content:center;
     a{
       img{
         width: 50px;
@@ -49,10 +51,10 @@ const Footer = props => {
         <h3>Contact Us</h3>
         <p>Email us at <a href="mailto:news@klru.org">news@klru.org</a> </p>
         <ul>
-          <a href='https://www.facebook.com/decibelatx/'><img src={Facebook} alt='Facebook' className='facebookLogo' /></a>
-          <a href="https://www.instagram.com/decibelatx"><img src={Instagram} alt='Instagram' className='instagramLogo' /></a>
-          <a href='https://twitter.com/decibelatx'><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a>
-          <a href='https://www.youtube.com/channel/UCwBje-YSCdcn6c2LaLy3hLQ'><img src={YouTube} alt='YouTube' className='YouTubeLogo'/></a>
+          <li><a href='https://www.facebook.com/decibelatx/'><img src={Facebook} alt='Facebook' className='facebookLogo' /></a></li>
+          <li><a href="https://www.instagram.com/decibelatx"><img src={Instagram} alt='Instagram' className='instagramLogo' /></a></li>
+          <li><a href='https://twitter.com/decibelatx'><img src={Twitter} alt='Twitter' className='TwitterLogo' /></a></li>
+          <li><a href='https://www.youtube.com/channel/UCwBje-YSCdcn6c2LaLy3hLQ'><img src={YouTube} alt='YouTube' className='YouTubeLogo'/></a></li>
         </ul>
       </div>
       <div>

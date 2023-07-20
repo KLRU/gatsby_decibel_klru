@@ -74,7 +74,7 @@ margin: 10px auto;
   button{
     width:100%;
     max-width: 200px;
-    background-color:#009AA6;
+    background-color:#003946;
     color:#fff;
     font-size: 18px;
     border-radius: 5px;
@@ -86,7 +86,7 @@ margin: 10px auto;
     }
   }
   button: hover{
-    background-color:#003946;
+    background-color:#009AA6;
   }
 }
 h2{

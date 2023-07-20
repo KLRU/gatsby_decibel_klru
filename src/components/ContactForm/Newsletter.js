@@ -14,7 +14,8 @@ h2{
 p{
   text-align:center;
   a{
-    color:#009AA6;
+    color:#003946;
+    text-decoration:underline;
   }
 }
 a{
@@ -22,7 +23,7 @@ a{
   button{
     width:100%;
     //max-width:300px;
-    background-color:#009AA6;
+    background-color: #003946;
     color:#fff;
     font-size: 18px;
     border-radius: 5px;
@@ -30,7 +31,7 @@ a{
     box-shadow: 1px 1px 2px #ccc;
   }
   button: hover{
-    background-color:#003946;
+    background-color:#009AA6;
   }
 }
 `

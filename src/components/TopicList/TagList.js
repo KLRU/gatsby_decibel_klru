@@ -24,7 +24,7 @@ const List= styled.ul`
 
 const TagList = props =>{
   return(
-  <List id='topicsDiv'>{props.children}</List>
+  <List>{props.children}</List>
   // <List>
   //   {props.tags.map(tag =>(
   //     <li key={tag.id}>

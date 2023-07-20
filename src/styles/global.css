@@ -57,7 +57,7 @@ Link{
 .seeMoreButton button{
   width:100%;
   margin-top: 5px;
-  background-color:#009AA6;
+  background-color:#003946;
   color:#fff;
   font-size: 20px;
   border-radius: 5px;
@@ -66,7 +66,7 @@ Link{
 }
 
 .seeMoreButton button:hover{
-  background-color:#003946;
+  background-color:#009AA6;
 }
 
 .skipLink a{

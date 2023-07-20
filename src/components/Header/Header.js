@@ -72,12 +72,16 @@ const HeaderMainDiv = styled.nav`
       //margin: 0;
       padding:0;
       padding-inline-start: 0;
-      .topicLink{
+      .topicLink {
         display:inline-block;
         padding: 10px 20px;
         font-family: 'Lato', sans-serif;
         font-weight: 400;
         color:#fff;
+        a{
+          color:#fff;
+          font-weight: 400;
+        }
       }
       .topicLink:hover {
         background-color: #009AA6;
@@ -106,17 +110,21 @@ const HeaderMainDiv = styled.nav`
       @media screen and (max-width: 750px){
         margin-top: 300px;
       }
-       a{
+      .topicTag a{
       width: 100%;
       //max-width: 300px;
       margin-top:0;
       color: #000
       text-decoration:none;
       display:block;
-      padding: 2px 30px;
+      padding: 10px 30px;
       background-color: #fff;
       z-index: 100;
       text-align:left;
+   }
+
+   .topicTagLink{
+    color: #000;
    }
    a:hover {
     background-color: #009AA6;
@@ -256,17 +264,17 @@ class Header extends React.Component {
         <div className='topicsDiv' aria-label='Navigation Menu'>
          <div>
             <ul>
-              <div className='allTopicsDrop topicLink' onClick={this.handleDropdown}  aria-expanded="false" tabindex="0">Topics<span>+</span>
+              <li className='allTopicsDrop topicLink' onClick={this.handleDropdown} onKeyDown={this.handleClick} >Topics<span>+</span>
               {this.state.open && (
               <div className='dropdownMenu'>
               {this.props.children}
               </div>
             )} 
-              </div>
-              <a className='topicLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a> 
-              <Link className='topicLink' to={'/resources'} role="menuitem">Resources</Link>
-              <Link className='topicLink' to={'/about'}>Staff</Link> 
-              <Link className='topicLink' to={'/search'}>Search</Link>
+              </li>
+              <li className='topicLink'><a  href={'https://decibelatx.org/culture/our-mission/'} >Our Mission</a></li>
+              <li className='topicLink'><Link  to={'/resources'} >Resources</Link></li>
+              <li className='topicLink'><Link  to={'/about'}>Staff</Link></li> 
+              <li className='topicLink'><Link  to={'/search'}>Search</Link></li>
            </ul>
         
            {/* {this.state.open && (
@@ -283,10 +291,10 @@ class Header extends React.Component {
             <div className='dropdownNavigation'>
               <p className='closeMenu' onClick={this.closeMenu} >X Close</p>
             <ul> 
-              <a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a>
-              <Link className='mobileNavLink' to={'/resources'} role="menuitem">Resources</Link>
-              <Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link> 
-              <Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link>
+              <li><a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a></li>
+              <li><Link className='mobileNavLink' to={'/resources'} role="menuitem">Resources</Link></li>
+              <li><Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link></li> 
+              <li><Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link></li>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
               {this.state.open && (
                 <div className='dropdownNavMobile' role="menuitem">{this.props.children}</div>

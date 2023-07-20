@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
 
       </Helmet> 
 
-      <SEO/>
+      <SEO />
       <div className ='skipLink'>
       <a href='#mainContent'>Skip to Main Content</a>
       </div>
@@ -56,7 +56,7 @@ const IndexPage = ({ data }) => {
          {tags.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
-           <Link to={'/topics'}><p>+ All Topics</p></Link>
+           <li className ="topicTag"><Link className="topicTagLink" to={'/topics'}>+ All Topics</Link></li>
       </TagList>
       </Header>
         

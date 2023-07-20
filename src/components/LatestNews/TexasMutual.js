@@ -43,7 +43,7 @@ const TexasMutualDiv = styled.div`
     }
     button{
       width:100%;
-      background-color:#009AA6;
+      background-color:#003946 ;
       color:#000;
       font-size: 18px;
       border-radius: 5px;
@@ -59,7 +59,7 @@ const TexasMutualDiv = styled.div`
       }
     }
     button: hover{
-      background-color:#003946;
+      background-color:#009AA6;
       color:#fff;
     }
    

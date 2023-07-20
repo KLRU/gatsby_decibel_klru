@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 const TagItem = props =>{
   return(
     
-    <Link to={`/${props.slug}`}><p>{props.title}</p></Link>
+    <li className="topicTag"><Link className="topicTagLink" to={`/${props.slug}`}>{props.title}</Link></li>
     
   )
 }
