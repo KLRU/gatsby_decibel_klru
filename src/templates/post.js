@@ -164,7 +164,7 @@ const PostTemplate = ({ data, pageContext }) => {
          {tags2.map(({node:tag})=>(
            <TagItem key={tag.id} {...tag}/>
            ))}
-          <Link to={'/topics'}><p>+ More Topics</p></Link>
+          <li className ="topicTag"><Link className="topicTagLink" to={'/topics'}>+ All Topics</Link></li>
       </TagList>
       </Header>
       <SmallContainer>
