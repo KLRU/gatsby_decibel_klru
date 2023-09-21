@@ -3,7 +3,7 @@ import {Helmet} from "react-helmet";
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby'
 import '../styles/global.css'
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+//import { TwitterTimelineEmbed } from 'react-twitter-embed';
 //import ContactForm from '../components/ContactForm/ContactForm';
 import Newsletter from '../components/ContactForm/Newsletter';
 import Container from '../components/Container/Container';
@@ -97,13 +97,13 @@ const IndexPage = ({ data }) => {
            {/* <TexasMutual {...sponsorsBlock} key={sponsorsBlock.id}/>  */}
            <Newsletter />
            <div>
-          <div>
+          {/* <div>
               <TwitterTimelineEmbed
                 sourceType="profile"
                 screenName="austinpbs"
                 options={{height: 600}}
                 />
-            </div> 
+            </div>  */}
           </div> 
         </aside>
       </MainGrid>

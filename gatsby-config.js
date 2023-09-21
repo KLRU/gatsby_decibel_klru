@@ -43,6 +43,7 @@ module.exports = {
               maxWidth: 800,
               backgroundColor: '#fff',
               linkImagesToOriginal: true,
+              showCaptions: true,
             },
           },
           {
