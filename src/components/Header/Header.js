@@ -57,7 +57,7 @@ const HeaderMainDiv = styled.nav`
     text-align: end;
     align-content:end;
     position:relative;
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 950px){
       display:none;
       margin-top: 0px;
     }
@@ -137,7 +137,7 @@ const HeaderMainDiv = styled.nav`
 
 const MobileNavDiv = styled.nav`
     display:none;
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 950px){
       display:grid;
       text-align: end;
       align-content:end;
@@ -273,6 +273,7 @@ class Header extends React.Component {
               </li>
               <li className='topicLink'><a  href={'https://decibelatx.org/culture/our-mission/'} >Our Mission</a></li>
               <li className='topicLink'><Link  to={'/resources'} >Resources</Link></li>
+              <li className='topicLink'><Link  to={'/contenido-en-espanol'} >Contenido en Español</Link></li>
               <li className='topicLink'><Link  to={'/about'}>Staff</Link></li> 
               <li className='topicLink'><Link  to={'/search'}>Search</Link></li>
            </ul>
@@ -293,6 +294,7 @@ class Header extends React.Component {
             <ul> 
               <li><a className='mobileNavLink' href={'https://decibelatx.org/culture/our-mission/'} role="menuitem">Our Mission</a></li>
               <li><Link className='mobileNavLink' to={'/resources'} role="menuitem">Resources</Link></li>
+              <li><Link className='mobileNavLink' to={'/contenido-en-espanol'} role="menuitem">Contenido en Español</Link></li>
               <li><Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link></li> 
               <li><Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link></li>
               <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
