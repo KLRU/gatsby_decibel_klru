@@ -297,11 +297,11 @@ class Header extends React.Component {
               <li><Link className='mobileNavLink' to={'/contenido-en-espanol'} role="menuitem">Contenido en Español</Link></li>
               <li><Link className='mobileNavLink' to={'/about'} role="menuitem">Staff</Link></li> 
               <li><Link className='mobileNavLink' to={'/search'} role="menuitem">Search</Link></li>
-              <div className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
+              <li className='mobileNavLink topicsDropMobile' onClick={this.handleDropdownMobile}>Topics<span>:</span>
               {this.state.open && (
                 <div className='dropdownNavMobile' role="menuitem">{this.props.children}</div>
               )}
-              </div> 
+              </li> 
               {/* {this.state.open && (
                 <div>{this.props.children}</div>
               )} */}

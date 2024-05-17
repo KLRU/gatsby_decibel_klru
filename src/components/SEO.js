@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from "prop-types"
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useLocation } from "@reach/router"
 
-const SEO = ({title, description, image}) =>{
+const SEO = ({title, description, image, canonicalUrl}) =>{
   const {site} = useStaticQuery(
     graphql`
       query{
@@ -17,9 +18,12 @@ const SEO = ({title, description, image}) =>{
       }
     `
   )
-
+  
+  const { pathname } = useLocation();
+  const defaultCanonicalUrl = `https://decibelatx.org${pathname}`;
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || site.siteMetadata.image
+  
   return(
     <Helmet
     htmlAttributes={{
@@ -33,7 +37,7 @@ const SEO = ({title, description, image}) =>{
       <meta name="image" content={metaImage} />
       <meta property='og:image' content={metaImage}/>
       <meta property='og:description' content={metaDescription}/>
-
+      <link rel="canonical" href={canonicalUrl || defaultCanonicalUrl} />
 
     </Helmet>
   )

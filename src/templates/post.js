@@ -123,7 +123,7 @@ justify-items: center;
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, publishDate, author, heroImage, featuredVideo, body} = data.contentfulPost;
+  const { title, publishDate, author, heroImage, featuredVideo, body, externalCanonicalLink} = data.contentfulPost;
   const { tag, tagTitle } = pageContext;
   const [ ...relatedPosts ] = data.allContentfulPost.edges;
   const sponsorsBlock = data.contentfulSponsorsBlock;
@@ -150,15 +150,29 @@ const PostTemplate = ({ data, pageContext }) => {
     return <div className='publishDate'>{publishDate}</div>
   }
 
-
-
-  return(
-    <Container>
-       <SEO 
+  function AddSeo(){
+    if(externalCanonicalLink){
+      return <SEO 
       title={title}
       description={descriptionSEO}
       image={`https:${heroImage.file.url}`}
-      />
+      canonicalUrl={externalCanonicalLink}/>
+    }else{
+      return <SEO 
+      title={title}
+      description={descriptionSEO}
+      image={`https:${heroImage.file.url}`}/>
+    }
+  }
+  
+  return(
+    <Container>
+       {/* <SEO 
+      title={title}
+      description={descriptionSEO}
+      image={`https:${heroImage.file.url}`}
+      /> */}
+      <AddSeo />
       <Header>
       <TagList>
          {tags2.map(({node:tag})=>(
@@ -257,6 +271,7 @@ export const query = graphql`
           title
         }
       }
+      externalCanonicalLink
     }
     allContentfulPost(
       limit: 3
@@ -323,7 +338,7 @@ export const query = graphql`
       sort: { fields: title, order: ASC}
       filter:{
         slug:{
-          nin: ["episodes", "live", "decibel-dialogue"] 
+          nin: ["episodes", "live" , "decibel-dialogue"] 
         }
       }
     ){
