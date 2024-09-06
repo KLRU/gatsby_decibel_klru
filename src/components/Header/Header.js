@@ -75,7 +75,7 @@ const HeaderMainDiv = styled.nav`
       .topicLink {
         display:inline-block;
         padding: 10px 20px;
-        font-family: 'Lato', sans-serif;
+        font-family: 'PT Sans' sans-serif;
         font-weight: 400;
         color:#fff;
         a{
@@ -179,7 +179,7 @@ const MobileNavDiv = styled.nav`
             text-decoration:none;
             display:block;
             padding: 5px 20px;
-            font-family: 'Lato', sans-serif;
+            font-family: 'PT Sans', sans-serif;
             font-weight: 400;
             background-color: #fff;
             z-index: 100;

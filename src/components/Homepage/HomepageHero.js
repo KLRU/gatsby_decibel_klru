@@ -5,13 +5,17 @@ import styled from 'styled-components';
 const HeroBox = styled.div`
   display:grid;
   margin: 30px auto;
-  grid-template-columns: 70% 30%;
-  @media screen and (max-width: 750px){
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 70% 30%; 
   grid-gap:10px;
   width:100%;
   max-width:1200px;
+    @media screen and (max-width: 1050px){
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 750px){
+    grid-template-columns: 1fr;
+  }
   .mainStory{
     display:grid;
     width:100%; 
@@ -61,6 +65,12 @@ const HeroBox = styled.div`
     display:grid;
     align-content: center;
     grid-gap: 10px;
+     @media screen and (max-width: 1050px){
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 750px){
+    grid-template-columns: 1fr;
+  }
   }
   .sideStory h2{
     color: #fff;

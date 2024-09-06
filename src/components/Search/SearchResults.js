@@ -9,7 +9,7 @@ h2{
   margin: 10px 0;
 }
 a{
-  font-family:  'Rubik', sans-serif;
+  font-family:  'PT Sans', sans-serif;
 }
 div{
   margin: 0;

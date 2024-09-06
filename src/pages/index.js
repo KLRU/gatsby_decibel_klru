@@ -84,7 +84,7 @@ const IndexPage = ({ data }) => {
 
 
        <LatestNews>
-          <h1>More Stories from Decibel:</h1>
+          <h2>More Stories from Decibel:</h2>
           <LatestNewsList>
             {posts.map(({node:post})=>(
               <LatestNewsItem key={posts.id} {...post}/>

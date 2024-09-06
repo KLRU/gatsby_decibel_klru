@@ -82,7 +82,9 @@ margin: 10px auto;
     box-shadow: 1px 1px 2px #ccc;
     a{
       color:#fff;
+      font-family: 'PT Sans Caption' , sans-serif;
       font-size: 24px;
+      font-weight: 600;
     }
   }
   button: hover{

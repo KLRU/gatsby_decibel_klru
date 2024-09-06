@@ -7,6 +7,9 @@ const HeroBox = styled.div`
   display:grid;
   margin: 0 auto;
   grid-template-columns: 70% 30%;
+   @media screen and (max-width: 1000px){
+    grid-template-columns: 1fr;
+  }
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
   }

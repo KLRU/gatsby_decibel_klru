@@ -18,17 +18,18 @@ p{
     text-decoration:underline;
   }
 }
-a{
-  margin: 0 auto;
-  button{
-    width:100%;
-    //max-width:300px;
+button{
+  width:100%;
     background-color: #003946;
-    color:#fff;
-    font-size: 18px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2px #ccc;
+  a{
+   display: block;
+    width:100%;
+    color:#fff;
+    font-size: 18px;
+    
   }
   button: hover{
     background-color:#009AA6;
@@ -40,7 +41,7 @@ const Newsletter = () =>{
     <NewsletterDiv>
       <h2>Want to Hear from Decibel?</h2>
       <p>Sign Up for <a href='https://www.klrusupport.org/site/SPageNavigator/EmailRegistrationPage.html'>Our Newsletter</a></p>
-      <a href='https://www.klrusupport.org/site/SPageNavigator/EmailRegistrationPage.html'><button>Decibel Newsletter</button></a>
+      <button><a href='https://www.klrusupport.org/site/SPageNavigator/EmailRegistrationPage.html'>Decibel Newsletter</a></button>
     </NewsletterDiv>
   )
 }

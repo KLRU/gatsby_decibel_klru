@@ -37,8 +37,9 @@ border-bottom: 1px solid rgba(0, 57, 70, .25);
   }
   .story{
     padding-left:10px;
-    h1{
+    h2{
       margin:0;
+      font-size: 24px;
       span{
         padding-right: 5px;
         img{
@@ -59,9 +60,9 @@ border-bottom: 1px solid rgba(0, 57, 70, .25);
 const LatestNewsItem = props => {
   function AddPlayButton(){
     if(props.featuredVideo){
-      return <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{props.title}</Link></h1>
+      return <h2><Link to={`/${props.tags[0].slug}/${props.slug}`}><span><img src={BlackPlayButton} alt={"Play Button"}/></span>{props.title}</Link></h2>
     }else{
-      return <h1><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h1>
+      return <h2><Link to={`/${props.tags[0].slug}/${props.slug}`}>{props.title}</Link></h2>
     }
   }
 

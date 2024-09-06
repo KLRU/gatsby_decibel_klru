@@ -10,6 +10,8 @@ const LatestNewsDiv = styled.div`
   grid-template-columns: 100%;
   @media screen and (max-width: 750px){
     grid-template-columns: 1fr;
+    margin: 0px;
+    padding: 0 5px;
   }
 `
 const LatestNews = props => {
