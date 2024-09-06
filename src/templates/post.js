@@ -92,7 +92,7 @@ margin: 10px auto;
   }
 }
 h2{
-  font-size:1em;
+  font-size:18px;
 }
 
 `
