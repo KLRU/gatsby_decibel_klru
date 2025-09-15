@@ -40,8 +40,8 @@ const Newsletter = () =>{
   return(
     <NewsletterDiv>
       <h2>Want to Hear from Decibel?</h2>
-      <p>Sign Up for <a href='https://www.klrusupport.org/site/SPageNavigator/EmailRegistrationPage.html'>Our Newsletter</a></p>
-      <button><a href='https://www.klrusupport.org/site/SPageNavigator/EmailRegistrationPage.html'>Decibel Newsletter</a></button>
+      <p>Sign Up for <a href='https://austinpbs.org/newsletters'>Our Newsletter</a></p>
+      <button><a href='https://austinpbs.org/newsletters'>Decibel Newsletter</a></button>
     </NewsletterDiv>
   )
 }
